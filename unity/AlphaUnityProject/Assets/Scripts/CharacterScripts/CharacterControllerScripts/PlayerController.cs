@@ -106,6 +106,8 @@ public class PlayerController : MonoBehaviour {
             StartCoroutine(enemy.GetComponent<EnemyNavmeshScript>().DetachFromPlayer());
            
         }
+
+        enemies.Clear(); 
     }
 
 }

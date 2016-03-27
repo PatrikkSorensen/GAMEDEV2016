@@ -35,7 +35,7 @@ public class EstablishBond : MonoBehaviour {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
-        audioSources = controller.GetComponents<AudioSource>();
+        //audioSources = controller.GetComponents<AudioSource>();
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
         gameObject.AddComponent<LightScript>();
@@ -59,7 +59,7 @@ public class EstablishBond : MonoBehaviour {
             lightSource.enabled = true;
             startTime = Time.time;
             chargeBond = true;
-            audioSources[3].Play();
+            //audioSources[3].Play();
         }
         float timeDifference = Time.time - startTime;
         if (Input.GetButtonUp("EstablishBond"))
@@ -70,7 +70,7 @@ public class EstablishBond : MonoBehaviour {
             startTime = 0;
             if (timeDifference < 3.0f)
             {
-                audioSources[3].Stop();
+                //audioSources[3].Stop();
             }
         }
 
@@ -122,7 +122,7 @@ public class EstablishBond : MonoBehaviour {
             MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
             B4Status.setBondStatus(true);
             MiMiStatus.setBondStatus(true);
-            audioSources[1].Play();
+            //audioSources[1].Play();
         }
     }
 
@@ -139,6 +139,6 @@ public class EstablishBond : MonoBehaviour {
         Destroy(gameObject.GetComponent<SpringJoint>());
         B4Status.setBondStatus(false);
         MiMiStatus.setBondStatus(false);
-        audioSources[2].Play();
+        //audioSources[2].Play();
     }
 }
