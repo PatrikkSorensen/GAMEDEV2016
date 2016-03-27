@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432294}
   m_Layer: 0
-  m_Name: lightStation1
+  m_Name: lightStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,8 +808,10 @@ MonoBehaviour:
   switch2: {fileID: 160514}
   storyWall: {fileID: 144948}
   sphereVFX: {fileID: 179772}
+  enemies: []
   lightProjector: {fileID: 10833572}
   sphereLight: {fileID: 10895572}
+  isActive: 0
 --- !u!114 &11477372
 MonoBehaviour:
   m_ObjectHideFlags: 1
