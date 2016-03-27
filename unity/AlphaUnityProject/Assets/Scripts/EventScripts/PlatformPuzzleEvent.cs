@@ -4,6 +4,7 @@ using DG.Tweening;
 
 public class PlatformPuzzleEvent : MonoBehaviour {
 
+    //TODO: Refactor this script
 	public GameObject switch1, switch2, storyWall;
 	HexagonSwitchScript switchScript1, switchScript2;
     bool eventTriggered = false;
@@ -24,21 +25,18 @@ public class PlatformPuzzleEvent : MonoBehaviour {
 	}
 	void triggerEvent()
 	{
-		// TODO: Move to eventcontroller? 
+        // Transform
 		DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
         storyWall.transform.DOMove(new Vector3(0.0f, 10.0f, 0), 10).SetRelative().SetLoops(1, LoopType.Incremental);
         eventTriggered = true;
-        Debug.Log("Triggering event");
-        Debug.Log(audioSources.Length);
+
+        // Audio
         audioSources[0].Play();
         audioSources[1].Play();
-        StartCoroutine(wait());
-
-
-
+        StartCoroutine(playPostEventSound());
 	}
 
-    IEnumerator wait()
+    IEnumerator playPostEventSound()
     {
         yield return new WaitForSeconds(10);
         audioSources[1].Stop();
