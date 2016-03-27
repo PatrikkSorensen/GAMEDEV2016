@@ -5,7 +5,7 @@ public class HexagonSwitchScript : MonoBehaviour {
 
     public float lightIntensity = 5.0f;
     //public PlatformPuzzleEvent puzzleEvent; 
-    private bool canChanel, channeling, hasPlayer, isActive = true; 
+    private bool canChanel, channeling, hasPlayer, isActive = false; 
     private GameObject lightGameObject, player;
     private float startTime = 0.0f;
     private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine

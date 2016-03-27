@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
                 "\nspeed: " + playerStatus.getSpeed();
         } else
         {
-            Debug.Log("Warning: You are trying to update the GUI but you have no GUI elements in your scene!"); 
+            //Debug.Log("Warning: You are trying to update the GUI but you have no GUI elements in your scene!"); 
         }
     }
 

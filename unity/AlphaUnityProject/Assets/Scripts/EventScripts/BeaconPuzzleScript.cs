@@ -6,6 +6,7 @@ using DG.Tweening;
 public class BeaconPuzzleScript : MonoBehaviour {
     public GameObject wallToMove; 
     public GameObject[] lightStations;
+    public Vector3 DOTMove = new Vector3(0.0f, 10.0f, 0.0f);
     private List <BeaconLightScript> beaconScripts = new List<BeaconLightScript>();
     private bool shouldEventFire, eventTriggered = false; 
 
@@ -49,7 +50,7 @@ public class BeaconPuzzleScript : MonoBehaviour {
         eventTriggered = true;
 
         DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
-        wallToMove.transform.DOMove(new Vector3(0.0f, 10.0f, 0), 10).SetRelative().SetLoops(1, LoopType.Incremental);
+        wallToMove.transform.DOMove(DOTMove, 10).SetRelative().SetLoops(1, LoopType.Incremental);
         
     }
 

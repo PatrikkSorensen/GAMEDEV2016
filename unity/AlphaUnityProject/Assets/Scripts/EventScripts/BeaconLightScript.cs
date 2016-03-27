@@ -4,6 +4,7 @@ using System.Collections;
 public class BeaconLightScript : MonoBehaviour {
     public float delayTransistion = 4.0f; 
     public GameObject switch1, switch2, storyWall, sphereVFX;
+    public GameObject[] enemies; 
     public Light lightProjector, sphereLight;
 
     [HideInInspector]
@@ -98,6 +99,19 @@ public class BeaconLightScript : MonoBehaviour {
         isScenePlaying = false; 
         isSceneFinished = true;
 
+        if (enemies.Length != 0)
+        {
+            ActivateEnemies(); 
+        }
+
 
     }
+
+    public void ActivateEnemies()
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyNavmeshScript>().SetTarget(GameObject.FindGameObjectWithTag("B4")); 
+        }
+    } 
 }
