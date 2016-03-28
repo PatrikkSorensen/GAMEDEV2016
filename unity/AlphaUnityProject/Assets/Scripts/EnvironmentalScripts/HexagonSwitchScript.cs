@@ -9,7 +9,8 @@ public class HexagonSwitchScript : MonoBehaviour {
     private GameObject lightGameObject, player;
     private float startTime = 0.0f;
     private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine
-
+    private GameObject B4, MiMi;
+    private ParticleSystem[] particles1, particles2;
 
 
 
@@ -32,6 +33,10 @@ public class HexagonSwitchScript : MonoBehaviour {
                 channeling = true;
                 Debug.Log("Setting start timer to: " + startTime);
                 audioSources[3].Play();
+                particles1[1].Play();
+                particles1[0].Play();
+                particles2[1].Play();
+                particles2[0].Play();
                 
             }
 
@@ -42,6 +47,10 @@ public class HexagonSwitchScript : MonoBehaviour {
                 {
                     audioSources[3].Stop();
                 }
+                particles1[0].Stop();
+                particles1[1].Stop();
+                particles2[0].Stop();
+                particles2[1].Stop();
 
                 Debug.Log("End of channelling");
                 channeling = false;
@@ -109,8 +118,12 @@ public class HexagonSwitchScript : MonoBehaviour {
 
     void Start()
     {
+        B4 = GameObject.FindGameObjectWithTag("B4");
+        MiMi = GameObject.FindGameObjectWithTag("MiMi");
         GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
         audioSources = controller.GetComponents<AudioSource>();
-
+        particles1 = B4.GetComponentsInChildren<ParticleSystem>();
+        particles2 = MiMi.GetComponentsInChildren<ParticleSystem>();
+        //Debug.Log("Hello this is length of particles array: " + particles1.Length);
     }
 }
