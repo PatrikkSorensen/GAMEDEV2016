@@ -7,10 +7,12 @@ public class PullOfLove : MonoBehaviour {
 
     // Time variables for not spamming pull of love 
     public float timeDelay = 0.5f;
-    public float pullEffect = 100.0f; 
+    public float pullEffect = 100.0f;
+    public AudioClip pullClip;
     float startTime = 0.0f;
 
-    private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine
+    //private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine
+    private AudioSource audioSource;
 
     // Debugging information: 
     Vector3 middlePosition; 
@@ -19,7 +21,8 @@ public class PullOfLove : MonoBehaviour {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
-        audioSources = controller.GetComponents<AudioSource>();
+        audioSource = controller.AddComponent<AudioSource>();
+        audioSource.clip = pullClip;
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
     }
@@ -71,5 +74,6 @@ public class PullOfLove : MonoBehaviour {
 
         //Trigger coroutine for x seconds to start spheres chase again
         //audioSources[4].Play();
+        audioSource.Play();
     }
 }
