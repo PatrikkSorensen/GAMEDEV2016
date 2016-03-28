@@ -33,7 +33,7 @@ public class EnemyNavmeshScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
+        //Debug.Log("Collided with: " + collision.gameObject.name);
         if(collision.gameObject.tag == "B4")
         {
             AttachStickySphere(collision.gameObject); 
@@ -68,7 +68,7 @@ public class EnemyNavmeshScript : MonoBehaviour {
     public IEnumerator DetachFromPlayer()
     {
         yield return new WaitForSeconds(recoveringTime);
-        Debug.Log(gameObject.name + " is waiting for assignment.");
+        //Debug.Log(gameObject.name + " is waiting for assignment.");
 
         GetComponent<NavMeshAgent>().enabled = true;
         GetComponent<SphereCollider>().enabled = true;

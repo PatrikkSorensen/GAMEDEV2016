@@ -7,17 +7,12 @@ public class CameraShake : MonoBehaviour
     private Quaternion originRotation;
     public float shake_decay;
     public float shake_intensity;
+    public bool isFired = false; 
 
-    void OnGUI()
-    {
-        if (GUI.Button(new Rect(20, 40, 80, 20), "Shake"))
-        {
-            Shake();
-        }
-    }
 
     void Update()
     {
+
         if (shake_intensity > 0)
         {
             transform.position = originPosition + Random.insideUnitSphere * shake_intensity;
@@ -30,11 +25,12 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    void Shake()
+    public void Shake()
     {
+        isFired = true; 
         originPosition = transform.position;
         originRotation = transform.rotation;
-        shake_intensity = .3f;
-        shake_decay = 0.002f;
+        shake_intensity = .06f;
+        shake_decay = 0.001f;
     }
 }

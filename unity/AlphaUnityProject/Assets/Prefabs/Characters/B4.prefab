@@ -864,6 +864,10 @@ MonoBehaviour:
   bondWidthEnd: 0.4
   damper: 0.1
   maxSpringDistance: 10
+  bondclip: {fileID: 0}
+  successClip: {fileID: 0}
+  destroyClip: {fileID: 0}
+  shader2: {fileID: 0}
 --- !u!114 &11486078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -889,9 +893,10 @@ MonoBehaviour:
   speed: 15
   horizontal: Horizontal
   vertical: Vertical
-  movingTurnSpeed: 360
+  movingTurnSpeed: 180
   stationaryTurnSpeed: 180
   debugMode: 1
+  enemies: []
 --- !u!114 &11497818
 MonoBehaviour:
   m_ObjectHideFlags: 1
