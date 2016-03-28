@@ -30,6 +30,8 @@ public class EstablishBond : MonoBehaviour {
     private PlayerStatusScript B4Status;
     private PlayerStatusScript MiMiStatus;
 
+	public Shader shader2;
+
     void Awake()
     {
         B4 = GameObject.FindGameObjectWithTag("B4");
@@ -98,6 +100,10 @@ public class EstablishBond : MonoBehaviour {
             // Visuals: 
             gameObject.AddComponent<LineRenderer>();
             LineRenderer lr = GetComponent<LineRenderer>();
+			shader2 = Shader.Find("VertexColors");
+			lr.material = new Material (shader2);
+			lr.material.color = new Color(0f,1f,0f,0.05f);
+			//lr.material = new Material (Shader.Find("LineShaders"));
             lr.SetWidth(bondWidthBegin, bondWidthEnd);
             Vector3[] points = { B4.transform.position + new Vector3(0.0f, 2.0f, 0.0f), MiMi.transform.position + new Vector3(0.0f, 2.0f, 0.0f) };
             lr.SetPositions(points);
