@@ -15,17 +15,17 @@ public class EstablishBond : MonoBehaviour {
 
     [SerializeField]
     public float maxSpringDistance = 10.0f;
+    public AudioClip bondclip, successClip, destroyClip;
 
-    public AudioClip clip;
-
-    private GameObject B4, MiMi;
-
+    private GameObject B4, MiMi, audioController;
     private bool bondEstablished, chargeBond = false;
     //TODO: Make time variables public and editable
     private float startTime = 0.0f;
 
     private LightScript ls;
-    private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine
+    private AudioSource bondAudio; 
+    // TODO: Make this an array, and add them programmatically on start
+    //private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine
     private Light lightSource;
     private PlayerStatusScript B4Status;
     private PlayerStatusScript MiMiStatus;
@@ -34,7 +34,9 @@ public class EstablishBond : MonoBehaviour {
     {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
-        GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
+        audioController = GameObject.FindGameObjectWithTag("AudioController");
+        bondAudio = audioController.AddComponent<AudioSource>();
+        bondAudio.clip = bondclip; 
         //audioSources = controller.GetComponents<AudioSource>();
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
@@ -59,7 +61,7 @@ public class EstablishBond : MonoBehaviour {
             lightSource.enabled = true;
             startTime = Time.time;
             chargeBond = true;
-            //audioSources[3].Play();
+            bondAudio.Play(); 
         }
         float timeDifference = Time.time - startTime;
         if (Input.GetButtonUp("EstablishBond"))
@@ -70,7 +72,7 @@ public class EstablishBond : MonoBehaviour {
             startTime = 0;
             if (timeDifference < 3.0f)
             {
-                //audioSources[3].Stop();
+                bondAudio.Stop();
             }
         }
 
@@ -122,7 +124,11 @@ public class EstablishBond : MonoBehaviour {
             MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
             B4Status.setBondStatus(true);
             MiMiStatus.setBondStatus(true);
-            //audioSources[1].Play();
+
+            //Audio 
+            AudioSource sucessAudioSource = audioController.AddComponent<AudioSource>();
+            sucessAudioSource.clip = successClip;
+            sucessAudioSource.Play(); 
         }
     }
 
@@ -140,5 +146,9 @@ public class EstablishBond : MonoBehaviour {
         B4Status.setBondStatus(false);
         MiMiStatus.setBondStatus(false);
         //audioSources[2].Play();
+
+        AudioSource destroyAudioSource = audioController.AddComponent<AudioSource>();
+        destroyAudioSource.clip = destroyClip;
+        destroyAudioSource.Play();
     }
 }

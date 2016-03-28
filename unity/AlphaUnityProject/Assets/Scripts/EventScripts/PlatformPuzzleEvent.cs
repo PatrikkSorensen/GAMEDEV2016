@@ -6,6 +6,7 @@ public class PlatformPuzzleEvent : MonoBehaviour {
 
     //TODO: Refactor this script
 	public GameObject switch1, switch2, storyWall;
+    public float openingTime = 10.0f; 
 	HexagonSwitchScript switchScript1, switchScript2;
     bool eventTriggered = false;
     private AudioSource[] audioSources;
@@ -27,7 +28,7 @@ public class PlatformPuzzleEvent : MonoBehaviour {
 	{
         // Transform
 		DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
-        storyWall.transform.DOMove(new Vector3(0.0f, 10.0f, 0), 10).SetRelative().SetLoops(1, LoopType.Incremental);
+        storyWall.transform.DOMove(new Vector3(0.0f, -10.0f, 0), openingTime).SetRelative().SetLoops(1, LoopType.Incremental);
         eventTriggered = true;
 
         // Audio
@@ -38,7 +39,7 @@ public class PlatformPuzzleEvent : MonoBehaviour {
 
     IEnumerator playPostEventSound()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(openingTime);
         audioSources[1].Stop();
     }
 }

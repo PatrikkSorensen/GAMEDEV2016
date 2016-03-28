@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RessurectionScript : MonoBehaviour {
 
-    public AudioClip clip;
+    public AudioClip clip, musicClip;
 
     private AudioSource audioSource;
     private Animator anim;
@@ -14,7 +14,7 @@ public class RessurectionScript : MonoBehaviour {
     void Awake()
     {
         GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
-        audioSource = controller.GetComponent<AudioSource>();
+        audioSource = controller.AddComponent<AudioSource>();
         playerOne = GameObject.FindGameObjectWithTag("B4");
         playerTwo = GameObject.FindGameObjectWithTag("MiMi");
         storyWall = GameObject.FindGameObjectWithTag("StoryWall"); // Make this variable public
@@ -59,6 +59,8 @@ public class RessurectionScript : MonoBehaviour {
         // trigger sounds 
         audioSource.clip = clip;
         audioSource.Play();
+        GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioSource>().clip = musicClip;
+        GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioSource>().Play(); 
 
         // send notification to event handler
         // eventController.handleEvent(ressurectionEvent);
