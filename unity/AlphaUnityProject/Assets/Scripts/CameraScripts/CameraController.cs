@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour {
     private ThirdPersonCameraScript thirdPersonCamera;
     private CameraFollow singlePersonCamera;
 
-    void Start()
+    void Awake()
     {
         thirdPersonCamera = gameObject.AddComponent<ThirdPersonCameraScript>();
         singlePersonCamera = gameObject.AddComponent<CameraFollow>();
@@ -40,6 +40,8 @@ public class CameraController : MonoBehaviour {
 
     private void transitionToSinglePersonCamera()
     {
+        if (!thirdPersonCamera)
+            Debug.Log("I need to add thirdperson camera controller");
         thirdPersonCamera.enabled = false;
         singlePersonCamera.enabled = true;
 

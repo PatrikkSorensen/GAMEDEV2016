@@ -70,7 +70,6 @@ public class PullOfLove : MonoBehaviour {
         character.GetComponent<PlayerController>().DetachEnemies(); 
 
         //Trigger coroutine for x seconds to start spheres chase again
-        audioSources[4].Play();
-            
+        //audioSources[4].Play();
     }
 }

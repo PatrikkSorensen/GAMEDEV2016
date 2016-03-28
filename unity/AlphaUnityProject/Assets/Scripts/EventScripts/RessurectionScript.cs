@@ -68,7 +68,9 @@ public class RessurectionScript : MonoBehaviour {
     {
         for (float f = 0; f <= 1; f += 0.01f)
         {
-            
+            if (!storyWall)
+                break; 
+
             Color c = storyWall.GetComponent<Renderer>().material.color;
             c.a = f;
             storyWall.GetComponent<Renderer>().material.color = c;

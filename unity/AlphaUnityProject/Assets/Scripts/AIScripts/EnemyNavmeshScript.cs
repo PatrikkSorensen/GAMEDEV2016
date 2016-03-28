@@ -18,7 +18,7 @@ public class EnemyNavmeshScript : MonoBehaviour {
     }
     void Update()
     {
-        if (target)
+        if (target && gameObject.GetComponent<NavMeshAgent>().enabled)
             MoveToTarget(target.transform.position);
     }
     public void SetTarget(GameObject chaseTarget)
@@ -57,9 +57,11 @@ public class EnemyNavmeshScript : MonoBehaviour {
 
         // Edit player speed, and set status 
         target.GetComponent<PlayerController>().speed += -2.0f;
-        target.GetComponent<PlayerController>().enemies.Add(gameObject); 
+        target.GetComponent<PlayerController>().enemies.Add(gameObject);
 
         // Adjust ambient light  
+
+        // Set internal variables
     }
 
     // Note: Triggered from PlayerController

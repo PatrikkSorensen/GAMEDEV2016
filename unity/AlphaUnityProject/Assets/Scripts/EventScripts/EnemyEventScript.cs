@@ -3,28 +3,39 @@ using System.Collections;
 
 public class EnemyEventScript : MonoBehaviour {
     //TODO: Refactor to list, for better insertion and removal
-    GameObject[] enemies;
-    GameObject player;
+    //TODO: Optimize EnemyEventScript, EnemyNavmeshScript and PlayerController to be more readable
+    GameObject[] enemies, sceneEnemies;
+    GameObject b4, MiMi;
     [HideInInspector]
     public bool chasing; 
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("B4"); 
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-    }
+        b4 = GameObject.FindGameObjectWithTag("B4");
+        MiMi = GameObject.FindGameObjectWithTag("MiMi"); 
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "B4")
-            TriggerEnemyEvent();
-            
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        sceneEnemies = GameObject.FindGameObjectsWithTag("SceneEnemy"); 
     }
 
     void FixedUpdate()
     {
         if (chasing)
             UpdateChasePosition(); 
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "B4" ||other.tag == "MiMi")
+            TriggerEnemyEvent();
+
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "B4")
+            TriggerExitScene(); 
 
     }
 
@@ -36,10 +47,9 @@ public class EnemyEventScript : MonoBehaviour {
             if (enemies[i] == null || !enemies[i].GetComponent<NavMeshAgent>().enabled)
                 return;
                
-            Debug.Log("Editing gameObject navmesh: " + enemies[i].name);
-            if (enemies[i].GetComponent<NavMeshAgent>() && player)
+            if (enemies[i].GetComponent<NavMeshAgent>() && b4)
             {
-                enemies[i].GetComponent<EnemyNavmeshScript>().SetTarget(player); 
+                enemies[i].GetComponent<EnemyNavmeshScript>().SetTarget(b4); 
             }
         }
     }
@@ -54,5 +64,19 @@ public class EnemyEventScript : MonoBehaviour {
 
         // Play animations from enemies
         chasing = true; 
+    }
+
+    void TriggerExitScene()
+    {
+        b4.GetComponent<PlayerController>().enabled = false;
+        //TODO: Remove all character controls and mechanics through the playerController script
+        MiMi.GetComponent<PlayerController>().enabled = false;
+        Debug.Log("Triggering exit scene" + sceneEnemies.Length);
+        foreach(GameObject sceneEnemy in sceneEnemies)
+        {
+            Debug.Log("SceneEnemy: " + sceneEnemy.name);
+            StartCoroutine(sceneEnemy.GetComponent<BondedEnemyAI>().TriggerScene());
+             
+        }
     }
 }
