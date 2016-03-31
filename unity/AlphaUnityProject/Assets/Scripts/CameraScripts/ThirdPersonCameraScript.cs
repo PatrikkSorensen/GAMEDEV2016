@@ -4,9 +4,9 @@ using System.Collections;
 public class ThirdPersonCameraScript : MonoBehaviour {
 
     [SerializeField]
-    private float distanceAway = 8.0f;
+    public float distanceAway = 8.0f;
     [SerializeField]
-    private float distanceUp = 6.0f;
+    public float distanceUp = 6.0f;
     [SerializeField]
     private float smooth = 3.0f;
 
