@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MiMiLightstation : MonoBehaviour {
+public class AttachToLightstation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
