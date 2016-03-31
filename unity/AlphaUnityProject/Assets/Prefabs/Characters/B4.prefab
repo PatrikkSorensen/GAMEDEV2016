@@ -895,7 +895,7 @@ MonoBehaviour:
   vertical: Vertical
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  debugMode: 1
+  debugMode: 0
   enemies: []
 --- !u!114 &11497818
 MonoBehaviour:
@@ -910,6 +910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 0.5
   pullEffect: 100
+  pullClip: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

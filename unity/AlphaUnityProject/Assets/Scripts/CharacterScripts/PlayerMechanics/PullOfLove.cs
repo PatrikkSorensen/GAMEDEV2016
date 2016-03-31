@@ -20,11 +20,18 @@ public class PullOfLove : MonoBehaviour {
 	void Start () {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
+
+        // Sound 
         GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
+        if (!controller)
+        {
+            Debug.LogWarning("No audio Controller found. Creating one");
+            controller = new GameObject();
+            controller.name = "AudioController";
+            controller.tag = "AudioController";
+        }
         audioSource = controller.AddComponent<AudioSource>();
         audioSource.clip = pullClip;
-        B4Status = B4.GetComponent<PlayerController>().playerStatus;
-        MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
     }
 
     void Update()
@@ -33,9 +40,16 @@ public class PullOfLove : MonoBehaviour {
         // This needs to be set here, but ideally needs to happen in another function. 
         // This is caused since playerStatusScript is created in the Start of another function i think 
         // TODO: Fix it
-        B4Status = B4.GetComponent<PlayerController>().playerStatus;
-        MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
+        if (!B4 || !MiMi)
+        {
+            Debug.LogWarning("WARNING: Cannot find B4 and MiMI on the scene. Destroying Pull of love script.");
+            Destroy(gameObject.GetComponent<PullOfLove>());
+            return;
+        }
 
+        MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
+        B4Status = B4.GetComponent<PlayerController>().playerStatus;
+            
         // Makes sure we can't spam the button
         if(B4Status.getBondStatus() && Input.GetButtonDown("B4Pull"))
         {

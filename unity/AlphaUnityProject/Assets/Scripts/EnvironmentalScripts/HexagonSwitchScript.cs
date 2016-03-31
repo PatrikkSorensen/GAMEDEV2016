@@ -127,8 +127,8 @@ public class HexagonSwitchScript : MonoBehaviour {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
-        audioSources = controller.GetComponents<AudioSource>();
-        particles1 = B4.GetComponentsInChildren<ParticleSystem>();
+        //audioSources = controller.GetComponents<AudioSource>();
+        //particles1 = B4.GetComponentsInChildren<ParticleSystem>();
         //particles2 = MiMi.GetComponentsInChildren<ParticleSystem>();
         //particles2 = GameObject.Find("ChannellingParticlesMiMi").GetComponents<ParticleSystem>(); 
         //Debug.Log("Hello this is length of particles array: " + particles1.Length);

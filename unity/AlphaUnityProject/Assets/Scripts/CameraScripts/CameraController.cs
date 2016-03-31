@@ -21,10 +21,12 @@ public class CameraController : MonoBehaviour {
         singlePersonCamera = gameObject.AddComponent<CameraFollow>();
 
         if (!player)
-            singlePersonCamera.player = GameObject.FindGameObjectWithTag("B4").transform;
-        else
-            singlePersonCamera.player = player.transform;
+        {
+            Debug.LogWarning("Please assign your players in inspector. Setting B4 from script.");
+            player = GameObject.FindGameObjectWithTag("B4");
+        }
 
+        singlePersonCamera.player = player.transform;
         changeCameraType(type); 
     }
 
