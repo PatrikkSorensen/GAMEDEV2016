@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float movingTurnSpeed = 10;
     public float stationaryTurnSpeed = 180;
     public PlayerStatusScript playerStatus;
-    public bool debugMode = true;
+    public bool debugMode = false;
 
     [HideInInspector]
     public List<GameObject> enemies = new List<GameObject>();

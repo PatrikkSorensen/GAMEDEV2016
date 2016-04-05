@@ -36,19 +36,36 @@ public class EstablishBond : MonoBehaviour {
     {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
-        audioController = GameObject.FindGameObjectWithTag("AudioController");
-        bondAudio = audioController.AddComponent<AudioSource>();
-        bondAudio.clip = bondclip; 
-        //audioSources = controller.GetComponents<AudioSource>();
+        
+        if(!B4 || !MiMi)
+        {
+            Debug.LogWarning("B4 or MiMi wasen't found on the current scene. Destroying EstablishBond script.");
+            Destroy(this);
+            return; 
+        }
+
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
+
+        // Light
         gameObject.AddComponent<LightScript>();
         gameObject.AddComponent<Light>(); 
         ls = GetComponent<LightScript>();
         lightSource = GetComponent<Light>(); 
         ls.enabled = false;
-        lightSource.enabled = false; 
+        lightSource.enabled = false;
 
+        // Sound 
+        audioController = GameObject.FindGameObjectWithTag("AudioController");
+        if (!audioController)
+        {
+            Debug.LogWarning("No audio Controller found. Creating one");
+            audioController = new GameObject();
+            audioController.name = "AudioController";
+            audioController.tag = "AudioController";
+        }
+        bondAudio = audioController.AddComponent<AudioSource>();
+        bondAudio.clip = bondclip;
     }
 
     void Update()
@@ -65,6 +82,7 @@ public class EstablishBond : MonoBehaviour {
             chargeBond = true;
             bondAudio.Play(); 
         }
+
         float timeDifference = Time.time - startTime;
         if (Input.GetButtonUp("EstablishBond"))
         {
