@@ -28,7 +28,7 @@ public class BeaconPuzzleScript : MonoBehaviour {
 
         foreach(BeaconLightScript b in beaconScripts)
         {
-            if (!b.isActive)
+            if (!b.GetStatus())
             {
                 shouldEventFire = false; 
                 break; 
