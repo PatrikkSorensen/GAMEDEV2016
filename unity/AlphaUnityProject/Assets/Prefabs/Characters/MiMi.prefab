@@ -78,6 +78,7 @@ GameObject:
   - 54: {fileID: 5405566}
   - 135: {fileID: 13576092}
   - 114: {fileID: 11454302}
+  - 143: {fileID: 14332238}
   m_Layer: 0
   m_Name: MiMi
   m_TagString: MiMi
@@ -700,6 +701,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!143 &14332238
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.3
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!198 &19807762
 ParticleSystem:
   m_ObjectHideFlags: 1
