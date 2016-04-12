@@ -47,7 +47,9 @@ ModelImporter:
     4300006: eyesR
     4300008: eyesL
     4300010: backEyes
-    7400000: MimiIdle3
+    7400000: MimiIdle1
+    7400002: MimiIdle2
+    7400004: MimiRun
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -69,7 +71,163 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: MimiIdle1
+      takeName: MimiIdle3
+      firstFrame: 1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: headphones
+        weight: 1
+      - path: headphones/backEyes
+        weight: 1
+      - path: headphones/EyeController
+        weight: 1
+      - path: headphones/EyeController/eyesL
+        weight: 1
+      - path: headphones/EyeController/eyesR
+        weight: 1
+      - path: innerLight
+        weight: 1
+      - path: jointMiMi
+        weight: 1
+      - path: jointMiMi/inner
+        weight: 1
+      - path: jointMiMi/main
+        weight: 1
+      - path: jointMiMi/outer
+        weight: 1
+      - path: mainSphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: MimiIdle2
+      takeName: MimiIdle3
+      firstFrame: 80
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: headphones
+        weight: 1
+      - path: headphones/backEyes
+        weight: 1
+      - path: headphones/EyeController
+        weight: 1
+      - path: headphones/EyeController/eyesL
+        weight: 1
+      - path: headphones/EyeController/eyesR
+        weight: 1
+      - path: innerLight
+        weight: 1
+      - path: jointMiMi
+        weight: 1
+      - path: jointMiMi/inner
+        weight: 1
+      - path: jointMiMi/main
+        weight: 1
+      - path: jointMiMi/outer
+        weight: 1
+      - path: mainSphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: MimiRun
+      takeName: MimiIdle3
+      firstFrame: 200
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: headphones
+        weight: 1
+      - path: headphones/backEyes
+        weight: 1
+      - path: headphones/EyeController
+        weight: 1
+      - path: headphones/EyeController/eyesL
+        weight: 1
+      - path: headphones/EyeController/eyesR
+        weight: 1
+      - path: innerLight
+        weight: 1
+      - path: jointMiMi
+        weight: 1
+      - path: jointMiMi/inner
+        weight: 1
+      - path: jointMiMi/main
+        weight: 1
+      - path: jointMiMi/outer
+        weight: 1
+      - path: mainSphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
