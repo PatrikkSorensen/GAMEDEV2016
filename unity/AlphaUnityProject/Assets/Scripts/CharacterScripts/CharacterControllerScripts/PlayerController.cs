@@ -6,19 +6,17 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour {
 
     public float speed = 30;
-    public string horizontal = "Horizontal";
-    public string vertical = "Vertical";
+    public string horizontal;
+    public string vertical;
     public float movingTurnSpeed = 10;
     public float stationaryTurnSpeed = 180;
     public PlayerStatusScript playerStatus;
-    public bool debugMode = false;
-
-    [HideInInspector]
-    public List<GameObject> enemies = new List<GameObject>();
 
     private Animator anim; 
     private Rigidbody rb;
     private Text playerGUIStatus;
+
+    public bool keyboardMiMi = false; 
     
     
     void Start()
@@ -27,12 +25,36 @@ public class PlayerController : MonoBehaviour {
         //anim = GetComponent<Animator>(); 
         playerStatus = new PlayerStatusScript(speed);
 
-        if (debugMode && gameObject.tag == "B4")
-            playerGUIStatus = GameObject.FindGameObjectWithTag("GUIB4Status").GetComponent<Text>();
-        
-        if(debugMode && gameObject.tag == "MiMi")
-            playerGUIStatus = GameObject.FindGameObjectWithTag("GUIMiMiStatus").GetComponent<Text>();
+        if (gameObject.tag == "B4")
+        {
+            if(GameObject.FindGameObjectWithTag("GUIB4Status"))
+                playerGUIStatus = GameObject.FindGameObjectWithTag("GUIB4Status").GetComponent<Text>();
 
+            horizontal = "Horizontal";
+            vertical = "Vertical";
+
+        }   
+            
+
+        if (gameObject.tag == "MiMi")
+        {
+            if (GameObject.FindGameObjectWithTag("GUIMiMiStatus"))
+                playerGUIStatus = GameObject.FindGameObjectWithTag("GUIMiMiStatus").GetComponent<Text>();
+
+
+
+            if (keyboardMiMi)
+            {
+                vertical = "MiMiKeyboardV";
+                horizontal = "MiMiKeyboardH";
+            } else
+            {
+                horizontal = "RightPadHorizontal";
+                vertical = "RightPadVertical";
+            }
+
+
+        }
     }
 
     void Update()
@@ -94,6 +116,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    // LEGACY, MIGHT BE REMOVED
+    [HideInInspector]
+    public List<GameObject> enemies = new List<GameObject>();
     public void DetachEnemies()
     {
         Debug.Log("Detaching enemies");
