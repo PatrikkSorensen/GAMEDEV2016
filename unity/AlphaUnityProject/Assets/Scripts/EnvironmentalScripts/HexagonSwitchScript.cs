@@ -31,7 +31,6 @@ public class HexagonSwitchScript : MonoBehaviour {
             {
                 startTime = Time.time;
                 channeling = true;
-                Debug.Log("Setting start timer to: " + startTime);
                 audioSources[3].Play();
                 //TODO: MiMis particles dont play (particles2). FIX IIIIT 
                 particles1[0].Stop();

@@ -135,4 +135,8 @@ public class PlayerController : MonoBehaviour {
         enemies.Clear(); 
     }
 
+    public bool isBonded()
+    {
+        return playerStatus.isBonded;
+    }
 }

@@ -77,7 +77,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 455546}
   - 95: {fileID: 9581430}
-  - 114: {fileID: 11451866}
   m_Layer: 0
   m_Name: model
   m_TagString: Untagged
@@ -169,6 +168,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &186420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 496110}
+  - 33: {fileID: 3312872}
+  - 65: {fileID: 6582846}
+  - 114: {fileID: 11473812}
+  m_Layer: 0
+  m_Name: trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &186506
 GameObject:
   m_ObjectHideFlags: 1
@@ -213,6 +230,7 @@ GameObject:
   - 4: {fileID: 426074}
   - 33: {fileID: 3363912}
   - 23: {fileID: 2341708}
+  - 64: {fileID: 6425882}
   m_Layer: 0
   m_Name: entrance
   m_TagString: Untagged
@@ -268,12 +286,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -62.676132, y: 0.002271807, z: -964.2869}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 455546}
   - {fileID: 454510}
   - {fileID: 432866}
+  - {fileID: 496110}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &432866
@@ -406,6 +425,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 455546}
   m_RootOrder: 7
+--- !u!4 &496110
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.26, z: -0.11}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 432006}
+  m_RootOrder: 3
 --- !u!4 &496262
 Transform:
   m_ObjectHideFlags: 1
@@ -696,6 +727,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160318}
   m_Mesh: {fileID: 4300012, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
+--- !u!33 &3312872
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186420}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3323926
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -752,6 +790,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114758}
   m_Mesh: {fileID: 4300020, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
+--- !u!64 &6425882
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300018, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
 --- !u!64 &6460170
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -764,6 +814,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 0}
+--- !u!65 &6582846
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9581430
 Animator:
   serializedVersion: 3
@@ -781,20 +843,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11451866
+--- !u!114 &11473812
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120590}
+  m_GameObject: {fileID: 186420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3643400eca5ebf4283648810ec70283, type: 3}
+  m_Script: {fileID: 11500000, guid: d88a7445ab07ca8459c67f249273a640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTransistion: 4
-  switch1: {fileID: 0}
-  switch2: {fileID: 0}
+  sparkParticles: {fileID: 19876142}
+  haloParticles: {fileID: 19899780}
 --- !u!198 &19876142
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -842,7 +903,7 @@ ParticleSystem:
   randomSeed: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
   InitialModule:
@@ -2346,7 +2407,7 @@ ParticleSystem:
   randomSeed: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
   InitialModule:
