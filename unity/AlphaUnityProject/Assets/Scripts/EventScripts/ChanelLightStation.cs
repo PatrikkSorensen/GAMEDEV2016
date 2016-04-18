@@ -28,7 +28,7 @@ public class ChanelLightStation : MonoBehaviour {
             }
 
             if (Input.GetButtonUp("Channelling"))
-            {
+            { 
                 float timeDifference = Time.time - startTime;
                 channeling = false;
                 startTime = 0;
