@@ -14,6 +14,9 @@ public class EstablishBond : MonoBehaviour {
     public float damper = 0.1f;
 
     [SerializeField]
+    public float springPower = 15.0f;
+
+    [SerializeField]
     public float maxSpringDistance = 10.0f;
     public AudioClip bondclip, successClip, destroyClip;
 
@@ -24,8 +27,6 @@ public class EstablishBond : MonoBehaviour {
 
     private LightScript ls;
     private AudioSource bondAudio; 
-    // TODO: Make this an array, and add them programmatically on start
-    //private AudioSource[] audioSources; // 0 = song, 1 = beamup, 2 = beamdown, 3 = channelling, 4 = pull, 5 = combine
     private Light lightSource;
     private PlayerStatusScript B4Status;
     private PlayerStatusScript MiMiStatus;
@@ -121,9 +122,10 @@ public class EstablishBond : MonoBehaviour {
             gameObject.AddComponent<LineRenderer>();
             LineRenderer lr = GetComponent<LineRenderer>();
 			shader2 = Shader.Find("VertexColors");
+
+            // Linerenderer: 
 			lr.material = new Material (shader2);
 			lr.material.color = new Color(0f,1f,0f,0.05f);
-			//lr.material = new Material (Shader.Find("LineShaders"));
             lr.SetWidth(bondWidthBegin, bondWidthEnd);
             Vector3[] points = { B4.transform.position + new Vector3(0.0f, 2.0f, 0.0f), MiMi.transform.position + new Vector3(0.0f, 2.0f, 0.0f) };
             lr.SetPositions(points);
@@ -132,7 +134,8 @@ public class EstablishBond : MonoBehaviour {
             // Springjoint: 
             gameObject.AddComponent<SpringJoint>();
             SpringJoint joint = GetComponent<SpringJoint>();
-            joint.connectedBody = MiMi.GetComponent<Rigidbody>(); 
+            joint.connectedBody = MiMi.GetComponent<Rigidbody>();
+            joint.spring = springPower;
             joint.maxDistance = maxSpringDistance;
             joint.damper = damper;
             joint.autoConfigureConnectedAnchor = false;
@@ -140,7 +143,6 @@ public class EstablishBond : MonoBehaviour {
 
             // Light
             ls.enabled = false;
-            //gameObject.GetComponent<Light>().enabled = false;
 
             // Updating playerStatusScript 
             // TODO: make it happen on both players 

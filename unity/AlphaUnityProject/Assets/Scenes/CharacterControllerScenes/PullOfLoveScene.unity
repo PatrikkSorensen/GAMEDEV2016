@@ -89,7 +89,7 @@ NavMeshSettings:
 GameObject:
   m_PrefabParentObject: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
   m_PrefabInternal: {fileID: 1877269881}
---- !u!114 &222716047
+--- !u!114 &222716042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -97,31 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 222716041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7f01d077fd2414ba556f393e9db6b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDelay: 1
-  pullEffect: 10
-  pullClip: {fileID: 0}
---- !u!114 &222716048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 222716041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5aacc56b83fef64a9fe8dec58908ae0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bondWidthBegin: 0.1
-  bondWidthEnd: 0.1
-  damper: 0.1
-  maxSpringDistance: 10
-  bondclip: {fileID: 0}
-  successClip: {fileID: 0}
-  destroyClip: {fileID: 0}
-  shader2: {fileID: 0}
+  pullForce: 20
 --- !u!1001 &569255759
 Prefab:
   m_ObjectHideFlags: 0
@@ -297,7 +276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &797886910
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +407,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 471954, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
@@ -533,9 +512,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 11497818, guid: 7481de592d420144184f70d818c92e06, type: 2}
+      propertyPath: pullEffect
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481de592d420144184f70d818c92e06, type: 2}
@@ -610,7 +589,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

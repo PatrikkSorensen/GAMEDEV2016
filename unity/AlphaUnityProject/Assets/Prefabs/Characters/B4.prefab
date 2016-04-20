@@ -62,8 +62,7 @@ GameObject:
   - 65: {fileID: 6525080}
   - 114: {fileID: 11490544}
   - 114: {fileID: 11417278}
-  - 114: {fileID: 11497818}
-  - 114: {fileID: 11486078}
+  - 114: {fileID: 11451208}
   m_Layer: 0
   m_Name: B4
   m_TagString: B4
@@ -863,12 +862,13 @@ MonoBehaviour:
   bondWidthBegin: 0.2
   bondWidthEnd: 0.4
   damper: 0.1
+  springPower: 25
   maxSpringDistance: 10
   bondclip: {fileID: 0}
   successClip: {fileID: 0}
   destroyClip: {fileID: 0}
   shader2: {fileID: 0}
---- !u!114 &11486078
+--- !u!114 &11451208
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -876,9 +876,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 126588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61139778a5d18ed498ec74794d80ed47, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pullForce: 20
+  pullClip: {fileID: 0}
 --- !u!114 &11490544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,22 +897,8 @@ MonoBehaviour:
   vertical: Vertical
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  debugMode: 0
+  keyboardMiMi: 0
   enemies: []
---- !u!114 &11497818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7f01d077fd2414ba556f393e9db6b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeDelay: 0.5
-  pullEffect: 100
-  pullClip: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
