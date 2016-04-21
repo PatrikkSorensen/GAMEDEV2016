@@ -37,6 +37,7 @@ public class ChanelLightStation : MonoBehaviour {
                 sparkParticles.Stop();
             }
 
+            //TODO: Redundant code? 
             if (channeling)
             {
                 ChanelEnergyOnPlatform();

@@ -5,7 +5,8 @@ public class PullOfLove : MonoBehaviour {
 
     public float pullForce = 100.0f;
     public AudioClip pullClip;
-
+    public ForceMode forceMode;
+     
     private GameObject B4, MiMi;
     private float startTime = 0.0f;
     private float timeDelay = 0.5f;
@@ -44,13 +45,13 @@ public class PullOfLove : MonoBehaviour {
     {
         Vector3 forceDirection = MiMi.transform.position - B4.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        B4.GetComponent<Rigidbody>().AddForce(forceVector * pullForce);
+        B4.GetComponent<Rigidbody>().AddForce(forceVector * pullForce, forceMode);
     }
 
     void PullMiMiToB4()
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * pullForce);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * pullForce, forceMode);
     }
 }

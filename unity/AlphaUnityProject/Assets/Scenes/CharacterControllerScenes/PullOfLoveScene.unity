@@ -588,8 +588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  player: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
-  playerTwo: {fileID: 150416, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
+  player: {fileID: 0}
+  playerTwo: {fileID: 0}
 --- !u!81 &797886912
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1142,6 +1142,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
