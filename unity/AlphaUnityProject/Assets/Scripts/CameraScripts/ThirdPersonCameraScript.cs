@@ -9,6 +9,7 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     public float distanceUp = 6.0f;
     [SerializeField]
     private float smooth = 3.0f;
+    private float cameraPan = 0.0f;
 
     [SerializeField]
     private float maxPlayerDistance; 
@@ -23,13 +24,28 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     {
         playerOne = GameObject.FindGameObjectWithTag("B4").transform;
         playerTwo = GameObject.FindGameObjectWithTag("MiMi").transform;
+        Vector3 offset = new Vector3(2, 0, 0);
     }
 
     void FixedUpdate()
     {
         middlePosition = findMiddlePosition(playerOne.position, playerTwo.position);
         //targetPosition = middlePosition + Vector3.up * distanceUp - playerOne.forward - playerTwo.forward * distanceAway;
-        Vector3 offset = new Vector3(0, 0, 2);
+
+        if (Input.GetButton("CamRight"))
+        {
+            cameraPan = cameraPan + Time.deltaTime;
+
+        }
+        if (Input.GetButton("CamLeft"))
+        {
+            cameraPan = cameraPan - Time.deltaTime;
+
+        }
+
+
+
+        Vector3 offset = new Vector3(Mathf.Sin(cameraPan) * 2, 0, Mathf.Sin(cameraPan + (Mathf.PI/2)) * 2);
         targetPosition = middlePosition + Vector3.up * distanceUp - offset * distanceAway;
 
         //Debug.DrawRay(playerOne.position, Vector3.up * distanceUp, Color.red);
