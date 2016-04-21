@@ -7,14 +7,14 @@ public class BeaconPuzzleScript : MonoBehaviour {
     public GameObject wallToMove; 
     public GameObject[] lightStations;
     public Vector3 DOTMove = new Vector3(0.0f, 10.0f, 0.0f);
-    private List <BeaconLightScript> beaconScripts = new List<BeaconLightScript>();
+    private List <ChanelEventScript> beaconScripts = new List<ChanelEventScript>();
     private bool shouldEventFire, eventTriggered = false; 
 
     void Start()
     {
         foreach(GameObject g in lightStations)
         {
-            beaconScripts.Add(g.GetComponent<BeaconLightScript>()); 
+            beaconScripts.Add(g.GetComponent<ChanelEventScript>()); 
         }
     }
 
@@ -26,7 +26,7 @@ public class BeaconPuzzleScript : MonoBehaviour {
             Destroy(gameObject.GetComponent<BeaconPuzzleScript>()); 
         }
 
-        foreach(BeaconLightScript b in beaconScripts)
+        foreach(ChanelEventScript b in beaconScripts)
         {
             if (!b.GetStatus())
             {

@@ -1,26 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BeaconLightScript : MonoBehaviour {
-    public float delayTransistion = 4.0f; 
-    public GameObject switch1, switch2;
+public class ChanelEventScript : MonoBehaviour {
+    public float delayTransistion = 4.0f;
+    public GameObject hexaSwitch, lightstation, doorToMove;
 
-    private HexagonSwitchScript switchScript1, switchScript2;
+    private ChanelLightStation stationScript;
+    private HexagonSwitchScript switchScript;
     private bool isScenePlaying, isSceneFinished, isActive = false;
 	
 	void Start () {
-        switchScript1 = switch1.GetComponent<HexagonSwitchScript>();
-        switchScript2 = switch2.GetComponent<HexagonSwitchScript>();
+        switchScript = hexaSwitch.GetComponent<HexagonSwitchScript>();
     }
 
     void Update()
     {
-        if (switchScript1.getStatus() && switchScript1.getStatus() && !isScenePlaying && !isSceneFinished)
+        if (switchScript.getStatus() && !isScenePlaying && !isSceneFinished)
         {
             PlayActivatitonScene();
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKey(KeyCode.Y)) // TODO: Remove this after testing
         {
             PlayActivatitonScene();
         }
@@ -30,9 +30,8 @@ public class BeaconLightScript : MonoBehaviour {
             Debug.Log("GameObject is active and scene is finished");
             isActive = true;
 
-            Destroy(switchScript1);
-            Destroy(switchScript2);
-            Destroy(gameObject.GetComponent<BeaconLightScript>());
+            Destroy(switchScript);
+            Destroy(gameObject.GetComponent<ChanelEventScript>()); // TODO: disable Update function and register event in another way.
         }
     }
 

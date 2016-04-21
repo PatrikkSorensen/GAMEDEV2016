@@ -20,8 +20,10 @@ public class ChanelLightStation : MonoBehaviour {
     {
         if (canChanel && !isActive)
         {
+            Debug.Log("Channeling is possible");
             if (Input.GetButtonDown("Channelling") && canChanel)
             {
+                Debug.Log("Channeling");
                 startTime = Time.time;
                 channeling = true;
                 sparkParticles.Play();
