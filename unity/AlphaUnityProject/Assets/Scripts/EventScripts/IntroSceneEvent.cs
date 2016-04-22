@@ -16,7 +16,7 @@ public class IntroSceneEvent : MonoBehaviour {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         audioSource = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioSource>();
-        musicSource = GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>();
+        //musicSource = GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>();
         cameraController = Camera.main.GetComponent<CameraController>();
         cameraController.changeCameraType(CameraController.CameraTypes.SINGLE_PERSON_CAMERA);
         MiMi.GetComponent<PlayerController>().enabled = false;
@@ -30,7 +30,7 @@ public class IntroSceneEvent : MonoBehaviour {
         Vector3 targPos = B4.transform.position + new Vector3(0.0f, 2.0f, -2.0f);
         StartCoroutine(MoveCameraToPosition(targPos, 5.0f));
 
-        StartCoroutine(MusicFadeIn(0.15f ,1.0f, 20.0f));
+        //StartCoroutine(MusicFadeIn(0.15f ,1.0f, 20.0f));
     }
 
     IEnumerator MusicFadeIn(float from, float to, float duration)

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChanelLightStation : MonoBehaviour {
+public class LightStationScript : MonoBehaviour {
 
     public ParticleSystem sparkParticles, haloParticles;
 
-    private bool canChanel, channeling, isActive = false;
+    private bool canChanel, channeling, isActive, b = false;
     private PlayerController B4Controller, MiMiController;
     private float startTime = 0.0f;
+
 
     void Start()
     {
@@ -18,50 +19,56 @@ public class ChanelLightStation : MonoBehaviour {
 
     void Update()
     {
+
         if (canChanel && !isActive)
         {
-            Debug.Log("Channeling is possible");
-            if (Input.GetButtonDown("Channelling") && canChanel)
+            if (Input.GetButtonDown("Channelling") && canChanel && B4Controller.isBonded())
             {
-                Debug.Log("Channeling");
                 startTime = Time.time;
                 channeling = true;
                 sparkParticles.Play();
             }
 
             if (Input.GetButtonUp("Channelling"))
-            { 
+            {
                 float timeDifference = Time.time - startTime;
                 channeling = false;
                 startTime = 0;
                 sparkParticles.Stop();
             }
 
-            //TODO: Redundant code? 
             if (channeling)
             {
                 ChanelEnergyOnPlatform();
             }
         }
-    }
+
+
+        }
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "MiMi" && MiMiController.isBonded())
-        {
-            Debug.Log("MiMi is triggered and bonded");
+
             canChanel = true;
-        }
+
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "MiMi")
         {
-            Debug.Log("Exited trigger");
             canChanel = false;
         }
     }
+    void TestFunction()
+    {
+        bool b = false;
+        if (!b)
+        {
+            IsActive = true;
+            b = true;
+        }
 
+    }
     void ChanelEnergyOnPlatform()
     {
         float timeDifference = Time.time - startTime;
@@ -71,9 +78,9 @@ public class ChanelLightStation : MonoBehaviour {
             Debug.Log("Channelled for three seconds");
             sparkParticles.Play();
             haloParticles.Play();
-            canChanel = false; 
-            isActive = true;
+            canChanel = false;
             channeling = false;
+            IsActive = true;
         }
         else
         {
@@ -81,10 +88,17 @@ public class ChanelLightStation : MonoBehaviour {
         }
     }
 
-    public bool getStatus()
+    public bool IsActive
     {
-        return isActive;
+        get
+        {
+            return isActive;
+        }
+
+        set
+        {
+            isActive = value;
+        }
+
     }
-
-
 }

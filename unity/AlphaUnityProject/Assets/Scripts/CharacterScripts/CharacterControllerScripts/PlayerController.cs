@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour {
         enemies.Clear(); 
     }
 
+    //TODO: REFACTOR: Make this a getter and setter, see lightStation.cs for how to do it
     public bool isBonded()
     {
         return playerStatus.isBonded;

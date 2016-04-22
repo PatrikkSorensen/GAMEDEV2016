@@ -26,16 +26,16 @@ public class BeaconPuzzleScript : MonoBehaviour {
             Destroy(gameObject.GetComponent<BeaconPuzzleScript>()); 
         }
 
-        foreach(ChanelEventScript b in beaconScripts)
-        {
-            if (!b.GetStatus())
-            {
-                shouldEventFire = false; 
-                break; 
-            }
+        //foreach(ChanelEventScript b in beaconScripts)
+        //{
+        //    if (!b.GetStatus())
+        //    {
+        //        shouldEventFire = false; 
+        //        break; 
+        //    }
 
-            shouldEventFire = true; 
-        }
+        //    shouldEventFire = true; 
+        //}
 
         if (shouldEventFire && !eventTriggered)
         {

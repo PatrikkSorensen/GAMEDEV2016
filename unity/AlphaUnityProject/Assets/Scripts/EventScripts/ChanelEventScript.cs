@@ -1,51 +1,58 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class ChanelEventScript : MonoBehaviour {
     public float delayTransistion = 4.0f;
     public GameObject hexaSwitch, lightstation, doorToMove;
+    public Vector3 DOTMove = new Vector3(0.0f, 10.0f, 0.0f);
+    //TODO: Make animation curve for how to tween door
+    public float moveSpeed = 10.0f; 
 
-    private ChanelLightStation stationScript;
+    private LightStationScript stationScript;
     private HexagonSwitchScript switchScript;
     private bool isScenePlaying, isSceneFinished, isActive = false;
 	
 	void Start () {
         switchScript = hexaSwitch.GetComponent<HexagonSwitchScript>();
+        stationScript = lightstation.GetComponent<LightStationScript>(); 
     }
 
     void Update()
     {
-        if (switchScript.getStatus() && !isScenePlaying && !isSceneFinished)
+        if (stationScript.IsActive)
         {
-            PlayActivatitonScene();
-        }
+            if (!isScenePlaying && !isSceneFinished)
+            {
+                PlayActivatitonScene();
+            }
 
-        if (Input.GetKey(KeyCode.Y)) // TODO: Remove this after testing
-        {
-            PlayActivatitonScene();
-        }
+            if (isSceneFinished && !isActive)
+            {
+                Debug.Log("GameObject is active and scene is finished");
+                isActive = true;
 
-        if(isSceneFinished && !isActive)
-        {
-            Debug.Log("GameObject is active and scene is finished");
-            isActive = true;
-
-            Destroy(switchScript);
-            Destroy(gameObject.GetComponent<ChanelEventScript>()); // TODO: disable Update function and register event in another way.
+                Destroy(switchScript);
+                Destroy(gameObject.GetComponent<ChanelEventScript>()); // TODO: disable Update function and register event in another way.
+            }
         }
     }
 
     void PlayActivatitonScene() {
-        isScenePlaying = true; 
-        
-        // Play animations 
+        Debug.Log("playing activation scene");
+        isScenePlaying = true;
+
+        DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
+        doorToMove.transform.DOMove(DOTMove, moveSpeed).SetRelative().SetLoops(1, LoopType.Incremental);
+        //TODO:  Play animations and sounds
 
         // Trigger spherical waves
-        StartCoroutine(SendSphericalWaves());
-        
+        //StartCoroutine(SendSphericalWaves());
+
         // Play sounds
     }
 
+    // TODO: Refacot this, legacy code
     IEnumerator SendSphericalWaves()
     {
         Renderer rend = GetComponent<Renderer>();
@@ -86,8 +93,4 @@ public class ChanelEventScript : MonoBehaviour {
         */
     } 
 
-    public bool GetStatus()
-    {
-        return isActive; 
-    }
 }
