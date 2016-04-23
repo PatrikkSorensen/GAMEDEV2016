@@ -10903,7 +10903,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e80f49f1b586b2445b2808eaab71d378, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e80f49f1b586b2445b2808eaab71d378, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38414,7 +38414,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d60773c0dffaaa648acae535ccbf80d2, type: 2}
+  - {fileID: 2100000, guid: f178e21c1d2b40047b00131a7b69a059, type: 2}
   - {fileID: 2100000, guid: 366d70433cd00c44fb31fae2b3b21e53, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -38446,8 +38446,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 923080813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.2, y: 2.5622, z: -1005.7}
-  m_LocalScale: {x: 0.01, y: 0.020246394, z: 0.01}
+  m_LocalPosition: {x: -103.4, y: 11.66, z: -1001.48}
+  m_LocalScale: {x: 0.041811537, y: 0.08465328, z: 0.041811537}
   m_Children: []
   m_Father: {fileID: 730280649}
   m_RootOrder: 36
@@ -43300,6 +43300,10 @@ Prefab:
       propertyPath: m_Name
       value: TiltedHextra
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7434db30226fb654d8d787aa87f245b3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f178e21c1d2b40047b00131a7b69a059, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7434db30226fb654d8d787aa87f245b3, type: 3}
   m_IsPrefabParent: 0
