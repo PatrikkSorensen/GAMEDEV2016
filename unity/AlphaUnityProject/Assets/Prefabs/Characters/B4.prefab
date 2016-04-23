@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 126588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -143.38, y: 0, z: -1075.45}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 474324}
   - {fileID: 421968}
@@ -859,6 +859,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5aacc56b83fef64a9fe8dec58908ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bondWidthBegin: 0.2
+  bondWidthEnd: 0.4
+  damper: 0.1
+  springPower: 15
+  maxSpringDistance: 10
+  bondclip: {fileID: 0}
+  successClip: {fileID: 0}
+  destroyClip: {fileID: 0}
+  shader2: {fileID: 0}
 --- !u!114 &11451208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -870,6 +879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pullForce: 100
+  pullClip: {fileID: 0}
+  forceMode: 0
 --- !u!114 &11490544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -881,6 +893,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558d460486cce93458da50a6d31ce99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
+  horizontal: 
+  vertical: 
+  movingTurnSpeed: 5
+  stationaryTurnSpeed: 180
+  keyboardMiMi: 0
+  enemies: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
