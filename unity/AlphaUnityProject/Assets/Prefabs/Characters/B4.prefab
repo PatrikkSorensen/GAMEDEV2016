@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 100
+  pullForce: 50
   pullClip: {fileID: 0}
   forceMode: 0
 --- !u!114 &11490544
@@ -958,7 +958,7 @@ MonoBehaviour:
   speed: 15
   horizontal: 
   vertical: 
-  movingTurnSpeed: 5
+  movingTurnSpeed: 180
   stationaryTurnSpeed: 180
   keyboardMiMi: 0
   enemies: []

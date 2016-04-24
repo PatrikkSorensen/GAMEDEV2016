@@ -4,25 +4,15 @@ using DG.Tweening;
 
 public class SplitWallsScript : MonoBehaviour {
     public Transform wall1, wall2;
-    public GameObject beaconSwitch;
 
     private bool isSceneFinished, isScenePlaying = false; 
 
-	void Start () {
-
-	}
-	
-	void Update () {
-        if (beaconSwitch.GetComponent<HexagonSwitchScript>().getStatus() && !isScenePlaying)
-        {
-            StartCoroutine(SplitWalls());
-        }
-            
-    }
-
-    IEnumerator SplitWalls()
+    public IEnumerator SplitWalls()
     {
-        isScenePlaying = true; 
+        if (isScenePlaying)
+            yield break; 
+        else 
+            isScenePlaying = true; 
         // NOTE: 4 is the number of rows per column of the split walls. 
         // This is VERY hardcoded, please don't use anywhere else 
         for(int i = 3; i>=0; i--)

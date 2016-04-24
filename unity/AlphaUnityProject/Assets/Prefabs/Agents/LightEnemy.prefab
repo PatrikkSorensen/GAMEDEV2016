@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 485586}
   - 108: {fileID: 10851000}
   - 135: {fileID: 13558938}
-  - 114: {fileID: 11424886}
+  - 114: {fileID: 11453650}
   m_Layer: 0
   m_Name: LightEnemy
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11424886
+--- !u!114 &11453650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -71,11 +71,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 156978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d5f082237e493429a7bbe4bac43cb3, type: 3}
+  m_Script: {fileID: 11500000, guid: e922c213ae99d2543957b0cc4e724eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minConeSize: 60
-  maxConeSize: 70
+  minConeSize: 40
+  maxConeSize: 50
 --- !u!135 &13558938
 SphereCollider:
   m_ObjectHideFlags: 1

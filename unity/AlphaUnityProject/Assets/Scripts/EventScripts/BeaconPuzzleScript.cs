@@ -7,52 +7,49 @@ public class BeaconPuzzleScript : MonoBehaviour {
     public GameObject wallToMove; 
     public GameObject[] lightStations;
     public Vector3 DOTMove = new Vector3(0.0f, 10.0f, 0.0f);
-    private List <ChanelEventScript> beaconScripts = new List<ChanelEventScript>();
+    private List <LightStationScript> lightstationScripts = new List<LightStationScript>();
     private bool shouldEventFire, eventTriggered = false; 
 
     void Start()
     {
         foreach(GameObject g in lightStations)
         {
-            beaconScripts.Add(g.GetComponent<ChanelEventScript>()); 
+            lightstationScripts.Add(g.GetComponent<LightStationScript>()); 
         }
     }
 
     void Update()
     {
-        if(beaconScripts.Count == 0)
+        if (lightstationScripts.Count == 0)
         {
-            Debug.Log("Destroying puzzle, there is no script assigned");
-            Destroy(gameObject.GetComponent<BeaconPuzzleScript>()); 
+            Debug.LogWarning("Destroying puzzle, there is no scripts assigned to the lightstations");
+            Destroy(gameObject.GetComponent<BeaconPuzzleScript>());
         }
 
-        //foreach(ChanelEventScript b in beaconScripts)
-        //{
-        //    if (!b.GetStatus())
-        //    {
-        //        shouldEventFire = false; 
-        //        break; 
-        //    }
+        CheckLightStations();
+    }
 
-        //    shouldEventFire = true; 
-        //}
+    void CheckLightStations()
+    {
+        foreach (LightStationScript ls in lightstationScripts)
+        {
+            if (!ls.IsActive)
+            {
+                shouldEventFire = false;
+                break;
+            }
+
+            shouldEventFire = true;
+        }
 
         if (shouldEventFire && !eventTriggered)
         {
-            
-            triggerEvent(); 
+            triggerEvent();
         }
     }
 
     void triggerEvent()
     {
-        Debug.Log("Firing beacon event!");
-        eventTriggered = true;
-
-        DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
-        wallToMove.transform.DOMove(DOTMove, 10).SetRelative().SetLoops(1, LoopType.Incremental);
-        
+        StartCoroutine(GetComponent<SplitWallsScript>().SplitWalls());
     }
-
-
 }
