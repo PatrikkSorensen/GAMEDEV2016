@@ -1,13 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LightStationScript : MonoBehaviour {
 
     public ParticleSystem sparkParticles, haloParticles;
+    public float chanelTime = 3.0f;
+    public List<GameObject> AIHelpers = new List<GameObject>();
 
     private bool canChanel, channeling, isActive, b = false;
     private PlayerController B4Controller, MiMiController;
     private float startTime = 0.0f;
+
+
+
+    public bool IsActive
+    {
+        get { return isActive; }
+        set { isActive = value;}
+    }
 
 
     void Start()
@@ -19,7 +30,10 @@ public class LightStationScript : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.X))
+            ActivateAgents();
 
+        // TODO: Refactor this
         if (canChanel && !isActive)
         {
             if (Input.GetButtonDown("Channelling") && canChanel && B4Controller.isBonded())
@@ -42,9 +56,8 @@ public class LightStationScript : MonoBehaviour {
                 ChanelEnergyOnPlatform();
             }
         }
+    }
 
-
-        }
     void OnTriggerStay(Collider other)
     {
 
@@ -59,21 +72,12 @@ public class LightStationScript : MonoBehaviour {
             canChanel = false;
         }
     }
-    void TestFunction()
-    {
-        bool b = false;
-        if (!b)
-        {
-            IsActive = true;
-            b = true;
-        }
 
-    }
     void ChanelEnergyOnPlatform()
     {
         float timeDifference = Time.time - startTime;
 
-        if (timeDifference > 3.0f && timeDifference < 3.2f && channeling)
+        if (timeDifference > chanelTime && timeDifference < chanelTime + 0.2f && channeling)
         {
             Debug.Log("Channelled for three seconds");
             sparkParticles.Play();
@@ -81,6 +85,10 @@ public class LightStationScript : MonoBehaviour {
             canChanel = false;
             channeling = false;
             IsActive = true;
+
+
+            // Trigger Agents
+            ActivateAgents();
         }
         else
         {
@@ -88,17 +96,13 @@ public class LightStationScript : MonoBehaviour {
         }
     }
 
-    public bool IsActive
+    void ActivateAgents()
     {
-        get
+        foreach (GameObject gb in AIHelpers)
         {
-            return isActive;
+            Agent agent = gb.GetComponent<Agent>();
+            agent.ActivateAgent(); 
         }
-
-        set
-        {
-            isActive = value;
-        }
-
     }
+
 }

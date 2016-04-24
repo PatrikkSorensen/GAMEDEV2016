@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -3853,6 +3853,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.32923514
       objectReference: {fileID: 0}
+    - target: {fileID: 139642, guid: 4586a86c3f037d845800b8971447102e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4586a86c3f037d845800b8971447102e, type: 2}
   m_IsPrefabParent: 0
@@ -4603,7 +4607,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &1237369899
 MeshRenderer:
@@ -5340,6 +5344,10 @@ Prefab:
     - target: {fileID: 431360, guid: e59acc9ec9be366408a573bb4af50949, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.285
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479022, guid: e59acc9ec9be366408a573bb4af50949, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e59acc9ec9be366408a573bb4af50949, type: 2}

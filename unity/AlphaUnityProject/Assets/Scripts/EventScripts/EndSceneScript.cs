@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class lvl1_EndSceneScript : MonoBehaviour {
+public class EndSceneScript : MonoBehaviour {
 
     bool canChanel, channeling = false; 
     int timesChanelled = 0;
@@ -9,12 +9,15 @@ public class lvl1_EndSceneScript : MonoBehaviour {
 
     void Update()
     {
+        CheckInputs();
+    }
+
+    void CheckInputs()
+    {
         if (Input.GetButtonDown("Channelling") && canChanel)
         {
             startTime = Time.time;
-            channeling = true; 
-
-
+            channeling = true;
         }
 
         if (Input.GetButtonUp("Channelling") && canChanel)
@@ -29,7 +32,6 @@ public class lvl1_EndSceneScript : MonoBehaviour {
             ChanelEnergy();
         }
     }
-
     void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "MiMi")
@@ -53,11 +55,18 @@ public class lvl1_EndSceneScript : MonoBehaviour {
         {
             Debug.Log("Channelled for three seconds");
             channeling = false;
+            PlayScene(); 
         }
         else
         {
             Debug.Log("timeDifference: " + timeDifference + ", is less than 3.0f or greater than 3.2");
         }
+    }
+
+    void PlayScene()
+    {
+        RenderSettings.ambientLight = Color.black;
+        RenderSettings.ambientIntensity = 0.0f;
     }
 
 
