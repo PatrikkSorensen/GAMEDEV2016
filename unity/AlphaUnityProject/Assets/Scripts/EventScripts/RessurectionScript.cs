@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class RessurectionScript : MonoBehaviour {
 
     public AudioClip clip, musicClip;
+    public RobotChatScript chat;
 
     private AudioSource audioSource;
     private Animator anim;
@@ -52,16 +54,16 @@ public class RessurectionScript : MonoBehaviour {
         Debug.Log("EVENT: ressurection event");
 
         // trigger coroutines
-        StartCoroutine(FadeInWallStory()); 
+        StartCoroutine(FadeInWallStory());
 
         // trigger animations
 
         // trigger sounds 
         audioSource.clip = clip;
         audioSource.Play();
-        GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioSource>().clip = musicClip;
-        GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioSource>().Play(); 
-
+        GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>().clip = musicClip;
+        StartCoroutine(MusicFadeIn(0.15f, 1.0f, 8.0f, GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>()));
+        chat.startChat();
         // send notification to event handler
         // eventController.handleEvent(ressurectionEvent);
     }
@@ -81,5 +83,13 @@ public class RessurectionScript : MonoBehaviour {
         }
 
         sceneIsFinished = true;
+    }
+
+    IEnumerator MusicFadeIn(float from, float to, float duration, AudioSource musicSource)
+    {
+        musicSource.volume = from;
+        musicSource.Play();
+        musicSource.DOFade(to, duration);
+        yield return null;
     }
 }
