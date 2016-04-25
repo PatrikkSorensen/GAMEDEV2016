@@ -47,9 +47,8 @@ public class EndSceneScript : MonoBehaviour {
 
 
         if (channeling)
-        {
             ChanelEnergy();
-        }
+
     }
     void OnTriggerStay(Collider other)
     {
@@ -80,9 +79,7 @@ public class EndSceneScript : MonoBehaviour {
                 PlayScene();
 
             if (timesChanelled == 2)
-            {
                 FadeInUIImage(); 
-            }
                 
 
             if (timesChanelled == 3)
@@ -101,7 +98,6 @@ public class EndSceneScript : MonoBehaviour {
 
     void SwitchLevel()
     {
-        // Application.load(); 
         SceneManager.LoadScene(0);
     }
 
@@ -109,6 +105,4 @@ public class EndSceneScript : MonoBehaviour {
     {
         DOTween.To(() => image.color, x => image.color = x, Color.black, fadeUIImageTime).SetEase(fadeOutCurve);
     }
-
-
 }
