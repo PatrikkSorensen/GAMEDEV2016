@@ -25,6 +25,7 @@ GameObject:
   - 4: {fileID: 419990}
   - 33: {fileID: 3366300}
   - 23: {fileID: 2368534}
+  - 114: {fileID: 11413698}
   m_Layer: 0
   m_Name: eyesL
   m_TagString: Untagged
@@ -42,6 +43,7 @@ GameObject:
   - 4: {fileID: 455326}
   - 33: {fileID: 3355860}
   - 23: {fileID: 2398538}
+  - 114: {fileID: 11448378}
   m_Layer: 0
   m_Name: eyesR
   m_TagString: Untagged
@@ -428,8 +430,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150416}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -97.462, y: 0, z: -953.3}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: -1.12, y: 0.022, z: -0.73}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 421508}
   - {fileID: 485044}
@@ -760,6 +762,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11413698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
+  - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
+  - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
+  - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
+--- !u!114 &11448378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
+  - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
+  - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
+  - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
 --- !u!114 &11454302
 MonoBehaviour:
   m_ObjectHideFlags: 1
