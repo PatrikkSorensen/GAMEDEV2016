@@ -1,12 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class EndSceneScript : MonoBehaviour {
 
-    bool canChanel, channeling = false; 
-    int timesChanelled = 0;
-    float startTime = 0.0f; 
+    public GameObject UIImage;
 
+    [SerializeField]
+    public float fadeAmbientTime;
+
+    [SerializeField]
+    public float fadeUIImageTime;
+
+    [SerializeField]
+    public AnimationCurve fadeOutCurve; 
+
+    private Image image; 
+    private bool canChanel, channeling = false; 
+    private int timesChanelled = 0;
+    private float startTime = 0.0f; 
+
+    void Start()
+    {
+        image = UIImage.GetComponent<Image>(); 
+    }
     void Update()
     {
         CheckInputs();
@@ -55,7 +74,19 @@ public class EndSceneScript : MonoBehaviour {
         {
             Debug.Log("Channelled for three seconds");
             channeling = false;
-            PlayScene(); 
+            timesChanelled++;
+
+            if (timesChanelled == 1)
+                PlayScene();
+
+            if (timesChanelled == 2)
+            {
+                FadeInUIImage(); 
+            }
+                
+
+            if (timesChanelled == 3)
+                SwitchLevel(); 
         }
         else
         {
@@ -65,13 +96,19 @@ public class EndSceneScript : MonoBehaviour {
 
     void PlayScene()
     {
-        RenderSettings.ambientLight = Color.black;
-        RenderSettings.ambientIntensity = 0.0f;
+        DOTween.To(() => RenderSettings.ambientLight, x => RenderSettings.ambientLight = x, Color.black, fadeAmbientTime).SetEase(fadeOutCurve);
     }
 
-
-    void switchLevel()
+    void SwitchLevel()
     {
         // Application.load(); 
+        SceneManager.LoadScene(0);
     }
+
+    void FadeInUIImage()
+    {
+        DOTween.To(() => image.color, x => image.color = x, Color.black, fadeUIImageTime).SetEase(fadeOutCurve);
+    }
+
+
 }
