@@ -20,12 +20,17 @@ public class BeaconPuzzleScript : MonoBehaviour {
 
     void Update()
     {
-        if(lightstationScripts.Count == 0)
+        if (lightstationScripts.Count == 0)
         {
             Debug.LogWarning("Destroying puzzle, there is no scripts assigned to the lightstations");
-            Destroy(gameObject.GetComponent<BeaconPuzzleScript>()); 
+            Destroy(gameObject.GetComponent<BeaconPuzzleScript>());
         }
 
+        CheckLightStations();
+    }
+
+    void CheckLightStations()
+    {
         foreach (LightStationScript ls in lightstationScripts)
         {
             if (!ls.IsActive)
@@ -39,11 +44,8 @@ public class BeaconPuzzleScript : MonoBehaviour {
 
         if (shouldEventFire && !eventTriggered)
         {
-            triggerEvent(); 
-        }
-
-        if (Input.GetKey(KeyCode.C))
             triggerEvent();
+        }
     }
 
     void triggerEvent()

@@ -42,4 +42,6 @@ public class PlatformPuzzleEvent : MonoBehaviour {
         yield return new WaitForSeconds(openingTime);
         audioSources[1].Stop();
     }
+
+
 }

@@ -52,23 +52,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &128746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 463134}
-  - 65: {fileID: 6512858}
-  - 114: {fileID: 11444272}
-  m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &153608
 GameObject:
   m_ObjectHideFlags: 1
@@ -361,18 +344,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421098}
   m_RootOrder: 9
---- !u!4 &463134
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128746}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.349, z: -0.28}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 485888}
-  m_RootOrder: 3
 --- !u!4 &464240
 Transform:
   m_ObjectHideFlags: 1
@@ -427,14 +398,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171538}
-  m_LocalRotation: {x: 0, y: -0.43107337, z: 0, w: 0.9023169}
-  m_LocalPosition: {x: -21.4, y: 0, z: 17.2}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421098}
   - {fileID: 464240}
   - {fileID: 442098}
-  - {fileID: 463134}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &498144
@@ -807,18 +777,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300020, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
---- !u!65 &6512858
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.46, y: 1.47, z: 1.33}
-  m_Center: {x: 0, y: 0.57, z: 0}
 --- !u!95 &9526298
 Animator:
   serializedVersion: 3
@@ -836,19 +794,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11444272
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caec7f4db9d2e2244b79975ee4954656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sparkParticles: {fileID: 19876260}
-  haloParticles: {fileID: 19813450}
 --- !u!114 &11474448
 MonoBehaviour:
   m_ObjectHideFlags: 1
