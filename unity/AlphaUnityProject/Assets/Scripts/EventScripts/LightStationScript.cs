@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class LightStationScript : MonoBehaviour {
 
+    public Material material; 
     public ParticleSystem sparkParticles, haloParticles;
     public float chanelTime = 3.0f;
     public List<GameObject> AIHelpers = new List<GameObject>();

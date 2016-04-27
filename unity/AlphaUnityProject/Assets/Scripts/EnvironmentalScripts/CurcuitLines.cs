@@ -1,34 +1,79 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
+using System.Collections.Generic;
 
 public class CurcuitLines : MonoBehaviour {
 
+    // Context
     public GameObject lineStart;
-    public Transform[] lineDots;
+    public List<GameObject> lineObjects = new List<GameObject>();
+    
+    // Visuals 
+    public float startWidth, endWidth = 0.3f;
+    public Material lineMaterial; 
 
-    private LineRenderer lineRenderer;
-    //TODO: Make this be a for each children instead of public assignment
-    void Start()
-    {
-        lineRenderer = lineStart.AddComponent<LineRenderer>();
-        lineRenderer.SetVertexCount(lineDots.Length);
-    }
+    // Logic
+    private GameObject lineTracer;
+    private LineRenderer lr; 
+    private bool channeling, hasChannelled = false;
+
     void Update()
     {
-        DrawLines();
+        if(Input.GetKey(KeyCode.C) && !channeling)
+        {
+            StartCoroutine(BeginChanneling2());
+        }
     }
 
-    void DrawLines()
+
+    IEnumerator BeginChanneling2()
     {
-        if (lineDots.Length == 0)
-            return;
+        if (hasChannelled || channeling)
+            StopCoroutine(BeginChanneling2());
 
-        Debug.Log("LineDots length: " + lineDots.Length);
+        channeling = true;
+        // ------------------------------------------------- BEGIN ------------------------------------------------- // 
+        lineTracer = lineStart;
+        lineTracer.AddComponent<CurcuitLine>();
+        lineTracer.GetComponent<CurcuitLine>().Initiate(lineObjects[0].transform.position);
 
-        for(int i = 0; i < lineDots.Length; i++)
+        // Visuals: 
+        lr = lineTracer.GetComponent<LineRenderer>();
+        lr.SetWidth(startWidth, endWidth);
+        lr.material = lineMaterial; 
+        lr = lineTracer.GetComponent<LineRenderer>(); 
+
+        while (!lineTracer.GetComponent<CurcuitLine>().IsDrawn)
         {
-            Debug.Log("Setting line..." + i + " to position: " + lineDots[i].position);
-            lineRenderer.SetPosition(i, lineDots[i].position); 
+            Debug.Log("waiting...");
+            yield return new WaitForSeconds(1.0f); 
         }
+
+        Destroy(lineTracer.GetComponent<CurcuitLine>());
+
+        // For all lineObjects, render lines between them. 
+        for (int i = 0; i < lineObjects.Count - 1; i++)
+        {
+            lineTracer = lineObjects[i]; 
+            lineTracer.AddComponent<CurcuitLine>();
+            lineTracer.GetComponent<CurcuitLine>().Initiate(lineObjects[i + 1].transform.position);
+
+            // Visuals: 
+            lr = lineTracer.GetComponent<LineRenderer>();
+            lr.SetWidth(startWidth, endWidth);
+            lr.material = lineMaterial;
+            lr = lineTracer.GetComponent<LineRenderer>();
+
+            while (!lineTracer.GetComponent<CurcuitLine>().IsDrawn)
+            {
+                Debug.Log("waiting...");
+                yield return new WaitForSeconds(1.0f);
+            }
+
+            Destroy(lineTracer.GetComponent<CurcuitLine>()); 
+            // Do end line visuals here results here... 
+        }
+        // ------------------------------------------------- END ------------------------------------------------- // 
     }
 }

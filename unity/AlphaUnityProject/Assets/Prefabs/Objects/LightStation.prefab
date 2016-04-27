@@ -399,7 +399,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 14.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421098}
@@ -640,7 +640,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e900d4745140840418246809edb4f689, type: 2}
+  - {fileID: 2100000, guid: 2b2a8ce99f70f2645b2b66fa85928006, type: 2}
   - {fileID: 2100000, guid: 366d70433cd00c44fb31fae2b3b21e53, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -805,8 +805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caec7f4db9d2e2244b79975ee4954656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: e900d4745140840418246809edb4f689, type: 2}
   sparkParticles: {fileID: 19876260}
   haloParticles: {fileID: 19813450}
+  chanelTime: 3
+  AIHelpers: []
 --- !u!198 &19813450
 ParticleSystem:
   m_ObjectHideFlags: 1
