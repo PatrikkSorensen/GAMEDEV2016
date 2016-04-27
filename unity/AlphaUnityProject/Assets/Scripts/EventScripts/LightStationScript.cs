@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class LightStationScript : MonoBehaviour {
 
-    public Material material; 
     public ParticleSystem sparkParticles, haloParticles;
-    public float chanelTime = 3.0f;
+    public Color materialEndColor, emissionColor; 
+    public float chanelTime, materialFadeInTime = 3.0f;
     public List<GameObject> AIHelpers = new List<GameObject>();
+    public GameObject curcuitLines, powerSphere, meshLine; 
 
     private bool canChanel, channeling, isActive, b = false;
     private PlayerController B4Controller, MiMiController;
@@ -26,14 +28,15 @@ public class LightStationScript : MonoBehaviour {
     {
         B4Controller = GameObject.FindGameObjectWithTag("B4").GetComponent<PlayerController>();
         MiMiController = GameObject.FindGameObjectWithTag("MiMi").GetComponent<PlayerController>();
-
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.X))
-            ActivateAgents();
+        if (Input.GetKey(KeyCode.V))
+        {
+            ChangeSphereMaterial(); 
 
+        }
         // TODO: Refactor this
         if (canChanel && !isActive)
         {
@@ -88,13 +91,44 @@ public class LightStationScript : MonoBehaviour {
             IsActive = true;
 
 
-            // Trigger Agents
+            // Activate events
             ActivateAgents();
+            ActivateLines();
+
+            // Materials and visuals
+           ChangeSphereMaterial();
+
         }
         else
         {
             Debug.Log("timeDifference: " + timeDifference + ", is less than 3.0f");
         }
+    }
+
+    void ChangeSphereMaterial()
+    {
+        Material sphereMaterial = powerSphere.GetComponent<MeshRenderer>().material;
+        Material lineMaterial = meshLine.GetComponent<MeshRenderer>().materials[1];
+
+        sphereMaterial.DOColor(materialEndColor, materialFadeInTime);
+
+        Color startEColor = sphereMaterial.GetColor("_EmissionColor");
+
+        Debug.Log("E color: " + startEColor);
+        StartCoroutine(FadeInEmmision(sphereMaterial, startEColor, emissionColor));
+    }
+
+    IEnumerator FadeInEmmision(Material m, Color startColor, Color endColor)
+    {
+        float incrementor = 0.01f; 
+        for(float f = startColor.grayscale; f < endColor.grayscale; f += incrementor)
+        {
+            startColor = startColor + new Color(incrementor, incrementor, incrementor);
+            m.SetColor("_EmissionColor", startColor);
+            yield return new WaitForSeconds(0.01f); 
+
+        }
+
     }
 
     void ActivateAgents()
@@ -104,6 +138,14 @@ public class LightStationScript : MonoBehaviour {
             Agent agent = gb.GetComponent<Agent>();
             agent.ActivateAgent(); 
         }
+    }
+
+    void ActivateLines()
+    {
+        if (curcuitLines.GetComponent<CurcuitLines>())
+            curcuitLines.GetComponent<CurcuitLines>().ChanelLines();
+        else
+            Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
     }
 
 }

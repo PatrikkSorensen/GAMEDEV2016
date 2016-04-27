@@ -22,15 +22,20 @@ public class CurcuitLines : MonoBehaviour {
     {
         if(Input.GetKey(KeyCode.C) && !channeling)
         {
-            StartCoroutine(BeginChanneling2());
+            StartCoroutine(BeginChanneling());
         }
     }
 
+    public void ChanelLines()
+    {
+        StartCoroutine(BeginChanneling());
+    }
 
-    IEnumerator BeginChanneling2()
+
+    IEnumerator BeginChanneling()
     {
         if (hasChannelled || channeling)
-            StopCoroutine(BeginChanneling2());
+            StopCoroutine(BeginChanneling());
 
         channeling = true;
         // ------------------------------------------------- BEGIN ------------------------------------------------- // 
