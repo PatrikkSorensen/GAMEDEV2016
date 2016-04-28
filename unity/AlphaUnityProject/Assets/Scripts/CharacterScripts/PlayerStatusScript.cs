@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerStatusScript  {
-    public bool canChannel;
+public class PlayerStatusScript : MonoBehaviour  {
+    public bool isChannelled;
     public bool isBonded;
     public float speed; 
     public int enemiesAttached; 
@@ -10,8 +10,8 @@ public class PlayerStatusScript  {
     public PlayerStatusScript(float speed)
     {
         this.speed = speed;
-        this.enemiesAttached = 0; 
-        this.canChannel = false;
+        this.enemiesAttached = 0;
+        this.isChannelled = false; 
         this.isBonded = false; 
     }
 
@@ -37,11 +37,11 @@ public class PlayerStatusScript  {
 
     public void setChannelStatus(bool b)
     {
-        this.canChannel = b;
+        this.isChannelled = b;
     }
 
     public bool getChannelStatus()
     {
-        return this.isBonded;
+        return this.isChannelled;
     }
 }

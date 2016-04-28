@@ -22,6 +22,7 @@ public class EstablishBond : MonoBehaviour {
 
     private GameObject B4, MiMi, audioController;
     private bool bondEstablished, chargeBond = false;
+
     //TODO: Make time variables public and editable
     private float startTime = 0.0f;
 
@@ -42,7 +43,6 @@ public class EstablishBond : MonoBehaviour {
         {
             Debug.LogWarning("B4 or MiMi wasen't found on the current scene. Destroying EstablishBond script.");
             Destroy(this);
-            return; 
         }
 
         B4Status = B4.GetComponent<PlayerController>().playerStatus;

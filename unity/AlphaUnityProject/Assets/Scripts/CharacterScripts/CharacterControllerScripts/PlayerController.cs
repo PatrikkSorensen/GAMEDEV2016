@@ -12,59 +12,20 @@ public class PlayerController : MonoBehaviour {
     public float stationaryTurnSpeed = 180;
     public PlayerStatusScript playerStatus;
 
-    private Animator anim; 
     private Rigidbody rb;
-    private Text playerGUIStatus;
 
-    public bool keyboardMiMi = false; 
+    public bool keyboardMiMi, velocityMode = false; 
     
     
-    void Start()
+    void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        //anim = GetComponent<Animator>(); 
-        playerStatus = new PlayerStatusScript(speed);
-
-        if (gameObject.tag == "B4")
-        {
-            if(GameObject.FindGameObjectWithTag("GUIB4Status"))
-                playerGUIStatus = GameObject.FindGameObjectWithTag("GUIB4Status").GetComponent<Text>();
-
-            horizontal = "Horizontal";
-            vertical = "Vertical";
-
-        }   
-            
-
-        if (gameObject.tag == "MiMi")
-        {
-            if (GameObject.FindGameObjectWithTag("GUIMiMiStatus"))
-                playerGUIStatus = GameObject.FindGameObjectWithTag("GUIMiMiStatus").GetComponent<Text>();
-
-
-
-            if (keyboardMiMi)
-            {
-                vertical = "MiMiKeyboardV";
-                horizontal = "MiMiKeyboardH";
-            } else
-            {
-                horizontal = "RightPadHorizontal";
-                vertical = "RightPadVertical";
-            }
-
-
-        }
-    }
-
-    void Update()
-    {
-        UpdateGUI();
-        playerStatus.setSpeed(speed);
+        SetInputs();
+        SetVariables(); 
     }
 
     void FixedUpdate()
     {
+        playerStatus.setSpeed(speed);
         float h = Input.GetAxis(horizontal);
         float v = Input.GetAxis(vertical);
         Move(h, v);
@@ -73,8 +34,6 @@ public class PlayerController : MonoBehaviour {
     void Move(float h, float v)
     {
         Vector3 movement = new Vector3(0.0f, 0.0f, 0.0f);
-        if(anim)
-            anim.SetFloat("Speed", new Vector2(h, v).SqrMagnitude());
 
         if (gameObject.tag == "MiMi")
         {
@@ -92,8 +51,11 @@ public class PlayerController : MonoBehaviour {
             
         }
       
-        rb.AddForce(movement * speed);
-
+        
+        if(velocityMode)
+            rb.velocity = movement * speed; 
+        else
+            rb.AddForce(movement * speed);
         if (movement.magnitude > 1f) movement.Normalize();
         movement = transform.InverseTransformDirection(movement);
 
@@ -103,41 +65,35 @@ public class PlayerController : MonoBehaviour {
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }
 
-    void UpdateGUI()
+    public void SetVariables()
     {
-        if (playerGUIStatus)
-        {
-            playerGUIStatus.text = gameObject.name + "\nisBonded: " + playerStatus.isBonded +
-                "\ncanChannel: " + playerStatus.getChannelStatus() +
-                "\nspeed: " + playerStatus.getSpeed();
-        } else
-        {
-            //Debug.Log("Warning: You are trying to update the GUI but you have no GUI elements in your scene!"); 
-        }
+        rb = GetComponent<Rigidbody>();
+        playerStatus = gameObject.AddComponent<PlayerStatusScript>(); 
     }
 
-    // LEGACY, MIGHT BE REMOVED
-    [HideInInspector]
-    public List<GameObject> enemies = new List<GameObject>();
-    public void DetachEnemies()
+    public void SetInputs()
     {
-        Debug.Log("Detaching enemies");
-        foreach(GameObject enemy in enemies)
+        if (gameObject.tag == "B4")
         {
-            Debug.Log("Detaching enemy: " + enemy);
-            enemy.transform.parent = null;
-            speed += 2.0f;
-            //enemy.GetComponent<NavMeshAgent>().destination = Vector3.zero;
-            StartCoroutine(enemy.GetComponent<EnemyNavmeshScript>().DetachFromPlayer());
-           
+            horizontal = "Horizontal";
+            vertical = "Vertical";
         }
 
-        enemies.Clear(); 
-    }
 
-    //TODO: REFACTOR: Make this a getter and setter, see lightStation.cs for how to do it
-    public bool isBonded()
-    {
-        return playerStatus.isBonded;
+        if (gameObject.tag == "MiMi")
+        {
+            if (keyboardMiMi)
+            {
+                vertical = "MiMiKeyboardV";
+                horizontal = "MiMiKeyboardH";
+            }
+            else
+            {
+                horizontal = "RightPadHorizontal";
+                vertical = "RightPadVertical";
+            }
+
+
+        }
     }
 }

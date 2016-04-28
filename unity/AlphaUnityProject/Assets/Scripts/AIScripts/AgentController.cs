@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Agent : MonoBehaviour {
 
@@ -8,6 +9,26 @@ public class Agent : MonoBehaviour {
     protected Vector3 dest; 
     protected NavMeshAgent navAgent;
     protected bool isActive, isBusy = false;
+
+    // LEGACY, MIGHT BE REMOVED
+    [HideInInspector]
+    public List<GameObject> enemies = new List<GameObject>();
+
+    public void DetachEnemies()
+    {
+        Debug.Log("Detaching enemies");
+        foreach (GameObject enemy in enemies)
+        {
+            Debug.Log("Detaching enemy: " + enemy);
+            enemy.transform.parent = null;
+            //float speed += 2.0f;
+            //enemy.GetComponent<NavMeshAgent>().destination = Vector3.zero;
+            StartCoroutine(enemy.GetComponent<EnemyNavmeshScript>().DetachFromPlayer());
+
+        }
+
+        enemies.Clear();
+    }
 
     public bool IsActive
     {

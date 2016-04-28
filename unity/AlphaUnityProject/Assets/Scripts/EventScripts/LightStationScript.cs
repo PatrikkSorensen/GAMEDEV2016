@@ -12,7 +12,7 @@ public class LightStationScript : MonoBehaviour {
     public GameObject curcuitLines, powerSphere, meshLine; 
 
     private bool canChanel, channeling, isActive, b = false;
-    private PlayerController B4Controller, MiMiController;
+    private PlayerStatusScript B4Status, MiMiStatus;
     private float startTime = 0.0f;
 
 
@@ -26,8 +26,8 @@ public class LightStationScript : MonoBehaviour {
 
     void Start()
     {
-        B4Controller = GameObject.FindGameObjectWithTag("B4").GetComponent<PlayerController>();
-        MiMiController = GameObject.FindGameObjectWithTag("MiMi").GetComponent<PlayerController>();
+        B4Status = GameObject.FindGameObjectWithTag("B4").GetComponent<PlayerStatusScript>();
+        MiMiStatus = GameObject.FindGameObjectWithTag("MiMi").GetComponent<PlayerStatusScript>();
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class LightStationScript : MonoBehaviour {
         // TODO: Refactor this
         if (canChanel && !isActive)
         {
-            if (Input.GetButtonDown("Channelling") && canChanel && B4Controller.isBonded())
+            if (Input.GetButtonDown("Channelling") && canChanel && B4Status.getBondStatus())
             {
                 startTime = Time.time;
                 channeling = true;
@@ -81,7 +81,7 @@ public class LightStationScript : MonoBehaviour {
     {
         float timeDifference = Time.time - startTime;
 
-        if (timeDifference > chanelTime && timeDifference < chanelTime + 0.2f && channeling)
+        if (timeDifference > chanelTime && timeDifference < chanelTime + 0.2f)
         {
             Debug.Log("Channelled for three seconds");
             sparkParticles.Play();

@@ -57,7 +57,6 @@ public class EnemyNavmeshScript : MonoBehaviour {
 
         // Edit player speed, and set status 
         target.GetComponent<PlayerController>().speed += -2.0f;
-        target.GetComponent<PlayerController>().enemies.Add(gameObject);
 
         // Adjust ambient light  
 

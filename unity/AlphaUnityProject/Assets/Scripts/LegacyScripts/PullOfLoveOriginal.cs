@@ -90,7 +90,7 @@ public class PullOfLoveOriginal : MonoBehaviour {
         Debug.Log("Adding force with vec3: " + forceVector);
 
         // Notify player scripts of the pull effect 
-        character.GetComponent<PlayerController>().DetachEnemies(); 
+        //character.GetComponent<PlayerController>().DetachEnemies(); 
 
         //Trigger coroutine for x seconds to start spheres chase again
         //audioSources[4].Play();
