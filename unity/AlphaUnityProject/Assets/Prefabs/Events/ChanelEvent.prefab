@@ -511,9 +511,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138850}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0011842266, y: -0.21125126, z: -0.0016457448, w: 0.9774297}
+  m_LocalPosition: {x: -63.04, y: -0.02, z: -871.7}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 430840}
   - {fileID: 496674}
@@ -1119,6 +1119,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sparkParticles: {fileID: 19835736}
   haloParticles: {fileID: 19877698}
+  materialEndColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionColor: {r: 0, g: 0, b: 0, a: 0}
+  chanelTime: 0
+  materialFadeInTime: 3
+  AIHelpers: []
+  curcuitLines: {fileID: 0}
+  powerSphere: {fileID: 0}
+  meshLine: {fileID: 0}
 --- !u!114 &11479022
 MonoBehaviour:
   m_ObjectHideFlags: 1

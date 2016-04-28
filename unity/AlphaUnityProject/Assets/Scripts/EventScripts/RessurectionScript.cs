@@ -63,7 +63,7 @@ public class RessurectionScript : MonoBehaviour {
         audioSource.Play();
         GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>().clip = musicClip;
         StartCoroutine(MusicFadeIn(0.15f, 1.0f, 8.0f, GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>()));
-        chat.startChat();
+        //at.startChat();
         // send notification to event handler
         // eventController.handleEvent(ressurectionEvent);
     }

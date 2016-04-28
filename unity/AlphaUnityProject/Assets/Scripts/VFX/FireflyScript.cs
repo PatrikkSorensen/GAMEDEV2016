@@ -42,8 +42,6 @@ public class FireflyScript : MonoBehaviour {
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, destination, step);
-        Debug.Log("Moving");
-
     }
 
     Vector3 FindRoute()
