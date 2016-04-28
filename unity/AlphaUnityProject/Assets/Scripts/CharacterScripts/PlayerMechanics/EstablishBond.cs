@@ -177,4 +177,9 @@ public class EstablishBond : MonoBehaviour {
         destroyAudioSource.clip = destroyClip;
         destroyAudioSource.Play();
     }
+
+    void CreateParticles()
+    {
+
+    }
 }
