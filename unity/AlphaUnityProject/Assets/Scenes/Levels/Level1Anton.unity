@@ -4228,7 +4228,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: f178e21c1d2b40047b00131a7b69a059, type: 2}
+  - {fileID: 2100000, guid: 0a5a4744537e3bc43b3a0051659881da, type: 2}
   - {fileID: 2100000, guid: 366d70433cd00c44fb31fae2b3b21e53, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -9044,6 +9044,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.32923508
       objectReference: {fileID: 0}
+    - target: {fileID: 2347768, guid: 4586a86c3f037d845800b8971447102e, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c1f51529971783242af3a078a9dacec8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4586a86c3f037d845800b8971447102e, type: 2}
   m_IsPrefabParent: 0
@@ -10048,7 +10052,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: f178e21c1d2b40047b00131a7b69a059, type: 2}
+  - {fileID: 2100000, guid: 0a5a4744537e3bc43b3a0051659881da, type: 2}
   - {fileID: 2100000, guid: 366d70433cd00c44fb31fae2b3b21e53, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
