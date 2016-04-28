@@ -2968,6 +2968,33 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 424604, guid: 69fda9d559ac43741934756c8191e19a, type: 2}
   m_PrefabInternal: {fileID: 1677676443}
+--- !u!1 &611039257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 611039258}
+  m_Layer: 0
+  m_Name: DONTDELETEME
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &611039258
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 611039257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2295523, y: 1.0873624, z: -1.0897558}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1001 &620933237
 Prefab:
   m_ObjectHideFlags: 0
