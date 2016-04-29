@@ -3,9 +3,10 @@ using System.Collections;
 
 public class PullOfLove : MonoBehaviour {
 
-    public float pullForce, middlePullForce = 100.0f;
+    public float pullForce, middlePullForce, chanelPullForce = 50.0f;
     public AudioClip pullClip;
     public ForceMode forceMode;
+    public bool chanelPull = false; 
 
     private GameObject B4, MiMi;
     private PlayerStatusScript B4Status, MiMiStatus; 
@@ -21,8 +22,7 @@ public class PullOfLove : MonoBehaviour {
     }
 
 	void Update () {
-        if (Input.GetKey(KeyCode.X))
-            ChanelPull(); 
+
 
         if (B4Status.getBondStatus())
         {
@@ -31,10 +31,14 @@ public class PullOfLove : MonoBehaviour {
                 float timeDifference = Time.time - startTime;
                 if (timeDifference > timeDelay)
                 {
-                    if (B4Status.getChannelStatus())
+                    if (B4Status.getChannelStatus() && !chanelPull)
+                    {
                         PullMiMiToB4();
-                    else
-                        MiddlePull(); 
+                    } else if (B4Status.getChannelStatus() && chanelPull) {
+                        MiMiChanelPull(); 
+                    } else {
+                        MiddlePull();
+                    }
 
                     startTime = Time.time;
                 }
@@ -56,6 +60,7 @@ public class PullOfLove : MonoBehaviour {
 
     void PullB4ToMiMi()
     {
+        Debug.Log("Pulling b4 to Mimi");
         Vector3 forceDirection = MiMi.transform.position - B4.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
         B4.GetComponent<Rigidbody>().AddForce(forceVector * pullForce, forceMode);
@@ -76,8 +81,21 @@ public class PullOfLove : MonoBehaviour {
         MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * middlePullForce * 10, forceMode);
     }
 
-    void ChanelPull()
+    void B4ChanelPull()
     {
+        Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
+        Vector3 forceVector = forceDirection.normalized * 100;
+        B4.GetComponent<Rigidbody>().AddForce(forceVector * chanelPullForce, forceMode);
+        Debug.Log("MiMI Chanel pull");
+
+    }
+
+    void MiMiChanelPull()
+    {
+        Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
+        Vector3 forceVector = forceDirection.normalized * 100;
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * chanelPullForce, forceMode);
+        Debug.Log("MiMI Chanel pull");
 
     }
 }
