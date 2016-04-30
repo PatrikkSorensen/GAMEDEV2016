@@ -810,8 +810,9 @@ MonoBehaviour:
   vertical: RightPadVertical
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  keyboardMiMi: 0
-  enemies: []
+  playerStatus: {fileID: 0}
+  keyboardMiMi: 1
+  velocityMode: 0
 --- !u!135 &13576092
 SphereCollider:
   m_ObjectHideFlags: 1
