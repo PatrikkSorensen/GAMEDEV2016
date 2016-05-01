@@ -48,8 +48,6 @@ public class CurcuitLine : MonoBehaviour {
         lineTracer.transform.DOMove(targetPoint, 5.0f);
         
         m_points = points; 
-        foreach(Vector3 v in m_points)
-            Debug.Log(v);
 
         isInitiated = true; 
     }

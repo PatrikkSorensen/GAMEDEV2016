@@ -41,7 +41,6 @@ public class Agent : MonoBehaviour {
         get { return isBusy; }
         set
         {
-            Debug.Log("Setting isBusy to: " + value);
             isBusy = value;
         }
     }

@@ -14,7 +14,7 @@ public class TempleEventScript : MonoBehaviour {
 
     private List<CurcuitLines> m_stationlines = new List<CurcuitLines>();
     private CurcuitLines m_templelines; 
-    private bool isScenePlaying, isSceneFinished, isActive = false;
+    private bool isScenePlaying, isSceneFinished = false;
 	
 	void Start () {
         m_stationlines.Add(lightstation1.GetComponentInChildren<CurcuitLines>());

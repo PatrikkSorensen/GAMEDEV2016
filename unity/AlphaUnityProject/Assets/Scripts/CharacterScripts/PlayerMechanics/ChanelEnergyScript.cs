@@ -19,7 +19,6 @@ public class ChanelEnergyScript : MonoBehaviour {
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
 
         canChanel = !B4Status.getChannelStatus();
-        Debug.Log("CanChanel: " + canChanel);
     }
 	
 	void Update () {

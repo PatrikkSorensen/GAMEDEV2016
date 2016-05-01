@@ -1,0 +1,29 @@
+** NEW TEMPLE EVENT ** 
+- all prefabs, scenes and scripts regarding the chanelEvent has been renamed to TempleEvent. 
+- The new Temple event requires exactly two lightstations to be active through channelling 
+
+** NEW CHANELSWITCH ** 
+- A brand new chanel switch has been added to the project. This switch will serve as an indicator of whether an event should fire. 
+- The swith can only be turned on or off by having both players on the platform followed by a channelling. 
+- To see an example, see the beacon puzzle event. 
+
+** NEW DRAGOBJECT ** 
+- A simple dragable object that fits the size of MiMi has been added to the project. This rough object can serve as a way of illustrating how we might use pulling 
+- To see an example, see the beacon puzzle event. 
+
+
+Beacon event changes: 
+- The beacon event logic has been refactored, using a new prefab called chanelSwitch (read more on chanel switch below) 
+- The beacon event still uses AI helpers, only this time, they will go to the final platform when the players have channelled all three platforms 
+
+
+
+Lightstation prefab: 
+- Modified scale to proper size 
+- added emptyobjects to categorize vfx , curcuitlines and AI helpers 
+
+Script changess
+
+Smaller prefab modifications:  
+- Tower ruin has been renamed to templeruin from ruin 
+- lightstation has been organized slightly different 

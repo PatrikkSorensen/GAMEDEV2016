@@ -5,7 +5,13 @@ using DG.Tweening;
 public class SplitWallsScript : MonoBehaviour {
     public Transform wall1, wall2;
 
-    private bool isSceneFinished, isScenePlaying = false; 
+    private bool isSceneFinished, isScenePlaying = false;
+
+    public bool IsSceneFinished
+    {
+        get { return isSceneFinished; }
+        set {isSceneFinished = value;}
+    }
 
     public IEnumerator SplitWalls()
     {
@@ -13,6 +19,7 @@ public class SplitWallsScript : MonoBehaviour {
             yield break; 
         else 
             isScenePlaying = true; 
+
         // NOTE: 4 is the number of rows per column of the split walls. 
         // This is VERY hardcoded, please don't use anywhere else 
         for(int i = 3; i>=0; i--)
@@ -39,6 +46,6 @@ public class SplitWallsScript : MonoBehaviour {
             wall2.GetChild(i).DOMove(new Vector3(0.0f, -5.0f, 0.0f), 2.0f).SetRelative().SetLoops(1, LoopType.Yoyo);
         }
 
-        
+        IsSceneFinished = true; 
     }
 }

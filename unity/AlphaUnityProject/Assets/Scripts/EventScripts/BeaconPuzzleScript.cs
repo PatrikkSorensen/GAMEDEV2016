@@ -4,52 +4,40 @@ using System.Collections.Generic;
 using DG.Tweening;
 
 public class BeaconPuzzleScript : MonoBehaviour {
-    public GameObject wallToMove; 
+    public GameObject chanelSwitch; 
     public GameObject[] lightStations;
     public Vector3 DOTMove = new Vector3(0.0f, 10.0f, 0.0f);
-    private List <LightStationScript> lightstationScripts = new List<LightStationScript>();
+
+    private SplitWallsScript splitWallsScript; 
+    private bool isScenePlaying, isSceneFinished, isActive = false;
+
     private bool shouldEventFire, eventTriggered = false; 
 
     void Start()
     {
-        foreach(GameObject g in lightStations)
-        {
-            lightstationScripts.Add(g.GetComponent<LightStationScript>()); 
-        }
+        splitWallsScript = GetComponent<SplitWallsScript>(); 
     }
 
     void Update()
     {
-        if (lightstationScripts.Count == 0)
-        {
-            Debug.LogWarning("Destroying puzzle, there is no scripts assigned to the lightstations");
-            Destroy(gameObject.GetComponent<BeaconPuzzleScript>());
-        }
+        if (Input.GetKey(KeyCode.M) && !isScenePlaying)
+            StartCoroutine(PlayScene()); 
 
-        CheckLightStations();
+        if(chanelSwitch.GetComponent<ChannelSwitch>().IsActive)
+            StartCoroutine(PlayScene());
     }
 
     void CheckLightStations()
     {
-        foreach (LightStationScript ls in lightstationScripts)
-        {
-            if (!ls.IsActive)
-            {
-                shouldEventFire = false;
-                break;
-            }
 
-            shouldEventFire = true;
-        }
-
-        if (shouldEventFire && !eventTriggered)
-        {
-            triggerEvent();
-        }
     }
 
-    void triggerEvent()
+    IEnumerator PlayScene()
     {
-        StartCoroutine(GetComponent<SplitWallsScript>().SplitWalls());
+        Debug.Log("playing activation scene");
+        isScenePlaying = true;
+
+        StartCoroutine(splitWallsScript.SplitWalls());
+        yield return null;
     }
 }

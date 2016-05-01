@@ -89,7 +89,7 @@ public class CurcuitLines : MonoBehaviour {
         // ------------------------------------------------- END ------------------------------------------------- // 
     }
 
-    public void GetStatus()
+    public void DebugStatus()
     {
         Debug.Log(gameObject.name + " with parent: " + transform.parent.name);
         Debug.Log("Has channelled: " + hasChannelled + " | hasDrawn: " + channeling); 
