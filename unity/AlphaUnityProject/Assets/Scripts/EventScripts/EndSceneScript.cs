@@ -15,7 +15,13 @@ public class EndSceneScript : MonoBehaviour {
     public float fadeUIImageTime;
 
     [SerializeField]
-    public AnimationCurve fadeOutCurve; 
+    public AnimationCurve fadeOutAmbientCurve;
+
+    [SerializeField]
+    public AnimationCurve fadeOutUIImageCurve;
+
+    private TowerInfectionScript infectionScript;
+    private FadeMaterial materialScript; 
 
     private Image image; 
     private bool canChanel, channeling = false; 
@@ -24,7 +30,9 @@ public class EndSceneScript : MonoBehaviour {
 
     void Start()
     {
-        image = UIImage.GetComponent<Image>(); 
+        image = UIImage.GetComponent<Image>();
+        infectionScript = GetComponent<TowerInfectionScript>();
+        materialScript = GetComponent<FadeMaterial>(); 
     }
     void Update()
     {
@@ -75,7 +83,7 @@ public class EndSceneScript : MonoBehaviour {
             channeling = false;
             timesChanelled++;
 
-            if (timesChanelled == 1)
+            if (timesChanelled == 1) { }
                 PlayScene();
 
             if (timesChanelled == 2)
@@ -93,7 +101,8 @@ public class EndSceneScript : MonoBehaviour {
 
     void PlayScene()
     {
-        DOTween.To(() => RenderSettings.ambientLight, x => RenderSettings.ambientLight = x, Color.black, fadeAmbientTime).SetEase(fadeOutCurve);
+        DOTween.To(() => RenderSettings.ambientLight, x => RenderSettings.ambientLight = x, Color.black, fadeAmbientTime).SetEase(fadeOutAmbientCurve);
+        infectionScript.shouldPingPong = true; 
     }
 
     void SwitchLevel()
@@ -103,6 +112,8 @@ public class EndSceneScript : MonoBehaviour {
 
     void FadeInUIImage()
     {
-        DOTween.To(() => image.color, x => image.color = x, Color.black, fadeUIImageTime).SetEase(fadeOutCurve);
+        infectionScript.shouldPlayLightScene = true;
+        materialScript.SwitchMaterial(); 
+        DOTween.To(() => image.color, x => image.color = x, Color.black, fadeUIImageTime).SetEase(fadeOutUIImageCurve);
     }
 }

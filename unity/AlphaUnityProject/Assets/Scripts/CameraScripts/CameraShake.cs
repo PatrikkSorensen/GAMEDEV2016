@@ -7,7 +7,6 @@ public class CameraShake : MonoBehaviour
     private Quaternion originRotation;
     public float shake_decay;
     public float shake_intensity;
-    public bool isFired = false; 
 
 
     void Update()
@@ -16,21 +15,20 @@ public class CameraShake : MonoBehaviour
         if (shake_intensity > 0)
         {
             transform.position = originPosition + Random.insideUnitSphere * shake_intensity;
-            transform.rotation = new Quaternion(
-            originRotation.x + Random.Range(-shake_intensity, shake_intensity) * .2f,
-            originRotation.y + Random.Range(-shake_intensity, shake_intensity) * .2f,
-            originRotation.z + Random.Range(-shake_intensity, shake_intensity) * .2f,
-            originRotation.w + Random.Range(-shake_intensity, shake_intensity) * .2f);
+            //transform.rotation = new Quaternion(
+            //originRotation.x + Random.Range(-shake_intensity, shake_intensity) * .2f,
+            //originRotation.y + Random.Range(-shake_intensity, shake_intensity) * .2f,
+            //originRotation.z + Random.Range(-shake_intensity, shake_intensity) * .2f,
+            //originRotation.w + Random.Range(-shake_intensity, shake_intensity) * .2f);
             shake_intensity -= shake_decay;
         }
     }
 
     public void Shake()
     {
-        isFired = true; 
         originPosition = transform.position;
         originRotation = transform.rotation;
         shake_intensity = .06f;
-        shake_decay = 0.001f;
+        shake_decay = 0.0001f;
     }
 }
