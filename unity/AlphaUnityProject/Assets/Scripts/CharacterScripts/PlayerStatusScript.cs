@@ -4,15 +4,17 @@ using System.Collections;
 public class PlayerStatusScript : MonoBehaviour  {
     public bool isChannelled;
     public bool isBonded;
+    public bool canSlingshot;
     public float speed; 
-    public int enemiesAttached; 
+    public int enemiesAttached;
 
     public PlayerStatusScript(float speed)
     {
         this.speed = speed;
         this.enemiesAttached = 0;
         this.isChannelled = false; 
-        this.isBonded = false; 
+        this.isBonded = false;
+        this.canSlingshot = false; 
     }
 
     public void setSpeed(float speed)
@@ -43,5 +45,15 @@ public class PlayerStatusScript : MonoBehaviour  {
     public bool getChannelStatus()
     {
         return this.isChannelled;
+    }
+
+    public bool getCanSlingShot()
+    {
+        return this.canSlingshot;
+    }
+
+    public void setCanSlingshot(bool b)
+    {
+        this.canSlingshot = b; 
     }
 }

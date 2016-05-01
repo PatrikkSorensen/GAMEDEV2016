@@ -18,6 +18,12 @@ public class CurcuitLines : MonoBehaviour {
     private LineRenderer lr; 
     private bool channeling, hasChannelled = false;
 
+    public bool HasChannelled
+    {
+        get { return hasChannelled; }
+        set { hasChannelled = value;}
+    }
+
     void Update()
     {
         if(Input.GetKey(KeyCode.C) && !channeling)
@@ -34,7 +40,7 @@ public class CurcuitLines : MonoBehaviour {
 
     IEnumerator BeginChanneling()
     {
-        if (hasChannelled || channeling)
+        if (HasChannelled || channeling)
             StopCoroutine(BeginChanneling());
 
         channeling = true;
@@ -76,9 +82,16 @@ public class CurcuitLines : MonoBehaviour {
                 yield return new WaitForSeconds(1.0f);
             }
 
-            Destroy(lineTracer.GetComponent<CurcuitLine>()); 
+            Destroy(lineTracer.GetComponent<CurcuitLine>());
+            HasChannelled = true;
             // Do end line visuals here results here... 
         }
         // ------------------------------------------------- END ------------------------------------------------- // 
+    }
+
+    public void GetStatus()
+    {
+        Debug.Log(gameObject.name + " with parent: " + transform.parent.name);
+        Debug.Log("Has channelled: " + hasChannelled + " | hasDrawn: " + channeling); 
     }
 }

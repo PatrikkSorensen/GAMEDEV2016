@@ -142,7 +142,7 @@ public class LightStationScript : MonoBehaviour {
 
     void ActivateLines()
     {
-        if (curcuitLines.GetComponent<CurcuitLines>())
+        if (curcuitLines)
             curcuitLines.GetComponent<CurcuitLines>().ChanelLines();
         else
             Debug.LogWarning("There are no curcuitlines script to the gameobject specified");

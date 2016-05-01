@@ -20,7 +20,6 @@ public class UIDebugger : MonoBehaviour {
         GUIMiMi = GameObject.FindGameObjectWithTag("GUIMiMiStatus").GetComponent<Text>();
     }
 
-	// Update is called once per frame
 	void Update () {
         UpdateGUI();
     }
@@ -33,13 +32,17 @@ public class UIDebugger : MonoBehaviour {
 
     void UpdateMiMiGUI()
     {
-        GUIMiMi.text = gameObject.name + "\nisBonded: " + MiMiStatus.getBondStatus() +
+        GUIMiMi.text = "MiMI: " + "\nisBonded: " + MiMiStatus.getBondStatus() +
        "\nspeed: " + MiMiStatus.getSpeed() +
-        "\nchanneled" + MiMiStatus.getChannelStatus(); 
+        "\nchanneled: " + MiMiStatus.getChannelStatus() + 
+        "\ncan slingshot: " + MiMiStatus.getCanSlingShot();
     }
 
     void UpdateB4GUI()
     {
-
+        GUIB4.text = "B4: " + "\nisBonded: " + B4Status.getBondStatus() +
+        "\nspeed: " + B4Status.getSpeed() +
+        "\nchanneled: " + B4Status.getChannelStatus() +
+        "\ncan slingshot: " + B4Status.getCanSlingShot();
     }
 }

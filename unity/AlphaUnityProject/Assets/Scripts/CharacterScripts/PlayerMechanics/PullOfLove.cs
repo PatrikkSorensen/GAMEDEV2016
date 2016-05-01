@@ -23,6 +23,9 @@ public class PullOfLove : MonoBehaviour {
 
 	void Update () {
 
+        if(B4Status.getCanSlingShot())
+            if(Input.GetKeyDown(KeyCode.N))
+                MiMiChanelPull(); 
 
         if (B4Status.getBondStatus())
         {
