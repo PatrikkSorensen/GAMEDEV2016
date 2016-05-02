@@ -18,12 +18,18 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     private Transform playerOne;
     private Transform playerTwo;
     private Vector3 middlePosition; 
-    private Vector3 targetPosition; 
+    private Vector3 targetPosition;
+    private Ray rayFwd;
+    private Transform cam;
+    private bool DidFwdRayHit = false;
+    private int randomDir = 0; // 0 for left 1 for right
+
 
     void Start()
     {
         playerOne = GameObject.FindGameObjectWithTag("B4").transform;
         playerTwo = GameObject.FindGameObjectWithTag("MiMi").transform;
+        
         Vector3 offset = new Vector3(2, 0, 0);
     }
 
@@ -43,7 +49,96 @@ public class ThirdPersonCameraScript : MonoBehaviour {
 
         }
 
+        RaycastHit hit;
+        cam = Camera.main.transform;
 
+        rayFwd = new Ray(cam.position, cam.forward);
+
+        Vector3 rayRightV1 = cam.forward;
+        rayRightV1 = Quaternion.AngleAxis(20, Vector3.up) * rayRightV1;
+
+        Vector3 rayLeftV1 = cam.forward;
+        rayLeftV1 = Quaternion.AngleAxis(-20, Vector3.up) * rayLeftV1;
+
+        Vector3 rayRightV2 = cam.forward;
+        rayRightV2 = Quaternion.AngleAxis(45, Vector3.up) * rayRightV2;
+
+        Vector3 rayLeftV2 = cam.forward;
+        rayLeftV2 = Quaternion.AngleAxis(-45, Vector3.up) * rayLeftV2;
+
+        Vector3 rayRightV3 = cam.forward;
+        rayRightV3 = Quaternion.AngleAxis(65, Vector3.up) * rayRightV3;
+
+        Vector3 rayLeftV3 = cam.forward;
+        rayLeftV3 = Quaternion.AngleAxis(-65, Vector3.up) * rayLeftV3;
+
+        Vector3 rayRightV4 = cam.forward;
+        rayRightV4 = Quaternion.AngleAxis(90, Vector3.up) * rayRightV4;
+
+        Vector3 rayLeftV4 = cam.forward;
+        rayLeftV4 = Quaternion.AngleAxis(-90, Vector3.up) * rayLeftV4;
+
+        if (DidFwdRayHit == false)
+        {
+            randomDir = Mathf.RoundToInt(Random.value);
+        }
+
+        if (Physics.Raycast(rayFwd, out hit, 4.0f))
+        {
+            DidFwdRayHit = true;
+            Debug.DrawLine(rayFwd.origin, hit.point);
+            if (randomDir == 1) { cameraPan = cameraPan + 0.005f; }
+            if (randomDir == 0) { cameraPan = cameraPan - 0.005f; }
+        }
+        else { DidFwdRayHit = false; }
+
+        if (Physics.Raycast(cam.position, rayLeftV1, out hit, 4.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan - 0.005f;
+        }
+
+        if (Physics.Raycast(cam.position, rayRightV1, out hit, 4.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan + 0.005f;
+        }
+        
+        if(Physics.Raycast(cam.position, rayLeftV2, out hit, 3.50f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan - 0.005f;
+        }
+
+        if (Physics.Raycast(cam.position, rayRightV2, out hit, 3.5f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan + 0.005f;
+        }
+
+        if (Physics.Raycast(cam.position, rayRightV3, out hit, 3.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan + 0.005f;
+        }
+
+        if (Physics.Raycast(cam.position, rayLeftV3, out hit, 3.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan - 0.005f;
+        }
+
+        if (Physics.Raycast(cam.position, rayRightV4, out hit, 3.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan + 0.005f;
+        }
+
+        if (Physics.Raycast(cam.position, rayLeftV4, out hit, 3.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            cameraPan = cameraPan - 0.005f;
+        }
 
         Vector3 offset = new Vector3(Mathf.Sin(cameraPan) * 2, 0, Mathf.Sin(cameraPan + (Mathf.PI/2)) * 2);
         targetPosition = middlePosition + Vector3.up * distanceUp - offset * distanceAway;
