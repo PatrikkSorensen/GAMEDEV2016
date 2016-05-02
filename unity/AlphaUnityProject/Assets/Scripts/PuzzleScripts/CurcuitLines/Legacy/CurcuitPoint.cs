@@ -2,7 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 
-public class CurcuitLine : MonoBehaviour {
+public class CurcuitPoint : MonoBehaviour {
 
     private Vector3[] m_points;
     private GameObject lineTracer; 
