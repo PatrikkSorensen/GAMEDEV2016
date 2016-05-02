@@ -3,8 +3,13 @@ using System.Collections;
 
 public class AnimatedTextureSwapping : MonoBehaviour {
 
+    public GameObject rightEye, leftEye; 
+    public Animator anim; 
     public Texture2D[] frames;
-    float framesPerSecond = 10.0f;
+    private float framesPerSecond = 10.0f;
+    public float timeBetweenFames = 0.05f; 
+
+    private Material leftEyeMat, rightEyeMat; 
 
     void Update()
     {
@@ -23,13 +28,19 @@ public class AnimatedTextureSwapping : MonoBehaviour {
     {
         //TODO: Make more generic
         int[] sequence = { 0, 1, 2, 3, 2, 1, 0 };
-        Renderer r = GetComponent<Renderer>(); 
+        Renderer l_rend = leftEye.GetComponent<Renderer>(); 
+        Renderer R_rend = rightEye.GetComponent<Renderer>();
 
-        foreach(int index in sequence)
+        foreach (int index in sequence)
         {
-            r.material.mainTexture = frames[index]; 
-            yield return new WaitForSeconds(0.1f);
+            l_rend.material.mainTexture = frames[index];
+            R_rend.material.mainTexture = frames[index];
+            yield return new WaitForSeconds(timeBetweenFames);
         }
+
+        anim.SetBool("blinking", false);
+        anim.SetInteger("blink_int", 1);
+        anim.SetBool("idle", true);
 
         yield return null; 
     }

@@ -25,7 +25,6 @@ GameObject:
   - 4: {fileID: 419990}
   - 33: {fileID: 3366300}
   - 23: {fileID: 2368534}
-  - 114: {fileID: 11413698}
   m_Layer: 0
   m_Name: eyesL
   m_TagString: Untagged
@@ -43,7 +42,6 @@ GameObject:
   - 4: {fileID: 455326}
   - 33: {fileID: 3355860}
   - 23: {fileID: 2398538}
-  - 114: {fileID: 11448378}
   m_Layer: 0
   m_Name: eyesR
   m_TagString: Untagged
@@ -114,6 +112,7 @@ GameObject:
   - 54: {fileID: 5405566}
   - 135: {fileID: 13576092}
   - 114: {fileID: 11454302}
+  - 114: {fileID: 11469898}
   m_Layer: 0
   m_Name: MiMi
   m_TagString: MiMi
@@ -355,7 +354,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129526}
   m_LocalRotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
-  m_LocalPosition: {x: -17.877077, y: -2.9260497, z: -25.961866}
+  m_LocalPosition: {x: -17.9, y: -2.4, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 486060}
@@ -406,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.771484, y: -2.9260497, z: -25.961866}
+  m_LocalPosition: {x: 18.8, y: -2.4, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 486060}
@@ -430,7 +429,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150416}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: -1.12, y: 0.022, z: -0.73}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 421508}
@@ -754,7 +753,7 @@ Animator:
   m_GameObject: {fileID: 150416}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fd0196997e62edc4aa93ba0072262803, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e39158346ad1b54082d862269e33f3a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -762,38 +761,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11413698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frames:
-  - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
-  - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
-  - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
-  - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
---- !u!114 &11448378
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frames:
-  - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
-  - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
-  - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
-  - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
 --- !u!114 &11454302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,6 +780,26 @@ MonoBehaviour:
   playerStatus: {fileID: 0}
   keyboardMiMi: 1
   velocityMode: 0
+--- !u!114 &11469898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightEye: {fileID: 129910}
+  leftEye: {fileID: 129526}
+  anim: {fileID: 9505014}
+  frames:
+  - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
+  - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
+  - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
+  - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
+  timeBetweenFames: 0.05
 --- !u!135 &13576092
 SphereCollider:
   m_ObjectHideFlags: 1
