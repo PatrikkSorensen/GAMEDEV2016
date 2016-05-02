@@ -388,6 +388,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6a3505bc7be58b42a5703e9aa5974f8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &727817662
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071066
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.70710695
+      objectReference: {fileID: 0}
+    - target: {fileID: 467676, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b965bb3d8df21784c9e099d4695dec26, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &852004519
 Prefab:
   m_ObjectHideFlags: 0
@@ -649,42 +691,6 @@ Prefab:
       propertyPath: m_Name
       value: 'B4 '
       objectReference: {fileID: 0}
-    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: damper
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: pullForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485116, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485116, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_Mass
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490544, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: speed
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: maxSpringDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: springPower
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490544, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: velocityMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485116, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_AngularDrag
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481de592d420144184f70d818c92e06, type: 2}
   m_IsPrefabParent: 0
@@ -725,7 +731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424052, guid: e30dedd982a06724bace5a6d7e273bb1, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 190068, guid: e30dedd982a06724bace5a6d7e273bb1, type: 2}
       propertyPath: m_Name
@@ -884,30 +890,6 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bbddd21769c183349b588e2a8a44eaa7, type: 2}
-    - target: {fileID: 5405566, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405566, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: m_Mass
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: speed
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: velocityMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: keyboardMiMi
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405566, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: m_AngularDrag
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
   m_IsPrefabParent: 0
