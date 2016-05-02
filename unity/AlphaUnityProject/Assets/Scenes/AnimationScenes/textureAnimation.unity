@@ -152,16 +152,20 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 911938793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightEye: {fileID: 0}
+  leftEye: {fileID: 0}
+  anim: {fileID: 1098071572}
   frames:
   - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
   - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
   - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
   - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
+  timeBetweenFames: 0.05
 --- !u!23 &911938795
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -261,6 +265,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
   m_IsPrefabParent: 0
+--- !u!95 &1098071572 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9505014, guid: be6a9255e5d475246bc2d1fdce635f27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1031728754}
 --- !u!1001 &1797336068
 Prefab:
   m_ObjectHideFlags: 0
