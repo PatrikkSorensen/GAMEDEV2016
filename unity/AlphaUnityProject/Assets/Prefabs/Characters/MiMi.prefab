@@ -429,7 +429,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150416}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -1.12, y: 0.022, z: -0.73}
+  m_LocalPosition: {x: -0.72, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 421508}
@@ -736,9 +736,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150416}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1
+  m_Mass: 0.5
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -800,6 +800,24 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
   - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
   timeBetweenFames: 0.05
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558d460486cce93458da50a6d31ce99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 9
+  horizontal: RightPadHorizontal
+  vertical: RightPadVertical
+  movingTurnSpeed: 180
+  stationaryTurnSpeed: 180
+  playerStatus: {fileID: 0}
+  keyboardMiMi: 0
+  velocityMode: 1
 --- !u!135 &13576092
 SphereCollider:
   m_ObjectHideFlags: 1
