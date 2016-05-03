@@ -46,8 +46,8 @@ public class CurcuitLines : MonoBehaviour {
         channeling = true;
         // ------------------------------------------------- BEGIN ------------------------------------------------- // 
         lineTracer = lineStart;
-        lineTracer.AddComponent<CurcuitLine>();
-        lineTracer.GetComponent<CurcuitLine>().Initiate(lineObjects[0].transform.position);
+        lineTracer.AddComponent<CurcuitPoint>();
+        lineTracer.GetComponent<CurcuitPoint>().Initiate(lineObjects[0].transform.position);
 
         // Visuals: 
         lr = lineTracer.GetComponent<LineRenderer>();
@@ -55,20 +55,20 @@ public class CurcuitLines : MonoBehaviour {
         lr.material = lineMaterial; 
         lr = lineTracer.GetComponent<LineRenderer>(); 
 
-        while (!lineTracer.GetComponent<CurcuitLine>().IsDrawn)
+        while (!lineTracer.GetComponent<CurcuitPoint>().IsDrawn)
         {
             Debug.Log("waiting...");
             yield return new WaitForSeconds(1.0f); 
         }
 
-        Destroy(lineTracer.GetComponent<CurcuitLine>());
+        Destroy(lineTracer.GetComponent<CurcuitPoint>());
 
         // For all lineObjects, render lines between them. 
         for (int i = 0; i < lineObjects.Count - 1; i++)
         {
             lineTracer = lineObjects[i]; 
-            lineTracer.AddComponent<CurcuitLine>();
-            lineTracer.GetComponent<CurcuitLine>().Initiate(lineObjects[i + 1].transform.position);
+            lineTracer.AddComponent<CurcuitPoint>();
+            lineTracer.GetComponent<CurcuitPoint>().Initiate(lineObjects[i + 1].transform.position);
 
             // Visuals: 
             lr = lineTracer.GetComponent<LineRenderer>();
@@ -76,13 +76,13 @@ public class CurcuitLines : MonoBehaviour {
             lr.material = lineMaterial;
             lr = lineTracer.GetComponent<LineRenderer>();
 
-            while (!lineTracer.GetComponent<CurcuitLine>().IsDrawn)
+            while (!lineTracer.GetComponent<CurcuitPoint>().IsDrawn)
             {
                 Debug.Log("waiting...");
                 yield return new WaitForSeconds(1.0f);
             }
 
-            Destroy(lineTracer.GetComponent<CurcuitLine>());
+            Destroy(lineTracer.GetComponent<CurcuitPoint>());
             HasChannelled = true;
             // Do end line visuals here results here... 
         }
