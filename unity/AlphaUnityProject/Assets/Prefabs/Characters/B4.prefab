@@ -64,6 +64,7 @@ GameObject:
   - 114: {fileID: 11417278}
   - 114: {fileID: 11451208}
   - 114: {fileID: 11443808}
+  - 65: {fileID: 6590278}
   m_Layer: 0
   m_Name: B4
   m_TagString: B4
@@ -416,7 +417,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.3, y: 0.09, z: -798.62}
+  m_LocalPosition: {x: -1.8599999, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 417630}
@@ -861,6 +862,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.66}
   m_Center: {x: 0, y: 0.5, z: 0.12}
+--- !u!65 &6590278
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1, z: 0.66}
+  m_Center: {x: 0, y: 0.5, z: 0.12}
 --- !u!95 &9550736
 Animator:
   serializedVersion: 3
@@ -972,13 +985,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  horizontal: 
-  vertical: 
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  playerStatus: {fileID: 0}
   keyboardMiMi: 0
-  velocityMode: 1
+  velocityMode: 0
+  playerStatus: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

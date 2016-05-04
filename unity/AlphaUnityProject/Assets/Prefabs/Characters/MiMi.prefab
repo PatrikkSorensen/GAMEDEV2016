@@ -754,7 +754,7 @@ Animator:
   m_GameObject: {fileID: 150416}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fd0196997e62edc4aa93ba0072262803, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e39158346ad1b54082d862269e33f3a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -776,9 +776,9 @@ MonoBehaviour:
   speed: 13
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  playerStatus: {fileID: 0}
   keyboardMiMi: 1
   velocityMode: 0
+  playerStatus: {fileID: 0}
 --- !u!114 &11469898
 MonoBehaviour:
   m_ObjectHideFlags: 1
