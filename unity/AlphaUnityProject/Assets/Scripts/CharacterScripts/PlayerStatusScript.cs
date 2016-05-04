@@ -1,22 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Component based solution instead of object oriented class solution. Might be changed.
+
 public class PlayerStatusScript : MonoBehaviour  {
-    public bool isChannelled;
-    public bool isBonded;
-    public bool canSlingshot;
-    public float speed; 
-    public int enemiesAttached;
+    private bool isEmpowered = false;
+    private bool isBonded = false;
+    private bool canSlingshot = false;
+    private bool canEmpower = true; 
+    private float speed = 15;
 
-    public PlayerStatusScript(float speed)
-    {
-        this.speed = speed;
-        this.enemiesAttached = 0;
-        this.isChannelled = false; 
-        this.isBonded = false;
-        this.canSlingshot = false; 
-    }
-
+    // Speed state
     public void setSpeed(float speed)
     {
         this.speed = speed; 
@@ -27,6 +21,7 @@ public class PlayerStatusScript : MonoBehaviour  {
         return this.speed;
     }
 
+    // Bond state
     public void setBondStatus(bool b)
     {
         this.isBonded = b; 
@@ -37,16 +32,30 @@ public class PlayerStatusScript : MonoBehaviour  {
         return this.isBonded;
     }
 
-    public void setChannelStatus(bool b)
+    // Can empower state
+    public void setCanEmpowerStatus(bool b)
     {
-        this.isChannelled = b;
+        this.canEmpower = b;
     }
 
-    public bool getChannelStatus()
+    public bool getCanEmpowerStatus()
     {
-        return this.isChannelled;
+        return this.canEmpower;
     }
 
+    // Empower state 
+    public void setEmpowerStatus(bool b)
+    {
+        
+        this.isEmpowered = b; 
+    }
+
+    public bool getEmpowerStatus()
+    {
+        return this.isEmpowered; 
+    }
+        
+    // Slingshot state TODO: Make it attached state instead
     public bool getCanSlingShot()
     {
         return this.canSlingshot;

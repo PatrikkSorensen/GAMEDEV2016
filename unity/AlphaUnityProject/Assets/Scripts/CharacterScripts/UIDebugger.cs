@@ -34,7 +34,8 @@ public class UIDebugger : MonoBehaviour {
     {
         GUIMiMi.text = "MiMI: " + "\nisBonded: " + MiMiStatus.getBondStatus() +
        "\nspeed: " + MiMiStatus.getSpeed() +
-        "\nchanneled: " + MiMiStatus.getChannelStatus() + 
+       "\n canEmpower: " + MiMiStatus.getCanEmpowerStatus() +
+        "\nempowered: " + MiMiStatus.getEmpowerStatus() + 
         "\ncan slingshot: " + MiMiStatus.getCanSlingShot();
     }
 
@@ -42,7 +43,8 @@ public class UIDebugger : MonoBehaviour {
     {
         GUIB4.text = "B4: " + "\nisBonded: " + B4Status.getBondStatus() +
         "\nspeed: " + B4Status.getSpeed() +
-        "\nchanneled: " + B4Status.getChannelStatus() +
+        "\n canEmpower: " + B4Status.getCanEmpowerStatus() +
+        "\nempowered: " + B4Status.getEmpowerStatus() +
         "\ncan slingshot: " + B4Status.getCanSlingShot();
     }
 }

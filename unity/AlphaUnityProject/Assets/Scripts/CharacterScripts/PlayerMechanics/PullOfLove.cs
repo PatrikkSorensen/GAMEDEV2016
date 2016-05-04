@@ -34,10 +34,10 @@ public class PullOfLove : MonoBehaviour {
                 float timeDifference = Time.time - startTime;
                 if (timeDifference > timeDelay)
                 {
-                    if (B4Status.getChannelStatus() && !chanelPull)
+                    if (B4Status.getEmpowerStatus() && !chanelPull)
                     {
                         PullMiMiToB4();
-                    } else if (B4Status.getChannelStatus() && chanelPull) {
+                    } else if (B4Status.getEmpowerStatus() && chanelPull) {
                         MiMiChanelPull(); 
                     } else {
                         MiddlePull();
