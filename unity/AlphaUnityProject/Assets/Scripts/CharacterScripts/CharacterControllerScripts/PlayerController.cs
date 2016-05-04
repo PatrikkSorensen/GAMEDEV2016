@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
     public float stationaryTurnSpeed = 180;
     public bool keyboardMiMi, velocityMode = false;
 
-    [HideInInspector]
     public PlayerStatusScript playerStatus;
 
     private Rigidbody rb;
@@ -64,6 +63,14 @@ public class PlayerController : MonoBehaviour {
         else
             rb.AddForce(movement * speed);
 
+        //TODO: Evaluate this on controller: rb.AddForce(movement.normalized * Time.deltaTime * speed);
+
+        
+
+        float m_speed = movement.normalized.magnitude;
+
+        anim.SetFloat("Speed", m_speed);
+
         // Rotation
         if (movement.magnitude > 1f) movement.Normalize();
             movement = transform.InverseTransformDirection(movement);
@@ -78,12 +85,13 @@ public class PlayerController : MonoBehaviour {
     public void SetVariables()
     {
         rb = GetComponent<Rigidbody>();
-        playerStatus = gameObject.AddComponent<PlayerStatusScript>(); // Could be useful
+        anim = GetComponent<Animator>(); 
+        playerStatus = gameObject.AddComponent<PlayerStatusScript>(); // useful for other scripts
 
-        B4 = GameObject.FindGameObjectWithTag("B4");
-        MiMi = GameObject.FindGameObjectWithTag("MiMi");
-        B4Status = B4.GetComponent<PlayerController>().playerStatus;
-        MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
+        //B4 = GameObject.FindGameObjectWithTag("B4");
+        //MiMi = GameObject.FindGameObjectWithTag("MiMi");
+        //B4Status = B4.GetComponent<PlayerController>().playerStatus;
+        //MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
     }
 
     public void SetInputs()

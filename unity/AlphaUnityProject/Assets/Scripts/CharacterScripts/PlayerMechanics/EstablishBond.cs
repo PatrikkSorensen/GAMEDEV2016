@@ -34,7 +34,7 @@ public class EstablishBond : MonoBehaviour {
 
 	public Shader shader2;
 
-    void Awake()
+    void Start()
     {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
