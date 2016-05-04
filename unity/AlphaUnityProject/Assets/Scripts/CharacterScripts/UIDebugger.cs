@@ -17,13 +17,11 @@ public class UIDebugger : MonoBehaviour {
 
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
-        Debug.Log("MiMiStatus: " + MiMiStatus);
         GUIMiMi = GameObject.FindGameObjectWithTag("GUIMiMiStatus").GetComponent<Text>();
     }
 
 	void Update () {
         PlayerStatusScript test = B4.GetComponent<PlayerStatusScript>(); 
-        Debug.Log("MiMiStatus: " + test);
         UpdateGUI();
     }
 

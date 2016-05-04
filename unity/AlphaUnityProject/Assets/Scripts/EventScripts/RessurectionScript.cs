@@ -6,44 +6,45 @@ public class RessurectionScript : MonoBehaviour {
 
     public AudioClip clip, musicClip;
     public RobotChatScript chat;
+    public float fadeInTime, fadeOutTime = 5.0f; 
 
-    private AudioSource audioSource;
-    private Animator anim;
-    private GameObject playerOne, playerTwo, storyWall;
+    private AudioSource sfxSource, musicSource;
+    private GameObject B4, MiMi, sfxController, musicController;
     private EventController eventController;
     private bool sceneIsFinished = false;  
 
-    void Awake()
+    void Start()
     {
-        GameObject controller = GameObject.FindGameObjectWithTag("AudioController");
-        audioSource = controller.AddComponent<AudioSource>();
-        playerOne = GameObject.FindGameObjectWithTag("B4");
-        playerTwo = GameObject.FindGameObjectWithTag("MiMi");
-        storyWall = GameObject.FindGameObjectWithTag("StoryWall"); // Make this variable public
-        //eventController = GameObject.FindGameObjectWithTag("EventController").GetComponent<EventController>();
+        // TODO: Refactor this
+        musicController = GameObject.FindGameObjectWithTag("MusicController");
+
+        musicSource = musicController.GetComponent<AudioSource>(); 
+        sfxSource = musicController.AddComponent<AudioSource>();
+
+        B4 = GameObject.FindGameObjectWithTag("B4");
+        MiMi = GameObject.FindGameObjectWithTag("MiMi");
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "B4")
-        {
-            Debug.Log("Trigger entered");
             triggerRessurcetionEvent();
-        }
     }
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.X))
+            triggerRessurcetionEvent();
+
         if (sceneIsFinished)
         {
-            playerTwo.GetComponent<PlayerController>().enabled = true;
-            playerOne.GetComponent<PullOfLove>().enabled = true;
-            playerOne.GetComponent<EstablishBond>().enabled = true;
+            MiMi.GetComponent<PlayerController>().enabled = true;
+            B4.GetComponent<PullOfLove>().enabled = true;
+            B4.GetComponent<EstablishBond>().enabled = true;
 
             // Change camera
             CameraController cameraController = Camera.main.GetComponent<CameraController>();
             cameraController.changeCameraType(CameraController.CameraTypes.THIRD_PERSON_CAMERA);
-            Debug.Log("End of routine"); 
 
             Destroy(GetComponent<RessurectionScript>());
         }
@@ -51,45 +52,25 @@ public class RessurectionScript : MonoBehaviour {
 
     public void triggerRessurcetionEvent()
     {
-        Debug.Log("EVENT: ressurection event");
+        StartCoroutine(MusicFade(fadeInTime, fadeOutTime, musicSource, musicClip));
 
-        // trigger coroutines
-        StartCoroutine(FadeInWallStory());
-
-        // trigger animations
-
-        // trigger sounds 
-        audioSource.clip = clip;
-        audioSource.Play();
-        GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>().clip = musicClip;
-        StartCoroutine(MusicFadeIn(0.15f, 1.0f, 8.0f, GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>()));
         //at.startChat();
         // send notification to event handler
         // eventController.handleEvent(ressurectionEvent);
     }
 
-    IEnumerator FadeInWallStory()
+
+    IEnumerator MusicFade(float fadeOut, float fadeIn, AudioSource musicSource, AudioClip newClip)
     {
-        for (float f = 0; f <= 1; f += 0.01f)
-        {
-            if (!storyWall)
-                break; 
+        musicSource.DOFade(0.0f, fadeOut);
+        yield return new WaitForSeconds(fadeOut);
 
-            Color c = storyWall.GetComponent<Renderer>().material.color;
-            c.a = f;
-            storyWall.GetComponent<Renderer>().material.color = c;
-            //Debug.Log("Fading in! " + c.a + ", " + storyWall.name);
-            yield return null;
-        }
-
-        sceneIsFinished = true;
-    }
-
-    IEnumerator MusicFadeIn(float from, float to, float duration, AudioSource musicSource)
-    {
-        musicSource.volume = from;
+        musicSource.clip = newClip; 
+        musicSource.volume = 0.0f;
         musicSource.Play();
-        musicSource.DOFade(to, duration);
+        musicSource.DOFade(1.0f, fadeIn);
+
         yield return null;
     }
+
 }
