@@ -615,6 +615,7 @@ GameObject:
   - 4: {fileID: 492678}
   - 33: {fileID: 3383036}
   - 23: {fileID: 2390414}
+  - 114: {fileID: 11420410}
   m_Layer: 0
   m_Name: endpoint
   m_TagString: Untagged
@@ -2261,6 +2262,19 @@ MonoBehaviour:
   startWidth: 0.3
   endWidth: 0.3
   lineMaterial: {fileID: 2100000, guid: 8c388f0a13217e743849797fde263fce, type: 2}
+--- !u!114 &11420410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3ca50cfb69a1a469bb23af28b35fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_duration: 0
+  lightstation: {fileID: 0}
 --- !u!114 &11422102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2372,7 +2386,7 @@ MonoBehaviour:
   - {fileID: 189224}
   startWidth: 0.3
   endWidth: 0.3
-  lineMaterial: {fileID: 2100000, guid: 8e6687cd70445d943a3cf1e643790d02, type: 2}
+  lineMaterial: {fileID: 2100000, guid: 571b49abf1dedf0478b03ce80d88051a, type: 2}
 --- !u!198 &19855826
 ParticleSystem:
   m_ObjectHideFlags: 1

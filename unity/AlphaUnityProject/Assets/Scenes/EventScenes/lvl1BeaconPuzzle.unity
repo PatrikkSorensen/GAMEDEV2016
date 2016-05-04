@@ -166,6 +166,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11490544, guid: 7481de592d420144184f70d818c92e06, type: 2}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490544, guid: 7481de592d420144184f70d818c92e06, type: 2}
+      propertyPath: keyboardMiMi
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481de592d420144184f70d818c92e06, type: 2}
   m_IsPrefabParent: 0
@@ -208,7 +216,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11493550, guid: 48d2d3acca77eb143b1abfc4158c623e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 48d2d3acca77eb143b1abfc4158c623e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &995656128
@@ -298,11 +307,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
       propertyPath: keyboardMiMi
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
       propertyPath: velocityMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
+      propertyPath: speed
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}

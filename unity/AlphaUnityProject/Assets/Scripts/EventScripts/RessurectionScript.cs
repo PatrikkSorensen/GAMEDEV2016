@@ -57,6 +57,8 @@ public class RessurectionScript : MonoBehaviour {
         //at.startChat();
         // send notification to event handler
         // eventController.handleEvent(ressurectionEvent);
+
+        sceneIsFinished = true;
     }
 
 

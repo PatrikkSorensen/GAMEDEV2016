@@ -75,7 +75,7 @@ public class ChanelEnergyScript : MonoBehaviour {
         }
         else
         {
-            Debug.Log("timeDifference: " + timeDifference + ", is less than 3.0f");
+            Debug.Log("EMPOWERING: timeDifference: " + timeDifference + ", is less than 3.0f");
         }
     }
 }
