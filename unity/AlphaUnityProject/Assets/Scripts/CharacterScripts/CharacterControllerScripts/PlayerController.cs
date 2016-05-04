@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour {
     void Move(float h, float v)
     {
         Vector3 movement = new Vector3(0.0f, 0.0f, 0.0f);
-        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical );
-        //movement = Camera.main.transform.TransformDirection(movement);
 
         // For Joysticks, mostly optimized ps4 controller
         if (gameObject.tag == "MiMi")
@@ -55,11 +53,10 @@ public class PlayerController : MonoBehaviour {
         } else
         {
             movement = new Vector3(h, 0.0f, v);
-            movement = Camera.main.transform.TransformDirection(movement); //Makes you fly since the camera points down slightly
-            movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement;
-            //Which is then fixed by rotating the movement vector based on how much the camera is pointing down
+            movement = Camera.main.transform.TransformDirection(movement);
 
-            
+            // normalizes camera rotation vector so we can move backwards
+            movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement; 
         }
 
         if(velocityMode)
