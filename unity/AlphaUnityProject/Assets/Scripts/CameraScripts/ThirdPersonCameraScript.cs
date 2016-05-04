@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class ThirdPersonCameraScript : MonoBehaviour {
 
@@ -158,5 +159,44 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         Vector3 middlePosition = (vec1 + vec2) / 2.0f;
         return middlePosition;
     }
+
+    void startZoom(float to)
+    {
+        StartCoroutine(Zoom(to));
+    }
+
+    void resetFOV()
+    {
+        StartCoroutine(ResettingFOV());
+
+
+    }
+    IEnumerator ResettingFOV()
+    {
+        Camera.main.DOFieldOfView(60, 5.0f);
+
+        yield return null;
+    }
+
+    IEnumerator Zoom(float to)
+    {
+        Camera.main.DOFieldOfView(to, 5.0f);
+
+        yield return null;
+    }
+
+    IEnumerator Guide(float angle)
+    {
+        /* 
+         * Should take an object as param,
+         * find angle of the line between middle-of-players and the param object
+         * find the value closest to cameraPan that produces the angle pointing from middle-of-players to object of interest
+         * tween cameraPan from old value to the one found above
+         */
+
+        yield return null;
+    }
+
+
 
 }
