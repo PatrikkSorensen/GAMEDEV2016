@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     public PlayerStatusScript playerStatus;
 
     private Rigidbody rb;
+    private Animator anim; 
     private string horizontal;
     private string vertical;
 
