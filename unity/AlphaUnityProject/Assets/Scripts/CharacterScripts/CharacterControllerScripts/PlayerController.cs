@@ -6,17 +6,21 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour {
 
     public float speed = 30;
-    public string horizontal;
-    public string vertical;
     public float movingTurnSpeed = 10;
     public float stationaryTurnSpeed = 180;
+    public bool keyboardMiMi, velocityMode = false;
+
+    [HideInInspector]
     public PlayerStatusScript playerStatus;
 
     private Rigidbody rb;
+    private Animator anim; 
+    private string horizontal;
+    private string vertical;
 
-    public bool keyboardMiMi, velocityMode = false; 
-    
-    
+    private GameObject B4, MiMi;
+    private PlayerStatusScript B4Status, MiMiStatus;
+
     void Awake()
     {
         SetInputs();
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     {
         Vector3 movement = new Vector3(0.0f, 0.0f, 0.0f);
 
+        // For Joysticks, mostly optimized ps4 controller
         if (gameObject.tag == "MiMi")
         {
             v *= -1;
@@ -48,27 +53,37 @@ public class PlayerController : MonoBehaviour {
         } else
         {
             movement = new Vector3(h, 0.0f, v);
-            
+            movement = Camera.main.transform.TransformDirection(movement);
+
+            // normalizes camera rotation vector so we can move backwards
+            movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement; 
         }
-      
-        
+
         if(velocityMode)
             rb.velocity = movement * speed; 
         else
             rb.AddForce(movement * speed);
+
+        // Rotation
         if (movement.magnitude > 1f) movement.Normalize();
-        movement = transform.InverseTransformDirection(movement);
+            movement = transform.InverseTransformDirection(movement);
 
         float m_TurnAmount = Mathf.Atan2(movement.x, movement.z);
         float m_ForwardAmount = movement.z;
         float turnSpeed = Mathf.Lerp(stationaryTurnSpeed, movingTurnSpeed, m_ForwardAmount);
+
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }
 
     public void SetVariables()
     {
         rb = GetComponent<Rigidbody>();
-        playerStatus = gameObject.AddComponent<PlayerStatusScript>(); 
+        playerStatus = gameObject.AddComponent<PlayerStatusScript>(); // Could be useful
+
+        B4 = GameObject.FindGameObjectWithTag("B4");
+        MiMi = GameObject.FindGameObjectWithTag("MiMi");
+        B4Status = B4.GetComponent<PlayerController>().playerStatus;
+        MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
     }
 
     public void SetInputs()
@@ -92,8 +107,25 @@ public class PlayerController : MonoBehaviour {
                 horizontal = "RightPadHorizontal";
                 vertical = "RightPadVertical";
             }
+        }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "ChanelObject")
+        {
+            Debug.Log(gameObject.name + " triggered with:  " + other.gameObject.name);
+            B4.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(false);
+            MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(false);
+        }
+    }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "ChanelObject")
+        {
+            B4.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
+            MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
         }
     }
 }

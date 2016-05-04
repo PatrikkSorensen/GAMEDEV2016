@@ -21,7 +21,7 @@ public class HexagonSwitchScript : MonoBehaviour {
             if (player.GetComponent<PlayerController>().playerStatus.getBondStatus() && !canChanel)
             {
                 LightPlatform();
-                player.GetComponent<PlayerController>().playerStatus.setChannelStatus(true);
+                //player.GetComponent<PlayerController>().playerStatus.setChannelStatus(true);
             } else
             {
                 //Debug.Log("Bond status: " + player.GetComponent<PlayerController>().playerStatus.getBondStatus());
@@ -85,7 +85,7 @@ public class HexagonSwitchScript : MonoBehaviour {
         {
             Destroy(lightGameObject);
             canChanel = false;
-            other.GetComponent<PlayerController>().playerStatus.setChannelStatus(false);
+            //other.GetComponent<PlayerController>().playerStatus.setChannelStatus(false);
         }
     }
 

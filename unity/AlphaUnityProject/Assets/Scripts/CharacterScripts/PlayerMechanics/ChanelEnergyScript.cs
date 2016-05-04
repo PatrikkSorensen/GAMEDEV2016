@@ -9,7 +9,7 @@ public class ChanelEnergyScript : MonoBehaviour {
     private PlayerStatusScript B4Status, MiMiStatus;
 
     // Helper variables 
-    bool canChanel, channelling, isChanneled;
+    bool canEmpower, channelling, isChanneled;
     float startTime;  
           
 	void Start () {
@@ -18,7 +18,7 @@ public class ChanelEnergyScript : MonoBehaviour {
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
 
-        canChanel = !B4Status.getChannelStatus();
+        canEmpower = B4Status.getCanEmpowerStatus();
     }
 	
 	void Update () {
@@ -26,17 +26,23 @@ public class ChanelEnergyScript : MonoBehaviour {
 
         if (isChanneled)
         {
-            B4Status.setChannelStatus(true);
-            MiMiStatus.setChannelStatus(true); 
+            B4Status.setEmpowerStatus(true);
+            MiMiStatus.setEmpowerStatus(true);
+
+            B4Status.setCanEmpowerStatus(false);
+            MiMiStatus.setCanEmpowerStatus(false);
         }
 	}
 
     void CheckChanel()
     {
-        if (canChanel && !isChanneled)
+        canEmpower = B4Status.getCanEmpowerStatus();
+        
+
+        if (canEmpower && !isChanneled)
         {
 
-            if (Input.GetButtonDown("Channelling") && canChanel && B4Status.getBondStatus())
+            if (Input.GetButtonDown("Channelling") && canEmpower && B4Status.getBondStatus())
             {
                 startTime = Time.time;
                 channelling = true;
@@ -63,7 +69,7 @@ public class ChanelEnergyScript : MonoBehaviour {
         if (timeDifference > chanelTime && timeDifference < chanelTime + 0.2f)
         {
             Debug.Log("Channelled for " + chanelTime + " seconds");
-            canChanel = false;
+            canEmpower = false;
             channelling = false;
             isChanneled = true;
         }
