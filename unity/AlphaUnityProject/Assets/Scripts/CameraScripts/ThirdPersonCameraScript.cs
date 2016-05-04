@@ -19,7 +19,6 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     private Transform playerTwo;
     private Vector3 middlePosition; 
     private Vector3 targetPosition;
-    private Ray rayFwd;
     private Transform cam;
     private bool DidFwdRayHit = false;
     private int randomDir = 0; // 0 for left 1 for right
@@ -52,7 +51,7 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         RaycastHit hit;
         cam = Camera.main.transform;
 
-        rayFwd = new Ray(cam.position, cam.forward);
+        Ray rayFwd = new Ray(cam.position, cam.forward);
 
         Vector3 rayRightV1 = cam.forward;
         rayRightV1 = Quaternion.AngleAxis(20, Vector3.up) * rayRightV1;
