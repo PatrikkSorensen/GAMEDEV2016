@@ -3,10 +3,9 @@ using System.Collections;
 
 public class PullOfLove : MonoBehaviour {
 
-    public float pullForce, middlePullForce, chanelPullForce = 50.0f;
+    public float movementPullForce, middlePullForce, empowerPullForce = 30.0f;
     public AudioClip pullClip;
     public ForceMode forceMode;
-    public bool chanelPull = false; 
 
     private GameObject B4, MiMi;
     private PlayerStatusScript B4Status, MiMiStatus; 
@@ -15,18 +14,13 @@ public class PullOfLove : MonoBehaviour {
      
 	void Start () {
         B4 = GameObject.FindGameObjectWithTag("B4");
-        B4Status = B4.GetComponent<PlayerStatusScript>(); 
-
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
+
+        B4Status = B4.GetComponent<PlayerStatusScript>();
         MiMiStatus = MiMi.GetComponent<PlayerStatusScript>();
     }
 
 	void Update () {
-
-        if(B4Status.getCanSlingShot())
-            if(Input.GetKeyDown(KeyCode.N))
-                MiMiChanelPull(); 
-
         if (B4Status.getBondStatus())
         {
             if (Input.GetButtonDown("MiMiPull"))
@@ -34,14 +28,12 @@ public class PullOfLove : MonoBehaviour {
                 float timeDifference = Time.time - startTime;
                 if (timeDifference > timeDelay)
                 {
-                    if (B4Status.getEmpowerStatus() && !chanelPull)
-                    {
-                        PullMiMiToB4();
-                    } else if (B4Status.getEmpowerStatus() && chanelPull) {
-                        MiMiChanelPull(); 
-                    } else {
-                        MiddlePull();
-                    }
+                    if (B4Status.getEmpowerStatus())
+                        B4EmpowerPull();
+                    //else if (B4Status.getEmpowerStatus()) // If MiMi is attached do middlepull
+                        //B4MiddlePull()
+                    else
+                        MiMiMovementPull();
 
                     startTime = Time.time;
                 }
@@ -52,53 +44,71 @@ public class PullOfLove : MonoBehaviour {
                 float timeDifference = Time.time - startTime;
                 if (timeDifference > timeDelay)
                 {
-                    PullB4ToMiMi();
-                    startTime = Time.time;
+                    if (B4Status.getEmpowerStatus())
+                        B4EmpowerPull();
+                    //else if (B4Status.getEmpowerStatus()) // If MiMi is attached do middlepull
+                    //B4MiddlePull()
+                    else
+                        B4MovementPull();
                 }
             }
-
-
         }
     }
 
-    void PullB4ToMiMi()
+    // MovementPull
+    void B4MovementPull()
     {
-        Debug.Log("Pulling b4 to Mimi");
         Vector3 forceDirection = MiMi.transform.position - B4.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        B4.GetComponent<Rigidbody>().AddForce(forceVector * pullForce, forceMode);
+        B4.GetComponent<Rigidbody>().AddForce(forceVector * movementPullForce, forceMode);
     }
 
-    void PullMiMiToB4()
+    void MiMiMovementPull()
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * pullForce, forceMode);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * movementPullForce, forceMode);
     }
 
-    void MiddlePull()
+    // MiddlePull
+    void B4MiddlePull()
     {
-        Debug.Log("Middle pull");
         Vector3 middlePosition = (MiMi.transform.position + transform.position) / 2.0f;
         Vector3 forceVector = middlePosition - MiMi.transform.position;
         MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * middlePullForce * 10, forceMode);
     }
 
-    void B4ChanelPull()
+    void MiMiMiddlePull()
+    {
+        Vector3 middlePosition = (MiMi.transform.position + transform.position) / 2.0f;
+        Vector3 forceVector = middlePosition - MiMi.transform.position;
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * middlePullForce * 10, forceMode);
+    }
+
+    // EmpowerPull
+    void B4EmpowerPull()
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        B4.GetComponent<Rigidbody>().AddForce(forceVector * chanelPullForce, forceMode);
+        B4.GetComponent<Rigidbody>().AddForce(forceVector * empowerPullForce, forceMode);
         Debug.Log("MiMI Chanel pull");
 
     }
 
-    void MiMiChanelPull()
+    void MiMiEmpowerPull()
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * chanelPullForce, forceMode);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * empowerPullForce, forceMode);
         Debug.Log("MiMI Chanel pull");
-
     }
 }
+
+//if (B4Status.getEmpowerStatus() && !chanelPull)
+//{
+//    PullMiMiToB4();
+//} else if (B4Status.getEmpowerStatus() && chanelPull) {
+//    MiMiChanelPull(); 
+//} else {
+//    MiddlePull();
+//}
