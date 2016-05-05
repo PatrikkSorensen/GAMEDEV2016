@@ -33,7 +33,7 @@ public class PullOfLove : MonoBehaviour {
                     //else if (B4Status.getEmpowerStatus()) // If MiMi is attached do middlepull
                         //B4MiddlePull()
                     else
-                        B4MovementPull();
+                        MiMiMovementPull();
 
                     startTime = Time.time;
                 }
