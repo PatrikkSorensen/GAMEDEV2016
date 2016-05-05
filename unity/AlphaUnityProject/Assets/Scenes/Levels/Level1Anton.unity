@@ -5775,6 +5775,10 @@ Prefab:
       propertyPath: m_Name
       value: SmokeParticles (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 19849178, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
   m_IsPrefabParent: 0
@@ -20540,7 +20544,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496140, guid: 4586a86c3f037d845800b8971447102e, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19849178, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 415582, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.097923055
+      objectReference: {fileID: 0}
+    - target: {fileID: 415582, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.09792301
       objectReference: {fileID: 0}
     - target: {fileID: 139642, guid: 4586a86c3f037d845800b8971447102e, type: 2}
       propertyPath: m_Name
@@ -28540,34 +28556,10 @@ Prefab:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 496786, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
+    - target: {fileID: 19849178, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 496786, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 496786, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 496786, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 496786, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 182318, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_Name
-      value: Tree (24)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2307676, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cb0e7fb83afa4de4da115d2d218e288f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
   m_IsPrefabParent: 0
@@ -33304,7 +33296,38 @@ Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1335091560}
+  m_GameObject: {fileID: 1027157013}
+  m_LocalRotation: {x: 0.15617694, y: 0.9792886, z: -0.086315356, w: -0.09566769}
+  m_LocalPosition: {x: 56, y: 157, z: -8.5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 1273501481}
+  m_RootOrder: 4
+--- !u!1 &1028160988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 179940, guid: 9603b858ea7c5b74bbe54df6426b9427, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1028160989}
+  - 33: {fileID: 1028160993}
+  - 23: {fileID: 1028160992}
+  - 95: {fileID: 1028160991}
+  - 65: {fileID: 1028160990}
+  m_Layer: 0
+  m_Name: Wire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1028160989
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 459896, guid: 9603b858ea7c5b74bbe54df6426b9427, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028160988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 62.91, y: 1.48, z: -793.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -46731,10 +46754,10 @@ Prefab:
       propertyPath: m_Name
       value: Tree (28)
       objectReference: {fileID: 0}
-    - target: {fileID: 2307676, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 68efa304f5a7ac84ba475bc9a559b7ff, type: 2}
+    - target: {fileID: 19849178, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7174df4c69bbe1468b95bf0fefca332, type: 2}
   m_IsPrefabParent: 0
@@ -49871,6 +49894,10 @@ Prefab:
     - target: {fileID: 146708, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
       propertyPath: m_Name
       value: SmokeParticles (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 19849178, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c31b6b871ea72d14c8d077f589278681, type: 2}
