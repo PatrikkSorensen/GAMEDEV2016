@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour {
                 movement.x = h;
                 movement.z = v;
             }
+
+            movement = Camera.main.transform.TransformDirection(movement);
+            movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement;
         } else
         {
             movement = new Vector3(h, 0.0f, v);
