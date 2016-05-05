@@ -9,13 +9,15 @@ public class LightStationScript : MonoBehaviour {
     public Color materialEndColor, emissionColor; 
     public float chanelTime, materialFadeInTime = 3.0f;
     public List<GameObject> AIHelpers = new List<GameObject>();
-    public GameObject curcuitLines, powerSphere, meshLine; 
+    public GameObject curcuitLines, powerSphere, meshLine;
 
-    private bool canChanel, channeling, isActive, b = false;
+    public AudioClip channellingClip, sucessClip;
+    private AudioSource chanelSource, sucessSource; 
+
+    private bool canChanel, channelling, isActive, b = false;
     private PlayerStatusScript B4Status, MiMiStatus;
     private float startTime = 0.0f;
-
-
+    private GameObject m_audioObject; 
 
     public bool IsActive
     {
@@ -26,6 +28,8 @@ public class LightStationScript : MonoBehaviour {
 
     void Start()
     {
+        AssignAudioObject(); 
+
         B4Status = GameObject.FindGameObjectWithTag("B4").GetComponent<PlayerStatusScript>();
         MiMiStatus = GameObject.FindGameObjectWithTag("MiMi").GetComponent<PlayerStatusScript>();
     }
@@ -43,20 +47,26 @@ public class LightStationScript : MonoBehaviour {
             if (Input.GetButtonDown("Channelling") && canChanel && B4Status.getBondStatus())
             {
                 startTime = Time.time;
-                channeling = true;
+                channelling = true;
                 sparkParticles.Play();
             }
 
             if (Input.GetButtonUp("Channelling"))
             {
                 float timeDifference = Time.time - startTime;
-                channeling = false;
+                channelling = false;
                 startTime = 0;
                 sparkParticles.Stop();
+
+                if (chanelSource.isPlaying)
+                    chanelSource.Stop();
             }
 
-            if (channeling)
+            if (channelling)
             {
+                if(!chanelSource.isPlaying)
+                    chanelSource.Play();
+                 
                 ChanelEnergyOnPlatform();
             }
         }
@@ -87,10 +97,11 @@ public class LightStationScript : MonoBehaviour {
             sparkParticles.Play();
             haloParticles.Play();
             canChanel = false;
-            channeling = false;
+            channelling = false;
             IsActive = true;
 
-
+            // Sounds 
+            sucessSource.Play();  
             // Activate events
             ActivateAgents();
             ActivateLines();
@@ -148,4 +159,16 @@ public class LightStationScript : MonoBehaviour {
             Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
     }
 
+    void AssignAudioObject()
+    {
+        m_audioObject = new GameObject();
+        m_audioObject.name = "lightstation_AudioObject";
+        m_audioObject.transform.parent = transform;
+
+        chanelSource = m_audioObject.AddComponent<AudioSource>();
+        chanelSource.clip = channellingClip; 
+
+        sucessSource = m_audioObject.AddComponent<AudioSource>();
+        sucessSource.clip = sucessClip; 
+    }
 }

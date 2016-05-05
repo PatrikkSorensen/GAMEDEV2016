@@ -5356,7 +5356,6 @@ GameObject:
   - 4: {fileID: 416074}
   - 114: {fileID: 11448300}
   - 114: {fileID: 11447486}
-  - 114: {fileID: 11493550}
   m_Layer: 0
   m_Name: BeaconPuzzle
   m_TagString: Untagged
@@ -18052,6 +18051,8 @@ MonoBehaviour:
   curcuitLines: {fileID: 132756}
   powerSphere: {fileID: 170082}
   meshLine: {fileID: 133522}
+  channellingClip: {fileID: 8300000, guid: 2e6687f4371c1ae42bd399f48c3c83cb, type: 3}
+  sucessClip: {fileID: 8300000, guid: 276edc140e73fe44bad68cb82e2dca50, type: 3}
 --- !u!114 &11410186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18213,6 +18214,8 @@ MonoBehaviour:
   curcuitLines: {fileID: 149110}
   powerSphere: {fileID: 140464}
   meshLine: {fileID: 188796}
+  channellingClip: {fileID: 8300000, guid: 2e6687f4371c1ae42bd399f48c3c83cb, type: 3}
+  sucessClip: {fileID: 8300000, guid: 276edc140e73fe44bad68cb82e2dca50, type: 3}
 --- !u!114 &11471050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18282,22 +18285,6 @@ MonoBehaviour:
   enemies: []
   bootupClip: {fileID: 8300000, guid: 9d4de0a67fbb24b41863f56b00946f67, type: 3}
   lightstationMother: {fileID: 0}
---- !u!114 &11493550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191732}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2dda585425b105449f191d706939cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineStart: {fileID: 125870}
-  lineObjects: []
-  startWidth: 0
-  endWidth: 0.3
-  lineMaterial: {fileID: 0}
 --- !u!114 &11498766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18333,6 +18320,8 @@ MonoBehaviour:
   curcuitLines: {fileID: 153352}
   powerSphere: {fileID: 116334}
   meshLine: {fileID: 143718}
+  channellingClip: {fileID: 8300000, guid: 2e6687f4371c1ae42bd399f48c3c83cb, type: 3}
+  sucessClip: {fileID: 8300000, guid: 276edc140e73fe44bad68cb82e2dca50, type: 3}
 --- !u!195 &19511320
 NavMeshAgent:
   m_ObjectHideFlags: 1
