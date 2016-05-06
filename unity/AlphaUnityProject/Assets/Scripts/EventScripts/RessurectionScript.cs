@@ -11,7 +11,8 @@ public class RessurectionScript : MonoBehaviour {
     private AudioSource sfxSource, musicSource;
     private GameObject B4, MiMi, sfxController, musicController;
     private EventController eventController;
-    private bool sceneIsFinished = false;  
+    private bool sceneIsFinished = false;
+	private bool triggered = false;
 
     void Start()
     {
@@ -27,8 +28,12 @@ public class RessurectionScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "B4")
-            triggerRessurcetionEvent();
+		if (other.tag == "B4" && triggered == false) {
+			triggerRessurcetionEvent ();
+			triggered = true;
+			sfxSource.clip = clip;
+			sfxSource.Play();
+		}
     }
 
     void Update()
@@ -46,7 +51,6 @@ public class RessurectionScript : MonoBehaviour {
             CameraController cameraController = Camera.main.GetComponent<CameraController>();
             cameraController.changeCameraType(CameraController.CameraTypes.THIRD_PERSON_CAMERA);
 
-            Destroy(GetComponent<RessurectionScript>());
         }
     }
 

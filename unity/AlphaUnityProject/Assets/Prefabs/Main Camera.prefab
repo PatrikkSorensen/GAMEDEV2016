@@ -13,6 +13,10 @@ GameObject:
   - 124: {fileID: 12473536}
   - 81: {fileID: 8136666}
   - 114: {fileID: 11415316}
+  - 114: {fileID: 11408682}
+  - 114: {fileID: 11444348}
+  - 114: {fileID: 11489176}
+  - 131: {fileID: 13128660}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -10}
+  m_LocalPosition: {x: 48.5, y: 103.2, z: -167.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +54,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -80,6 +84,20 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167388}
   m_Enabled: 1
+--- !u!114 &11408682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd72dd3f37ccab4f8953c9cba120436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceAway: 6
+  distanceUp: 4
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &11415316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,8 +110,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  player: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
+  player: {fileID: 0}
   playerTwo: {fileID: 150416, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
+--- !u!114 &11444348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4217e6cc2f28a4da8841e218023925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  smooth: 1.5
+  distanceAway: 100
+  distanceUp: 2
+--- !u!114 &11489176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c314aaf03b4bccd4282063b6e86e6f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake_decay: 0.1
+  shake_intensity: 0.01
 --- !u!124 &12473536
 Behaviour:
   m_ObjectHideFlags: 1
@@ -101,6 +147,25 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167388}
   m_Enabled: 1
+--- !u!131 &13128660
+GUITexture:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167388}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 0d7e06117784ff44bacb9c9e551592b3, type: 3}
+  m_Color: {r: 0.5, g: 0, b: 0, a: 0.5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

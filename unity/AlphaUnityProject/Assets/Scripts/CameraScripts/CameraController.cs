@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-    //TODO: Create values for designers
     public CameraTypes type;
     public GameObject player, playerTwo;
 
@@ -17,8 +16,8 @@ public class CameraController : MonoBehaviour {
 
     void Awake()
     {
-        thirdPersonCamera = gameObject.AddComponent<ThirdPersonCameraScript>();
-        singlePersonCamera = gameObject.AddComponent<CameraFollow>();
+        thirdPersonCamera = gameObject.GetComponent<ThirdPersonCameraScript>();
+        singlePersonCamera = gameObject.GetComponent<CameraFollow>();
 
         if (!player)
         {
@@ -42,8 +41,6 @@ public class CameraController : MonoBehaviour {
 
     private void transitionToSinglePersonCamera()
     {
-        if (!thirdPersonCamera)
-            Debug.Log("I need to add thirdperson camera controller");
         thirdPersonCamera.enabled = false;
         singlePersonCamera.enabled = true;
 

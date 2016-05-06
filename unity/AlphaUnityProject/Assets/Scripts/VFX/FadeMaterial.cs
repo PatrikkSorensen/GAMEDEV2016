@@ -3,7 +3,7 @@ using System.Collections;
 using DG.Tweening; 
 
 public class FadeMaterial : MonoBehaviour {
-    public GameObject m_gameObject, materialGameObject;
+    public GameObject materialToFade, materialHackGameObject;
     public Color materialEndColor, emissionColor;
     public float duration = 2.0f; 
 
@@ -11,9 +11,9 @@ public class FadeMaterial : MonoBehaviour {
     private Material infectedMaterial; 
 	// Use this for initialization
 	void Start () {
-        rend = m_gameObject.GetComponent<Renderer>();
-        infectedMaterial = materialGameObject.GetComponent<Renderer>().material;
-        Destroy(materialGameObject); 
+        rend = materialToFade.GetComponent<Renderer>();
+        infectedMaterial = materialHackGameObject.GetComponent<Renderer>().material;
+        Destroy(materialHackGameObject); 
     }
 
     void Update()

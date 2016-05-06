@@ -4,17 +4,13 @@ using DG.Tweening;
 
 public class ThirdPersonCameraScript : MonoBehaviour {
 
-    [SerializeField]
     public float distanceAway = 8.0f;
-    [SerializeField]
     public float distanceUp = 6.0f;
-    [SerializeField]
+    public Vector3 offset = Vector3.zero; 
+
     private float smooth = 3.0f;
     private float cameraPan = 0.0f;
-
-    [SerializeField]
     private float maxPlayerDistance; 
-    //TODO: Do camera bounds 
 
     private Transform playerOne;
     private Transform playerTwo;
@@ -29,8 +25,6 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     {
         playerOne = GameObject.FindGameObjectWithTag("B4").transform;
         playerTwo = GameObject.FindGameObjectWithTag("MiMi").transform;
-        
-        Vector3 offset = new Vector3(2, 0, 0);
     }
 
     void FixedUpdate()
@@ -140,8 +134,8 @@ public class ThirdPersonCameraScript : MonoBehaviour {
             cameraPan = cameraPan - 0.005f;
         }
 
-        Vector3 offset = new Vector3(Mathf.Sin(cameraPan) * 2, 0, Mathf.Sin(cameraPan + (Mathf.PI/2)) * 2);
-        targetPosition = middlePosition + Vector3.up * distanceUp - offset * distanceAway;
+        Vector3 m_offset = new Vector3(Mathf.Sin(cameraPan) * 2, 0, Mathf.Sin(cameraPan + (Mathf.PI/2)) * 2);
+        targetPosition = middlePosition + Vector3.up * distanceUp - m_offset * distanceAway;
 
         //Debug.DrawRay(playerOne.position, Vector3.up * distanceUp, Color.red);
         //Debug.DrawRay(playerOne.position, -1f * playerOne.forward * distanceAway, Color.red );
@@ -150,8 +144,9 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         //Debug.DrawLine(playerTwo.position, targetPosition, Color.green);
         //Debug.DrawLine(transform.position, middlePosition, Color.blue);
 
+        // Rotation
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * smooth);
-        transform.LookAt(middlePosition);
+        transform.LookAt(middlePosition + offset);
     }
 
     Vector3 findMiddlePosition(Vector3 vec1, Vector3 vec2)

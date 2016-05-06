@@ -7,33 +7,29 @@ using DG.Tweening;
 public class EndSceneScript : MonoBehaviour {
 
     public GameObject UIImage;
-
-    [SerializeField]
+    public Vector3 camOffset; 
     public float fadeAmbientTime;
-
-    [SerializeField]
     public float fadeUIImageTime;
-
-    [SerializeField]
     public AnimationCurve fadeOutAmbientCurve;
-
-    [SerializeField]
     public AnimationCurve fadeOutUIImageCurve;
 
     private TowerInfectionScript infectionScript;
-    private FadeMaterial materialScript; 
+    private FadeMaterial materialScript;
+    private ThirdPersonCameraScript cameraScript; 
 
     private Image image; 
-    private bool canChanel, channeling = false; 
+    private bool canChanel, channeling, isZoomed = false; 
     private int timesChanelled = 0;
     private float startTime = 0.0f; 
 
     void Start()
     {
+        cameraScript = Camera.main.GetComponent<ThirdPersonCameraScript>(); 
         image = UIImage.GetComponent<Image>();
         infectionScript = GetComponent<TowerInfectionScript>();
         materialScript = GetComponent<FadeMaterial>(); 
     }
+
     void Update()
     {
         CheckInputs();
@@ -62,14 +58,27 @@ public class EndSceneScript : MonoBehaviour {
     {
         if(other.gameObject.tag == "MiMi")
         {
-            canChanel = true; 
+            if (!isZoomed)
+            {
+                StartCoroutine(AddCamOffset());
+            }
 
+            canChanel = true;
         }
+        
     }
 
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        canChanel = false; 
+        canChanel = false;
+        if (other.gameObject.tag == "MiMi")
+        {
+            if (isZoomed)
+            {
+                //StartCoroutine(RemoveCamOffset()); // TODO: Fix multiple coroutines, preferbly with stopCourtine
+            }
+        }
+
     }
 
     void ChanelEnergy()
@@ -115,5 +124,34 @@ public class EndSceneScript : MonoBehaviour {
         infectionScript.shouldPlayLightScene = true;
         materialScript.SwitchMaterial(); 
         DOTween.To(() => image.color, x => image.color = x, Color.black, fadeUIImageTime).SetEase(fadeOutUIImageCurve);
+    }
+
+    IEnumerator AddCamOffset()
+    {
+        isZoomed = true; 
+        Vector3 vect = Vector3.zero; 
+        while(vect.y < camOffset.y)
+        {
+            Debug.Log("Hello");
+            vect.y += 0.02f;
+            cameraScript.offset = vect;
+            yield return new WaitForSeconds(0.001f);
+        }
+        
+        yield return null; 
+    }
+
+    IEnumerator RemoveCamOffset()
+    {
+        isZoomed = false;
+        Vector3 vect = Vector3.zero;
+        while (vect.y > camOffset.y)
+        {
+            Debug.Log("Hello");
+            vect.y -= 0.02f;
+            cameraScript.offset = vect;
+            yield return new WaitForSeconds(0.001f);
+        }
+        yield return null;
     }
 }
