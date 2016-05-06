@@ -106,6 +106,25 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 424052, guid: e30dedd982a06724bace5a6d7e273bb1, type: 2}
   m_PrefabInternal: {fileID: 1029707701}
+--- !u!1 &214165466 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 150416, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
+  m_PrefabInternal: {fileID: 500436858}
+--- !u!114 &214165473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214165466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c0c7bed1f1e1e4fb1f68debeebd9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashForce: 5
+  MiMi: {fileID: 214165466}
+  inputDelay: 0.2
+  dashTime: 1
 --- !u!1 &319502510 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
@@ -123,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashForce: 5
   B4: {fileID: 319502510}
-  dashDelay: 0.1
-  dashTime: 1.5
+  inputDelay: 0.2
+  dashTime: 0.3
 --- !u!1001 &390882876
 Prefab:
   m_ObjectHideFlags: 0
@@ -672,6 +691,14 @@ Prefab:
     - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
       propertyPath: maxSpringDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
+      propertyPath: springPower
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
+      propertyPath: damper
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481de592d420144184f70d818c92e06, type: 2}
