@@ -19,7 +19,7 @@ public class MiMiDash : MonoBehaviour {
             startTime = Time.time;
         }
 
-        if (Input.GetKeyUp(KeyCode.Z))
+        if (Input.GetKeyUp(KeyCode.M))
         {
             startTime = 0.0f;
             channelling = false;
