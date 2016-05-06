@@ -9,7 +9,9 @@ public class DashScript : MonoBehaviour {
     public float dashTime = 1.0f; 
 
     private bool channelling, dashing = false;
-    private float startTime, dashStartTime; 
+    private float startTime, dashStartTime;
+    private float m_rigidbodyDrag;
+    private float m_speed;  
 
 	void Update () {
         if (Input.GetKeyDown(KeyCode.X))
@@ -22,8 +24,8 @@ public class DashScript : MonoBehaviour {
         {
             startTime = 0.0f;
             channelling = false;
-            GetComponent<PlayerController>().speed = 38.0f;
-            GetComponent<Rigidbody>().drag = 6.0f;
+            GetComponent<PlayerController>().speed = m_speed;
+            GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
         }
 
         if (channelling)
@@ -38,8 +40,8 @@ public class DashScript : MonoBehaviour {
             {
                 dashStartTime = 0.0f; 
                 Debug.Log("Stop dashing!");
-                GetComponent<Rigidbody>().drag = 6.0f;
-                GetComponent<PlayerController>().speed = 38.0f;
+                GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
+                GetComponent<PlayerController>().speed = m_speed;
                 dashing = false;
             } else
             {
@@ -57,7 +59,10 @@ public class DashScript : MonoBehaviour {
             startTime = 0.0f;
 
             //TODO: Make generic
+            m_rigidbodyDrag = GetComponent<Rigidbody>().drag; 
             GetComponent<Rigidbody>().drag = 1.0f;
+
+            m_speed = GetComponent<PlayerController>().speed;
             GetComponent<PlayerController>().speed = 0.0f; 
 
             Vector3 forceDirection = transform.forward; 
