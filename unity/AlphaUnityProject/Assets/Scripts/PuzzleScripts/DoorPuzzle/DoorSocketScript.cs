@@ -7,11 +7,16 @@ public class DoorSocketScript : MonoBehaviour {
     public GameObject Door;
     public GameObject Socket;
     public GameObject AttachTrigger;
+    public AudioClip Click;
+    private AudioSource source;
 
 	// Use this for initialization
 	void Start () 
     {
-	
+        source = gameObject.AddComponent<AudioSource>();
+        source.clip = Click;
+        source.loop = false;
+        source.playOnAwake = false;
 	}
 	
 	// Update is called once per frame
@@ -28,6 +33,8 @@ public class DoorSocketScript : MonoBehaviour {
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = Socket.GetComponent<Rigidbody>();
             AttachTrigger.GetComponent<PlugPullScript>().unattachObject();
+            AttachTrigger.GetComponent<PlugPullScript>().setFinished();
+            source.Play();
         }
     }
 

@@ -3,14 +3,25 @@ using System.Collections;
 
 public class PlugPullScript : MonoBehaviour {
 
-    private bool canAttach, attached;
+    public GameObject WireAnchor;
+    public Shader shader2;
+    private bool canAttach, attached, finished;
     private GameObject MiMi;
     private FixedJoint joint, joint2;
+    private LineRenderer lr;
 
 	// Use this for initialization
 	void Start () {
 
         MiMi = GameObject.FindWithTag("MiMi");
+        lr = gameObject.AddComponent<LineRenderer>();
+
+        lr.material = new Material(shader2);
+        lr.material.color = new Color(0f, 1f, 0f, 0.05f);
+        lr.SetWidth(0.5f, 0.5f);
+        Vector3[] points = { gameObject.transform.position + new Vector3(0.0f, 0.0f, 0.0f), WireAnchor.transform.position + new Vector3(0.0f, 0.0f, 0.0f) };
+        lr.SetPositions(points);
+
         canAttach = false;
         attached = false;
 	
@@ -22,23 +33,27 @@ public class PlugPullScript : MonoBehaviour {
         if (!attached) 
         { 
 
-            if (Input.GetButtonDown("MiMiAttach") && canAttach)
+            if (Input.GetButtonDown("MiMiAttach") && canAttach && !finished)
             {
                 //move character to point
-                Debug.Log("Attach!!!!");
                 attachObject();
             }
         }
         else
         {
-            if (Input.GetButtonDown("MiMiAttach") && attached)
+            if (Input.GetButtonDown("MiMiAttach") && attached && !finished)
             {
                 //move character to point
-                Debug.Log("Unattach!!!!");
                 unattachObject();
             }
         }        
 	}
+
+    void Update()
+    {
+        Vector3[] points = { gameObject.transform.position + new Vector3(0.0f, 0.0f, 0.0f), WireAnchor.transform.position + new Vector3(0.0f, 0.03f, 0.0f) };
+        lr.SetPositions(points);
+    }
 
     void attachObject()
     {
@@ -59,7 +74,10 @@ public class PlugPullScript : MonoBehaviour {
         attached = false;
     }
 
-
+    public void setFinished()
+    {
+        finished = true;
+    }
 
     void OnTriggerStay(Collider other)
     {
