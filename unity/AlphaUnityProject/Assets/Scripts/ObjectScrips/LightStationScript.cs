@@ -53,7 +53,7 @@ public class LightStationScript : MonoBehaviour {
 
             if (Input.GetButtonUp("Channelling"))
             {
-                float timeDifference = Time.time - startTime;
+                //float timeDifference = Time.time - startTime;
                 channelling = false;
                 startTime = 0;
                 sparkParticles.Stop();
