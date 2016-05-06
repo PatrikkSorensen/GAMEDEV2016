@@ -3,7 +3,10 @@ using System.Collections;
 
 public class PullOfLove : MonoBehaviour {
 
-    public float movementPullForce, middlePullForce, empowerPullForce = 30.0f;
+    //public float movementPullForce, middlePullForce, empowerPullForce = 30.0f;
+    public float MiMiMovementPullForce, MiMiMiddlePullForce, MiMiEmpowerPullForce = 30.0f;
+    public float B4MovementPullForce, B4MiddlePullForce, B4EmpowerPullForce = 30.0f;
+
     public AudioClip pullClip;
     public ForceMode forceMode;
 
@@ -60,14 +63,14 @@ public class PullOfLove : MonoBehaviour {
     {
         Vector3 forceDirection = MiMi.transform.position - B4.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        B4.GetComponent<Rigidbody>().AddForce(forceVector * movementPullForce, forceMode);
+        B4.GetComponent<Rigidbody>().AddForce(forceVector * B4MovementPullForce, forceMode);
     }
 
     void MiMiMovementPull()
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * movementPullForce, forceMode);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * MiMiMovementPullForce, forceMode);
     }
 
     // MiddlePull
@@ -75,14 +78,14 @@ public class PullOfLove : MonoBehaviour {
     {
         Vector3 middlePosition = (MiMi.transform.position + transform.position) / 2.0f;
         Vector3 forceVector = middlePosition - MiMi.transform.position;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * middlePullForce * 10, forceMode);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * B4MiddlePullForce * 10, forceMode);
     }
 
     void MiMiMiddlePull()
     {
         Vector3 middlePosition = (MiMi.transform.position + transform.position) / 2.0f;
         Vector3 forceVector = middlePosition - MiMi.transform.position;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * middlePullForce * 10, forceMode);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector.normalized * MiMiMiddlePullForce * 10, forceMode);
     }
 
     // EmpowerPull
@@ -90,7 +93,7 @@ public class PullOfLove : MonoBehaviour {
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        B4.GetComponent<Rigidbody>().AddForce(forceVector * empowerPullForce, forceMode);
+        B4.GetComponent<Rigidbody>().AddForce(forceVector * B4EmpowerPullForce, forceMode);
         Debug.Log("MiMI Chanel pull");
 
     }
@@ -99,7 +102,7 @@ public class PullOfLove : MonoBehaviour {
     {
         Vector3 forceDirection = B4.transform.position - MiMi.transform.position;
         Vector3 forceVector = forceDirection.normalized * 100;
-        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * empowerPullForce, forceMode);
+        MiMi.GetComponent<Rigidbody>().AddForce(forceVector * MiMiEmpowerPullForce, forceMode);
         Debug.Log("MiMI Chanel pull");
     }
 }

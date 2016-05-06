@@ -738,8 +738,8 @@ Rigidbody:
   m_GameObject: {fileID: 150416}
   serializedVersion: 2
   m_Mass: 0.5
-  m_Drag: 0.1
-  m_AngularDrag: 0.1
+  m_Drag: 6
+  m_AngularDrag: 3
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558d460486cce93458da50a6d31ce99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
+  speed: 38
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
   keyboardMiMi: 1
