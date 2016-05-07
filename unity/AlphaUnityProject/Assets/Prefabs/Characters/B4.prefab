@@ -842,9 +842,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126588}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.3
-  m_AngularDrag: 0.1
+  m_Mass: 0.5
+  m_Drag: 6
+  m_AngularDrag: 3
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -967,12 +967,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 15
-  middlePullForce: 200
-  chanelPullForce: 50
+  MiMiMovementPullForce: 0
+  MiMiMiddlePullForce: 0
+  MiMiEmpowerPullForce: 30
+  B4MovementPullForce: 0
+  B4MiddlePullForce: 0
+  B4EmpowerPullForce: 30
   pullClip: {fileID: 0}
   forceMode: 0
-  chanelPull: 0
 --- !u!114 &11490544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -984,7 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558d460486cce93458da50a6d31ce99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 38
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
   keyboardMiMi: 0
