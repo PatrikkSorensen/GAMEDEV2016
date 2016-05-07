@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour {
 
         float m_speed = movement.normalized.magnitude;
 
-        anim.SetFloat("Speed", m_speed);
+        //anim.SetFloat("Speed", m_speed);
 
         // Rotation
         if (movement.magnitude > 1f) movement.Normalize();
