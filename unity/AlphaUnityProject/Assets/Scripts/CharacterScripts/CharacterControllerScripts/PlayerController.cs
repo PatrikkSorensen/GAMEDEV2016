@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     public float speed = 30;
     public float movingTurnSpeed = 10;
     public float stationaryTurnSpeed = 180;
+    public float fallSpeed = 0.0f;
+    public float distanceToGround = 2.5f; 
     public bool keyboardMiMi, velocityMode = false;
 
     public PlayerStatusScript playerStatus;
@@ -16,7 +18,7 @@ public class PlayerController : MonoBehaviour {
     private Animator anim; 
     private string horizontal;
     private string vertical;
-
+    private bool isGrounded = true; 
     private GameObject B4, MiMi;
     private PlayerStatusScript B4Status, MiMiStatus;
 
@@ -28,10 +30,34 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
+        CheckGrounded(); 
         playerStatus.setSpeed(speed);
         float h = Input.GetAxis(horizontal);
         float v = Input.GetAxis(vertical);
         Move(h, v);
+    }
+    
+    void CheckGrounded()
+    {
+        RaycastHit hit;
+        //Debug.Log(hit.point);
+
+       // Debug.DrawRay(transform.position, -Vector3.up * 10.0f, Color.green);
+
+        //Debug.Log(hit.transform.gameObject.tag);
+
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 10.0f))
+        {
+            if (hit.distance > distanceToGround)
+            {
+                isGrounded = false;
+                Debug.Log("I should add force towards the ground!");
+            } else
+            {
+                isGrounded = true; 
+            }  
+        }
+            
     }
 
     void Move(float h, float v)
@@ -60,6 +86,9 @@ public class PlayerController : MonoBehaviour {
             // normalizes camera rotation vector so we can move backwards
             movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement; 
         }
+
+        if (!isGrounded)
+            movement.y += fallSpeed * -1; 
 
         if(velocityMode)
             rb.velocity = movement * speed; 
@@ -121,22 +150,23 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //TODO: Set empower status in another way. 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "ChanelObject")
         {
             Debug.Log(gameObject.name + " triggered with:  " + other.gameObject.name);
-            B4.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(false);
-            MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(false);
+            //B4.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(false);
+            //MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(false);
         }
     }
-
+   
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "ChanelObject")
         {
-            B4.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
-            MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
+            //B4.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
+            //MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
         }
     }
 }
