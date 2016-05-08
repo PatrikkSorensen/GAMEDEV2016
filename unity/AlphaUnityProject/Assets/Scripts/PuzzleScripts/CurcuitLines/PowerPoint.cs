@@ -5,11 +5,11 @@ public class PowerPoint : Point
 {
 
     public GameObject lightstation;
-    private CurcuitChanneller powerlines;
+    private CurcuitChanneller powerSourceLines;
     
     void Start()
     {
-        powerlines = lightstation.GetComponentInChildren<CurcuitChanneller>(); 
+        powerSourceLines = lightstation.GetComponentInChildren<CurcuitChanneller>(); 
     } 
     
     protected override void Update()
@@ -17,11 +17,8 @@ public class PowerPoint : Point
         if (!ShouldDraw)
             evaluateStatus();
 
-        if (ShouldDraw)
-            Debug.Log("I should draw!");
-
-            if (Input.GetKey(KeyCode.U))
-            ShouldDraw = true; 
+        //if (ShouldDraw)
+        //    Debug.Log("I should draw!");
 
         base.Update(); 
 
@@ -44,10 +41,10 @@ public class PowerPoint : Point
 
     protected override void evaluateStatus()
     {
-        if (!powerlines)
-            Debug.LogWarning("There was no curcuit line component connected to lightstation: " + lightstation.name);
+        if (!powerSourceLines)
+            Debug.LogWarning(gameObject.name + ": There was no curcuit line component connected to lightstation: " + lightstation.name);
 
-        if (powerlines.HasChannelled)
+        if (powerSourceLines.HasChannelled)
         {
             ShouldDraw = true;
         }
