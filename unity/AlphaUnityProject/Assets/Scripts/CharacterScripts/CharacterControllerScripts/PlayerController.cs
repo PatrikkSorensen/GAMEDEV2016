@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour {
 
         //Debug.Log(hit.transform.gameObject.tag);
 
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 10.0f))
+        if (Physics.Raycast(transform.position + Vector3.up, -Vector3.up, out hit, 10.0f))
         {
             if (hit.distance > distanceToGround)
             {
                 isGrounded = false;
-                Debug.Log("I should add force towards the ground!");
+                Debug.Log("I should add force towards the ground!" + hit.distance);
             } else
             {
                 isGrounded = true; 

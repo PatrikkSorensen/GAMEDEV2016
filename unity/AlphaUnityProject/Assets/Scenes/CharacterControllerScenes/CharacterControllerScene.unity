@@ -106,25 +106,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 424052, guid: e30dedd982a06724bace5a6d7e273bb1, type: 2}
   m_PrefabInternal: {fileID: 1029707701}
---- !u!1 &214165466 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 150416, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-  m_PrefabInternal: {fileID: 500436858}
---- !u!114 &214165473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 214165466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c0c7bed1f1e1e4fb1f68debeebd9be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashForce: 5
-  MiMi: {fileID: 214165466}
-  inputDelay: 0.2
-  dashTime: 1
 --- !u!1 &279090472 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 51555c7955e717c42ad50925a0fa968c, type: 3}
@@ -145,21 +126,6 @@ MeshCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
   m_PrefabInternal: {fileID: 1036487455}
---- !u!114 &319502519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 319502510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace975adba4c4f34fb44f700447c7774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashForce: 5
-  B4: {fileID: 319502510}
-  inputDelay: 0.2
-  dashTime: 0.3
 --- !u!1001 &390882876
 Prefab:
   m_ObjectHideFlags: 0
@@ -248,18 +214,6 @@ Prefab:
     - target: {fileID: 471954, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 13576092, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: m_Center.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454302, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
-      propertyPath: fallSpeed
-      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
@@ -618,62 +572,6 @@ Prefab:
     - target: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
       propertyPath: m_Name
       value: 'B4 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485116, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_Drag
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485116, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_AngularDrag
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490544, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: speed
-      value: 38
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485116, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_Mass
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: MiMiMovementPullForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: MiMiMiddlePullForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: MiMiEmpowerPullForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: B4MovementPullForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: B4MiddlePullForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: maxSpringDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: springPower
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11417278, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: damper
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6525080, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_Center.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490544, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: fallSpeed
-      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481de592d420144184f70d818c92e06, type: 2}

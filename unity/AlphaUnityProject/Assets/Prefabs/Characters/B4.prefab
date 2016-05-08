@@ -65,6 +65,7 @@ GameObject:
   - 114: {fileID: 11451208}
   - 114: {fileID: 11443808}
   - 65: {fileID: 6590278}
+  - 114: {fileID: 11422138}
   m_Layer: 0
   m_Name: B4
   m_TagString: B4
@@ -937,13 +938,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bondWidthBegin: 0.2
   bondWidthEnd: 0.5
-  damper: 8
-  springPower: 2.5
-  maxSpringDistance: 5
+  damper: 100
+  springPower: 1
+  maxSpringDistance: 10
   bondclip: {fileID: 0}
   successClip: {fileID: 0}
   destroyClip: {fileID: 0}
   shader2: {fileID: 0}
+--- !u!114 &11422138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace975adba4c4f34fb44f700447c7774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashForce: 5
+  B4: {fileID: 126588}
+  inputDelay: 0.2
+  dashTime: 0.3
 --- !u!114 &11443808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -967,11 +983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiMiMovementPullForce: 0
-  MiMiMiddlePullForce: 0
+  MiMiMovementPullForce: 30
+  MiMiMiddlePullForce: 30
   MiMiEmpowerPullForce: 30
-  B4MovementPullForce: 0
-  B4MiddlePullForce: 0
+  B4MovementPullForce: 30
+  B4MiddlePullForce: 30
   B4EmpowerPullForce: 30
   pullClip: {fileID: 0}
   forceMode: 0
@@ -989,6 +1005,8 @@ MonoBehaviour:
   speed: 38
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
+  fallSpeed: 0.2
+  distanceToGround: 0.5
   keyboardMiMi: 0
   velocityMode: 0
   playerStatus: {fileID: 0}
