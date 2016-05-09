@@ -13,13 +13,13 @@ public class MiMiDash : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetButtonDown("MiMiDash"))
         {
             channelling = true;
             startTime = Time.time;
         }
 
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetButtonUp("MiMiDash"))
         {
             startTime = 0.0f;
             channelling = false;

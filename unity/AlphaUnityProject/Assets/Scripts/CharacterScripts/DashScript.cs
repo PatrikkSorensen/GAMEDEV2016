@@ -14,13 +14,14 @@ public class DashScript : MonoBehaviour {
     private float m_speed;  
 
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("B4Dash"))
         {
+            Debug.Log("B4Dash pressed");
             channelling = true;
             startTime = Time.time;
         }
 
-        if (Input.GetKeyUp(KeyCode.X))
+        if (Input.GetButtonUp("B4Dash"))
         {
             startTime = 0.0f;
             channelling = false;
