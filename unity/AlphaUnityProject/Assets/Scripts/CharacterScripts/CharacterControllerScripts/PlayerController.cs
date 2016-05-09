@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
                 Debug.Log("I should add force towards the ground!" + hit.distance);
             } else
             {
-                Debug.Log(hit.distance + ", " + transform.position);
+                //Debug.Log(hit.distance + ", " + transform.position);
                 isGrounded = true; 
             }  
         }

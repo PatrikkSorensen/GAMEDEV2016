@@ -4,7 +4,7 @@ using System.Collections;
 public class AnimatedTextureSwapping : MonoBehaviour {
 
     public GameObject rightEye, leftEye; 
-    public Animator anim; 
+
     public Texture2D[] frames;
     public float timeBetweenBlinkFrames = 0.05f;
     public float timeBetweenLoveFrames = 0.7f; 
@@ -13,12 +13,14 @@ public class AnimatedTextureSwapping : MonoBehaviour {
     private int[] blinkSequence = { 0, 1, 2, 3, 2, 1, 0 };
     private Renderer l_rend;
     private Renderer r_rend;
+    private Animator anim;
 
     private float framesPerSecond = 10.0f;
     private Material leftEyeMat, rightEyeMat; 
 
     void Start()
     {
+        anim = GetComponent<Animator>(); 
         l_rend = leftEye.GetComponent<Renderer>();
         r_rend = rightEye.GetComponent<Renderer>();
     }
@@ -30,7 +32,7 @@ public class AnimatedTextureSwapping : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.X))
             anim.SetBool("love", true);
-
+      
     }
 
     IEnumerator Blink()

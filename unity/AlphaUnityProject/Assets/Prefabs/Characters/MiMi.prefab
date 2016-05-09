@@ -79,6 +79,7 @@ GameObject:
   - 135: {fileID: 13531322}
   - 114: {fileID: 11401336}
   - 114: {fileID: 11420284}
+  - 114: {fileID: 11451800}
   m_Layer: 0
   m_Name: MiMi
   m_TagString: MiMi
@@ -575,7 +576,7 @@ Animator:
   m_GameObject: {fileID: 166026}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fd0196997e62edc4aa93ba0072262803, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e39158346ad1b54082d862269e33f3a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -617,6 +618,30 @@ MonoBehaviour:
   MiMi: {fileID: 166026}
   inputDelay: 0.2
   dashTime: 1
+--- !u!114 &11451800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3154120469566c4781783c0362b3a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightEye: {fileID: 110576}
+  leftEye: {fileID: 173670}
+  frames:
+  - {fileID: 2800000, guid: ad4ebb44e201b004e8f41a3c4b4b4bb6, type: 3}
+  - {fileID: 2800000, guid: 55c9b9689056186499133940f8ea0c64, type: 3}
+  - {fileID: 2800000, guid: 63f7bec200f9fdc4fb7afcd9733979ff, type: 3}
+  - {fileID: 2800000, guid: 1a169736d705a6347a3e2d5c7616d116, type: 3}
+  - {fileID: 2800000, guid: 859014e5ce44b934a9475afe3142ec94, type: 3}
+  timeBetweenBlinkFrames: 0.05
+  timeBetweenLoveFrames: 0.7
+  loveEyes: {fileID: 2800000, guid: e5bd7694a182fe347897bab3ce1bd842, type: 3}
+  surprisedEyes: {fileID: 2800000, guid: 59166cd83ef054642b9b03d1d8c7f4fc, type: 3}
+  happyEyes: {fileID: 2800000, guid: 053f40583a5f6464eb5e6e691dba3da0, type: 3}
 --- !u!135 &13531322
 SphereCollider:
   m_ObjectHideFlags: 1
