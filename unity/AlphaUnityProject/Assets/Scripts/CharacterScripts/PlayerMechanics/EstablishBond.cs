@@ -3,20 +3,13 @@ using System.Collections;
 
 public class EstablishBond : MonoBehaviour {
 
-    //TODO: Consider if category values should be in a class... 
-    [SerializeField]
-    public float bondWidthBegin = 0.2f;
 
-    [SerializeField]
+    public float bondWidthBegin = 0.2f;
     public float bondWidthEnd = 0.4f;
 
-    [SerializeField]
     public float damper = 0.1f;
-
-    [SerializeField]
     public float springPower = 15.0f;
 
-    [SerializeField]
     public float maxSpringDistance = 10.0f;
     public AudioClip bondclip, successClip, destroyClip;
 

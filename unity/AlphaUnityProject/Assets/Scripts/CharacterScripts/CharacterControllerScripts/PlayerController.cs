@@ -42,11 +42,20 @@ public class PlayerController : MonoBehaviour {
         RaycastHit hit;
         //Debug.Log(hit.point);
 
-       // Debug.DrawRay(transform.position, -Vector3.up * 10.0f, Color.green);
+        // Debug.DrawRay(transform.position, -Vector3.up * 10.0f, Color.green);
 
         //Debug.Log(hit.transform.gameObject.tag);
+        Vector3 RayCastFrom = transform.position;
+        if (gameObject.tag == "MiMi")
+            RayCastFrom += new Vector3(0.0f, 0.5f, 0.0f);
 
-        if (Physics.Raycast(transform.position + Vector3.up, -Vector3.up, out hit, 10.0f))
+        if (gameObject.tag == "B4")
+            RayCastFrom += Vector3.up;
+
+
+
+        Debug.DrawLine(RayCastFrom, Vector3.zero);
+        if (Physics.Raycast(RayCastFrom, -Vector3.up, out hit, 10.0f))
         {
             if (hit.distance > distanceToGround)
             {
