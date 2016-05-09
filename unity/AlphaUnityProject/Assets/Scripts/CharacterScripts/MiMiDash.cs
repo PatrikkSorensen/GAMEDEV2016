@@ -10,6 +10,8 @@ public class MiMiDash : MonoBehaviour {
 
     private bool channelling, dashing = false;
     private float startTime, dashStartTime;
+    private float m_rigidbodyDrag;
+    private float m_speed;
 
     void Update()
     {
@@ -23,8 +25,8 @@ public class MiMiDash : MonoBehaviour {
         {
             startTime = 0.0f;
             channelling = false;
-            GetComponent<PlayerController>().speed = 38.0f;
-            GetComponent<Rigidbody>().drag = 6.0f;
+            GetComponent<PlayerController>().speed = m_speed;
+            GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
         }
 
         if (channelling)
@@ -39,8 +41,8 @@ public class MiMiDash : MonoBehaviour {
             {
                 dashStartTime = 0.0f;
                 Debug.Log("Stop dashing!");
-                GetComponent<Rigidbody>().drag = 6.0f;
-                GetComponent<PlayerController>().speed = 38.0f;
+                GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
+                GetComponent<PlayerController>().speed = m_speed;
                 dashing = false;
             }
             else
@@ -59,7 +61,10 @@ public class MiMiDash : MonoBehaviour {
             startTime = 0.0f;
 
             //TODO: Make generic
+            m_rigidbodyDrag = GetComponent<Rigidbody>().drag;
             GetComponent<Rigidbody>().drag = 1.0f;
+
+            m_speed = GetComponent<PlayerController>().speed;
             GetComponent<PlayerController>().speed = 0.0f;
 
             Vector3 forceDirection = transform.forward;
