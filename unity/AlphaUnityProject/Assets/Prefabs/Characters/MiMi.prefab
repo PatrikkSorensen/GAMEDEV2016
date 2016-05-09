@@ -78,6 +78,7 @@ GameObject:
   - 54: {fileID: 5479972}
   - 135: {fileID: 13531322}
   - 114: {fileID: 11401336}
+  - 114: {fileID: 11420284}
   m_Layer: 0
   m_Name: MiMi
   m_TagString: MiMi
@@ -242,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 3.32, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480744}
@@ -601,6 +602,21 @@ MonoBehaviour:
   keyboardMiMi: 1
   velocityMode: 0
   playerStatus: {fileID: 0}
+--- !u!114 &11420284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c0c7bed1f1e1e4fb1f68debeebd9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashForce: 10
+  MiMi: {fileID: 166026}
+  inputDelay: 0.2
+  dashTime: 1
 --- !u!135 &13531322
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,19 +4,17 @@ using System.Collections;
 public class EstablishBond : MonoBehaviour {
 
 
-    public float bondWidthBegin = 0.2f;
-    public float bondWidthEnd = 0.4f;
+    public float bondWidthBegin = 0.3f;
+    public float bondWidthEnd = 0.3f;
 
-    public float damper = 0.1f;
-    public float springPower = 15.0f;
+    public float damper = 0.2f;
+    public float springPower = 10.0f;
 
     public float maxSpringDistance = 10.0f;
     public AudioClip bondclip, successClip, destroyClip;
 
     private GameObject B4, MiMi, audioController;
     private bool bondEstablished, chargeBond = false;
-
-    //TODO: Make time variables public and editable
     private float startTime = 0.0f;
 
     private LightScript ls;
@@ -31,13 +29,6 @@ public class EstablishBond : MonoBehaviour {
     {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
-        
-        if(!B4 || !MiMi)
-        {
-            Debug.LogWarning("B4 or MiMi wasen't found on the current scene. Destroying EstablishBond script.");
-            Destroy(this);
-        }
-
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
 
@@ -125,22 +116,14 @@ public class EstablishBond : MonoBehaviour {
             bondEstablished = true;
 
             // Springjoint: 
-            gameObject.AddComponent<SpringJoint>();
-            SpringJoint joint = GetComponent<SpringJoint>();
-            joint.connectedBody = MiMi.GetComponent<Rigidbody>();
-            joint.spring = springPower;
-            joint.maxDistance = maxSpringDistance;
-            joint.damper = damper;
-            joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = new Vector3(-4, 0, 0);
+            GameObject cube = CreateSpringCube();
+            CreateSpringJoint(B4, cube.GetComponent<Rigidbody>());
+            CreateSpringJoint(MiMi, cube.GetComponent<Rigidbody>());
 
             // Light
             ls.enabled = false;
 
             // Updating playerStatusScript 
-            // TODO: make it happen on both players 
-            B4Status = B4.GetComponent<PlayerController>().playerStatus;
-            MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
             B4Status.setBondStatus(true);
             MiMiStatus.setBondStatus(true);
 
@@ -149,6 +132,31 @@ public class EstablishBond : MonoBehaviour {
             sucessAudioSource.clip = successClip;
             sucessAudioSource.Play(); 
         }
+    }
+
+    GameObject CreateSpringCube()
+    {
+        GameObject gb = new GameObject();
+        gb.name = "BondCube";
+        gb.transform.position = new Vector3(0.0f, 0.5f, 0.0f) + ((MiMi.transform.position + transform.position) / 2.0f);
+        BoxCollider bc = gb.AddComponent<BoxCollider>();
+        bc.size = new Vector3(0.5f, 0.5f, 0.5f);
+        Rigidbody rb = gb.AddComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; 
+
+        return gb; 
+    }
+
+    void CreateSpringJoint(GameObject origin, Rigidbody connectedBody)
+    {
+        Debug.Log("Creating spring joint");
+        SpringJoint joint = origin.AddComponent<SpringJoint>();
+        joint.connectedBody = connectedBody;
+        joint.spring = springPower;
+        joint.maxDistance = maxSpringDistance;
+        joint.damper = damper;
+        //joint.autoConfigureConnectedAnchor = false;
+        //joint.connectedAnchor = new Vector3(-4, 0, 0);
     }
 
     void UpdateBond()
