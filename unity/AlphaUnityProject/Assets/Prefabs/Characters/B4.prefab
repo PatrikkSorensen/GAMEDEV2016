@@ -66,7 +66,6 @@ GameObject:
   - 114: {fileID: 11443808}
   - 65: {fileID: 6590278}
   - 114: {fileID: 11422138}
-  - 145: {fileID: 14588406}
   m_Layer: 0
   m_Name: B4
   m_TagString: B4
@@ -940,8 +939,9 @@ MonoBehaviour:
   bondWidthBegin: 0.2
   bondWidthEnd: 0.2
   damper: 0.2
+  tolerance: 1
   springPower: 10
-  maxSpringDistance: 0
+  maxSpringDistance: 1
   bondclip: {fileID: 0}
   successClip: {fileID: 0}
   destroyClip: {fileID: 0}
@@ -1011,26 +1011,6 @@ MonoBehaviour:
   keyboardMiMi: 0
   velocityMode: 0
   playerStatus: {fileID: 0}
---- !u!145 &14588406
-SpringJoint:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126588}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.5, y: -1, z: 0}
-  serializedVersion: 2
-  m_Spring: 10
-  m_Damper: 0.2
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 10
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

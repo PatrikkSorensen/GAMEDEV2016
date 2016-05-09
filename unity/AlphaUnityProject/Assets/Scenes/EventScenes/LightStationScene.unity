@@ -124,14 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 14565142, guid: 50740a71f6b5eaf44a71dd0fd6db9e99, type: 2}
-      propertyPath: m_ConnectedBody
-      value: 
-      objectReference: {fileID: 608607569}
-    - target: {fileID: 11443096, guid: 50740a71f6b5eaf44a71dd0fd6db9e99, type: 2}
-      propertyPath: B4
-      value: 
-      objectReference: {fileID: 1658383012}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50740a71f6b5eaf44a71dd0fd6db9e99, type: 2}
   m_IsPrefabParent: 0
@@ -244,11 +236,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!54 &608607569 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 5472628, guid: d4d9568ecf8d96543a6863921e1d5f08,
-    type: 2}
-  m_PrefabInternal: {fileID: 356065712}
 --- !u!1001 &654128616
 Prefab:
   m_ObjectHideFlags: 0
@@ -287,22 +274,6 @@ Prefab:
     - target: {fileID: 457224, guid: 7481de592d420144184f70d818c92e06, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: forceMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451208, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: pullForce
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 457224, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.4999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 457224, guid: 7481de592d420144184f70d818c92e06, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.4999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481de592d420144184f70d818c92e06, type: 2}
@@ -392,30 +363,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &1658383012 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
-  m_PrefabInternal: {fileID: 654128616}
---- !u!145 &1658383023
-SpringJoint:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658383012}
-  m_ConnectedBody: {fileID: 608607569}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.5, y: -1, z: 0}
-  serializedVersion: 2
-  m_Spring: 10
-  m_Damper: 0.2
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 10
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
 --- !u!1001 &1732561812
 Prefab:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class EstablishBond : MonoBehaviour {
     public float bondWidthEnd = 0.3f;
 
     public float damper = 0.2f;
+    public float tolerance = 1.0f; 
     public float springPower = 10.0f;
 
     public float maxSpringDistance = 10.0f;
@@ -155,6 +156,7 @@ public class EstablishBond : MonoBehaviour {
         joint.spring = springPower;
         joint.maxDistance = maxSpringDistance;
         joint.damper = damper;
+        joint.tolerance = tolerance; 
         //joint.autoConfigureConnectedAnchor = false;
         //joint.connectedAnchor = new Vector3(-4, 0, 0);
     }
