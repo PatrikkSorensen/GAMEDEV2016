@@ -110,11 +110,11 @@ GameObject:
   - 4: {fileID: 471954}
   - 95: {fileID: 9505014}
   - 54: {fileID: 5405566}
-  - 135: {fileID: 13576092}
   - 135: {fileID: 13524566}
   - 114: {fileID: 11454302}
   - 114: {fileID: 11469898}
   - 114: {fileID: 11459940}
+  - 135: {fileID: 13530886}
   m_Layer: 0
   m_Name: MiMi
   m_TagString: MiMi
@@ -356,7 +356,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129526}
   m_LocalRotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
-  m_LocalPosition: {x: -17.9, y: -2.4, z: -26}
+  m_LocalPosition: {x: -7.6, y: -7.7, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 486060}
@@ -407,7 +407,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.8, y: -2.4, z: -26}
+  m_LocalPosition: {x: 7.6, y: -8.8, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 486060}
@@ -419,7 +419,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1937118e-14, y: 4.2762074, z: 90.84484}
+  m_LocalPosition: {x: -0, y: 4.3, z: 37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485044}
@@ -432,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 150416}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
   m_LocalPosition: {x: 1.28, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421508}
   - {fileID: 485044}
@@ -475,7 +475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9167074e-14, y: 12.405038, z: 120.174934}
+  m_LocalPosition: {x: 0, y: 12.4, z: 65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 419990}
@@ -777,8 +777,8 @@ MonoBehaviour:
   speed: 38
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  fallSpeed: 0.2
-  distanceToGround: 0.5
+  fallSpeed: 1
+  distanceToGround: 2
   keyboardMiMi: 1
   velocityMode: 0
   playerStatus: {fileID: 0}
@@ -831,9 +831,9 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 1, z: 0}
---- !u!135 &13576092
+--- !u!135 &13530886
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -843,7 +843,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!198 &19807762
 ParticleSystem:
