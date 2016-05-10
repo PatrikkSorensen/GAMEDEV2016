@@ -98,7 +98,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 403584}
   - 33: {fileID: 3305028}
-  - 23: {fileID: 2315524}
   - 95: {fileID: 9572120}
   - 54: {fileID: 5473920}
   - 65: {fileID: 6516232}
@@ -106,6 +105,7 @@ GameObject:
   - 65: {fileID: 6579238}
   - 65: {fileID: 6549808}
   - 138: {fileID: 13898748}
+  - 23: {fileID: 2371648}
   m_Layer: 0
   m_Name: AttachThing2
   m_TagString: Untagged
@@ -177,7 +177,7 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 423640}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &409878
 Transform:
   m_ObjectHideFlags: 1
@@ -202,8 +202,8 @@ Transform:
   m_Children:
   - {fileID: 475228}
   - {fileID: 409878}
-  - {fileID: 403584}
   - {fileID: 429546}
+  - {fileID: 403584}
   m_Father: {fileID: 499760}
   m_RootOrder: 2
 --- !u!4 &429546
@@ -217,7 +217,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 423640}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &440370
 Transform:
   m_ObjectHideFlags: 1
@@ -229,7 +229,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 499760}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &445298
 Transform:
   m_ObjectHideFlags: 1
@@ -241,7 +241,7 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 499760}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &475228
 Transform:
   m_ObjectHideFlags: 1
@@ -272,12 +272,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103542}
-  m_LocalRotation: {x: 0, y: 0.19084771, z: 0, w: 0.98161966}
-  m_LocalPosition: {x: 79.77, y: 0.09742451, z: -519.09}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.98, y: 0, z: 6.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 445298}
   - {fileID: 440370}
+  - {fileID: 445298}
   - {fileID: 423640}
   - {fileID: 493514}
   m_Father: {fileID: 0}
@@ -347,32 +347,6 @@ MeshRenderer:
   - {fileID: 2100000, guid: c378c4140a583a24db38489f50955aad, type: 2}
   - {fileID: 2100000, guid: 4532614cd15a02d4894085592662324c, type: 2}
   - {fileID: 2100000, guid: 7f8af37d23b9eee449ecd72f293e7d7a, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!23 &2315524
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154742}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: c378c4140a583a24db38489f50955aad, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -458,6 +432,34 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2371648
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154742}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: c378c4140a583a24db38489f50955aad, type: 2}
+  - {fileID: 2100000, guid: 7f8af37d23b9eee449ecd72f293e7d7a, type: 2}
+  - {fileID: 2100000, guid: ed1eb33f4ef25a4489c80fc8a9724c92, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
