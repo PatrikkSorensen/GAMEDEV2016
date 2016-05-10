@@ -24,7 +24,7 @@ public class IntroSceneEvent : MonoBehaviour {
         //TODO: Add this on MiMiPrefab
         //MiMi.GetComponent<PullOfLove>().enabled = false;
         B4.GetComponent<PlayerController>().enabled = false;
-        B4.GetComponent<PullOfLove>().enabled = false;
+        //B4.GetComponent<PullOfLove>().enabled = false;
         B4.GetComponent<EstablishBond>().enabled = false;
 
         Vector3 targPos = B4.transform.position + new Vector3(0.0f, 2.0f, -2.0f);

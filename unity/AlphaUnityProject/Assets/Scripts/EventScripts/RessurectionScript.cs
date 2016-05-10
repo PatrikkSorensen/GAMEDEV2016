@@ -44,7 +44,7 @@ public class RessurectionScript : MonoBehaviour {
         if (sceneIsFinished)
         {
             MiMi.GetComponent<PlayerController>().enabled = true;
-            B4.GetComponent<PullOfLove>().enabled = true;
+            //B4.GetComponent<PullOfLove>().enabled = true;
             B4.GetComponent<EstablishBond>().enabled = true;
 
             // Change camera
