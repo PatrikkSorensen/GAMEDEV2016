@@ -9,11 +9,14 @@ public class MazeRisingScript : MonoBehaviour {
     public AnimationCurve curve; 
     public KeyCode keycode;
 
-    private CameraShake camShake; 
+    private CameraShake camShake;
+    private AudioSource[] SfxSounds;
 
     void Start()
     {
-        camShake = Camera.main.GetComponent<CameraShake>(); 
+        camShake = Camera.main.GetComponent<CameraShake>();
+        SfxSounds = gameObject.GetComponents<AudioSource>();
+
     }
 
     void Update()
@@ -24,7 +27,11 @@ public class MazeRisingScript : MonoBehaviour {
 
     void TriggerScene()
     {
+        SfxSounds[0].Play();
+        SfxSounds[1].Play();
         mazeToMove.transform.DOMoveY(yPosition, duration).SetEase(curve);
         camShake.Shake();
+        new WaitForSeconds(duration);
+        SfxSounds[1].Play();
     }
 }

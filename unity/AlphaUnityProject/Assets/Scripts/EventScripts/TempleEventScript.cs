@@ -12,8 +12,9 @@ public class TempleEventScript : MonoBehaviour {
     public AnimationCurve doorcurve; 
     public float moveSpeed = 10.0f;
 
+    private AudioSource[] sfxSounds;
     private List<CurcuitLines> m_stationlines = new List<CurcuitLines>();
-    private CurcuitLines m_templelines; 
+    private CurcuitLines m_templelines;
     private bool isScenePlaying, isSceneFinished = false;
 	
 	void Start () {
@@ -21,6 +22,7 @@ public class TempleEventScript : MonoBehaviour {
         m_stationlines.Add(lightstation2.GetComponentInChildren<CurcuitLines>());
 
         m_templelines = GetComponent<CurcuitLines>(); 
+        sfxSounds = doorToMove.GetComponents<AudioSource>();
     }
 
     void Update()
@@ -40,8 +42,12 @@ public class TempleEventScript : MonoBehaviour {
                 fireEvent = false; 
         }
 
-        if(fireEvent && !isScenePlaying)
+        if (fireEvent && !isScenePlaying)
+            sfxSounds[0].Play();
+            sfxSounds[1].Play();
             StartCoroutine(PlayActivatitonScene());
+            new WaitForSeconds(moveSpeed);
+            sfxSounds[1].Stop();
     }
 
 
@@ -56,8 +62,6 @@ public class TempleEventScript : MonoBehaviour {
         doorToMove.transform.DOMove(DOTMove, moveSpeed).SetRelative().SetLoops(1, LoopType.Incremental);
 
         yield return null;
+        
     }
-
-
-
 }
