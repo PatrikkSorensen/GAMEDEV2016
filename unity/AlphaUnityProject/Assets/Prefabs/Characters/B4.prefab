@@ -62,7 +62,6 @@ GameObject:
   - 65: {fileID: 6525080}
   - 114: {fileID: 11490544}
   - 114: {fileID: 11417278}
-  - 114: {fileID: 11451208}
   - 114: {fileID: 11443808}
   - 65: {fileID: 6590278}
   - 114: {fileID: 11422138}
@@ -418,7 +417,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.8599999, y: 0, z: 0}
   m_LocalScale: {x: 1.4999999, y: 1.5, z: 1.4999999}
   m_Children:
   - {fileID: 417630}
@@ -973,25 +972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chanelTime: 2
---- !u!114 &11451208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2dcb1917d59624ab668a6e78699736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MiMiMovementPullForce: 30
-  MiMiMiddlePullForce: 30
-  MiMiEmpowerPullForce: 30
-  B4MovementPullForce: 30
-  B4MiddlePullForce: 30
-  B4EmpowerPullForce: 30
-  pullClip: {fileID: 0}
-  forceMode: 0
 --- !u!114 &11490544
 MonoBehaviour:
   m_ObjectHideFlags: 1
