@@ -9,7 +9,7 @@ public class LightStationScript : MonoBehaviour {
     public Color materialEndColor, emissionColor; 
     public float chanelTime, materialFadeInTime = 3.0f;
     public List<GameObject> AIHelpers = new List<GameObject>();
-    public GameObject curcuitLines, powerSphere, meshLine;
+    public GameObject curcuitLines, powerSphere, meshLine, doorTrigger;
 
     public AudioClip channellingClip, sucessClip;
     private AudioSource chanelSource, sucessSource; 
@@ -94,6 +94,12 @@ public class LightStationScript : MonoBehaviour {
         if (timeDifference > chanelTime && timeDifference < chanelTime + 0.2f)
         {
             Debug.Log("Channelled for three seconds");
+            if(doorTrigger != null)
+            { 
+                doorTrigger.GetComponent<DoorSocketScript>().incrementEnergy();
+            }
+
+
             sparkParticles.Play();
             haloParticles.Play();
             canChanel = false;

@@ -8,7 +8,11 @@ public class DoorSocketScript : MonoBehaviour {
     public GameObject Socket;
     public GameObject AttachTrigger;
     public AudioClip Click;
+    public  int requiredEnergySources;
+    public int currentEnergySources;
+    public float doorOpenDistance;
     private AudioSource source;
+
 
 	// Use this for initialization
 	void Start () 
@@ -17,6 +21,7 @@ public class DoorSocketScript : MonoBehaviour {
         source.clip = Click;
         source.loop = false;
         source.playOnAwake = false;
+        currentEnergySources = 0;
 	}
 	
 	// Update is called once per frame
@@ -24,9 +29,15 @@ public class DoorSocketScript : MonoBehaviour {
 	
 	}
 
+    public void incrementEnergy()
+    {
+        currentEnergySources = currentEnergySources + 1;
+        Debug.Log("energy incremented:" + currentEnergySources);
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "DoorSocket")
+        if (other.gameObject.tag == "DoorSocket" && currentEnergySources >= requiredEnergySources)
         {
             openDoor();
             Debug.Log("Open Door");
@@ -40,7 +51,7 @@ public class DoorSocketScript : MonoBehaviour {
 
     void openDoor()
     {
-        Door.transform.DOMove(Door.transform.position + new Vector3(0, -5.5f, 0), 2);
+        Door.transform.DOMove(Door.transform.position + new Vector3(0, -doorOpenDistance, 0), 2);
 
     }
 }
