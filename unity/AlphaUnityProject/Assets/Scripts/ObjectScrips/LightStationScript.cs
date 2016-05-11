@@ -17,7 +17,9 @@ public class LightStationScript : MonoBehaviour {
     private bool canChanel, channelling, isActive, b = false;
     private PlayerStatusScript B4Status, MiMiStatus;
     private float startTime = 0.0f;
-    private GameObject m_audioObject; 
+    private GameObject m_audioObject;
+
+    private Animator anim; 
 
     public bool IsActive
     {
@@ -32,6 +34,7 @@ public class LightStationScript : MonoBehaviour {
 
         B4Status = GameObject.FindGameObjectWithTag("B4").GetComponent<PlayerStatusScript>();
         MiMiStatus = GameObject.FindGameObjectWithTag("MiMi").GetComponent<PlayerStatusScript>();
+        anim = GetComponent<Animator>(); 
     }
 
     void Update()
@@ -106,8 +109,11 @@ public class LightStationScript : MonoBehaviour {
             channelling = false;
             IsActive = true;
 
-            // Sounds 
-            sucessSource.Play();  
+            // Sounds and animation 
+            sucessSource.Play();
+            anim.SetBool("active", true); 
+            
+
             // Activate events
             ActivateAgents();
             ActivateLines();
