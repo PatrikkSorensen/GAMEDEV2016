@@ -20,7 +20,7 @@ public class FlickeringLight : MonoBehaviour {
 
 	}
 
-    void FlickerLight()
+    public void FlickerLight()
     {
         lightSource.DOIntensity(endIntensity, duration).SetEase(lightCurve); 
     }
