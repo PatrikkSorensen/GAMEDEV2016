@@ -5,11 +5,11 @@ public class PowerPoint : Point
 {
 
     public GameObject lightstation;
-    private CurcuitChanneller powerSourceLines;
-    
+    private LightStationScript ls;     
+
     void Start()
     {
-        powerSourceLines = lightstation.GetComponentInChildren<CurcuitChanneller>(); 
+        ls = lightstation.GetComponent<LightStationScript>(); 
     } 
     
     protected override void Update()
@@ -17,9 +17,7 @@ public class PowerPoint : Point
         if (!ShouldDraw)
             evaluateStatus();
 
-        //if (ShouldDraw)
-        //    Debug.Log("I should draw!");
-
+        //Debug.Log("PowerPoint: Breaking update loop, params: [initiated:" + m_isInitiated + "] [isDrawn " + IsDrawn + "] + [shouldDraw: " + ShouldDraw + "]"); 
         base.Update(); 
 
     }
@@ -41,11 +39,12 @@ public class PowerPoint : Point
 
     protected override void evaluateStatus()
     {
-        if (!powerSourceLines)
-            Debug.LogWarning(gameObject.name + ": There was no curcuit line component connected to lightstation: " + lightstation.name);
+        if (!ls)
+            Debug.LogWarning(gameObject.name + ": There was no lightstationscript connected to lightstation: " + lightstation.name);
 
-        if (powerSourceLines.HasChannelled)
+        if (ls.IsActive)
         {
+            Debug.Log("I should draw!");
             ShouldDraw = true;
         }
     }

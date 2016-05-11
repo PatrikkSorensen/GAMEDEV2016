@@ -3,9 +3,9 @@ using System.Collections;
 
 public class RotatePoint : Point {
 
+    public GameObject defaultPoint; 
     public GameObject[] switchPoints;
     public float changeDuration; 
-
     public GameObject activePoint;
 
     void Start()
@@ -14,12 +14,8 @@ public class RotatePoint : Point {
 
         if (switchPoints.Length == 0)
             Debug.LogWarning(gameObject.name + ": There is no switchPoints assigned to rotatePoint");
-        else 
-            activePoint = switchPoints[0];
-
-        //Initiate(activePoint.transform.position, m_duration);
-        //base.BeginDrawing();
-
+        else
+            activePoint = defaultPoint;
     }
 
     protected override void Update()
