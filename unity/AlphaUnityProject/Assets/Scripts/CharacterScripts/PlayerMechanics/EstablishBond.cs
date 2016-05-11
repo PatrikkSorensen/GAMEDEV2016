@@ -6,6 +6,7 @@ public class EstablishBond : MonoBehaviour {
 
     public float bondWidthBegin = 0.3f;
     public float bondWidthEnd = 0.3f;
+    public float bondCubeMass = 0.1f; 
 
     public float damper = 0.2f;
     public float tolerance = 1.0f; 
@@ -140,9 +141,12 @@ public class EstablishBond : MonoBehaviour {
         GameObject gb = new GameObject();
         gb.name = "BondCube";
         gb.transform.position = new Vector3(0.0f, 0.5f, 0.0f) + ((MiMi.transform.position + transform.position) / 2.0f);
-        BoxCollider bc = gb.AddComponent<BoxCollider>();
-        bc.size = new Vector3(0.5f, 0.5f, 0.5f);
+        gb.AddComponent<BondCubeScript>();
+        SphereCollider sc = gb.AddComponent<SphereCollider>();
+        //BoxCollider bc = gb.AddComponent<BoxCollider>();
+        //bc.size = new Vector3(0.5f, 0.5f, 0.5f);
         Rigidbody rb = gb.AddComponent<Rigidbody>();
+        rb.mass = bondCubeMass; 
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; 
 
         return gb; 
