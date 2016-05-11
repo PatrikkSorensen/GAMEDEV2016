@@ -12,6 +12,7 @@ public class EndSceneScript : MonoBehaviour {
     public float fadeUIImageTime;
     public AnimationCurve fadeOutAmbientCurve;
     public AnimationCurve fadeOutUIImageCurve;
+    public AudioClip InfectionSfx;
 
     private TowerInfectionScript infectionScript;
     private FadeMaterial materialScript;
@@ -111,7 +112,11 @@ public class EndSceneScript : MonoBehaviour {
     void PlayScene()
     {
         DOTween.To(() => RenderSettings.ambientLight, x => RenderSettings.ambientLight = x, Color.black, fadeAmbientTime).SetEase(fadeOutAmbientCurve);
-        infectionScript.shouldPingPong = true; 
+        infectionScript.shouldPingPong = true;
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.clip = InfectionSfx;
+        sfxSource.loop = false;
+        sfxSource.Play();
     }
 
     void SwitchLevel()
