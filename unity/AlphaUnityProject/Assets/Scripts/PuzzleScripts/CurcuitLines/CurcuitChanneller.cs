@@ -6,6 +6,7 @@ public class CurcuitChanneller : MonoBehaviour {
 
     // Context
     public GameObject lineStart;
+    public KeyCode debugKey; 
 
     // Visuals 
     public float startWidth, endWidth = 0.3f;
@@ -14,6 +15,7 @@ public class CurcuitChanneller : MonoBehaviour {
     private GameObject m_lineTracer;
     private LineRenderer m_lr;
     private bool m_channeling, m_hasChannelled, m_isWaiting = false;
+    private Point m_currentPoint;  
 
     public bool HasChannelled
     {
@@ -23,7 +25,7 @@ public class CurcuitChanneller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.C) && !m_channeling)
+        if (Input.GetKey(debugKey) && !m_channeling)
         {
             m_channeling = true; 
             Debug.Log("Started Coroutine"); 
@@ -57,80 +59,100 @@ public class CurcuitChanneller : MonoBehaviour {
         }
 
         m_lineTracer = m_lineTracer.GetComponent<Point>().endPoint;
-        Debug.Log("Beginning while loop."); 
+
         while (m_lineTracer.GetComponent<Point>())
         {
-            Debug.Log("Start of while loop: " + m_lineTracer); 
-            Point p = m_lineTracer.GetComponent<Point>();
+            Point m_currentPoint = m_lineTracer.GetComponent<Point>();
 
-            if (p.GetType() == typeof(RotatePoint))
+            if (m_currentPoint.GetType() == typeof(RotatePoint))
             {
-                Debug.Log("RotatePoint encountered..");
                 RotatePoint rp = m_lineTracer.GetComponent<RotatePoint>();
-                rp.Initiate(rp.activePoint.transform.position, rp.m_duration);
+                rp.Initiate(rp.activePoint.transform.position, rp.m_duration); // TODO: Do it with m_currentPoint instead
 
                 while (!rp.IsDrawn)
                 {
-                    m_lineTracer = rp.activePoint;
-                    Debug.Log("waiting on ..." + m_lineTracer.name);
-                    while(rp.endPoint.name != "rotatepointend1")
+                    GameObject rotateEndPoint = rp.activePoint;
+                    Point m_endPoint = rotateEndPoint.GetComponent<Point>();
+
+                    while (!m_endPoint.endPoint) // RotatePoint decides which is the right endpoint, right now it is a blind point
                     {
-                        m_lineTracer = rp.activePoint;
-                        p.BeginDrawing();
-                        Debug.Log("Inside endpoint check loop");
+                        m_currentPoint.BeginDrawing();
+                        m_endPoint = rp.activePoint.GetComponent<Point>();
                         yield return new WaitForSeconds(1.0f);
                     }
 
+                    m_currentPoint.BeginDrawing();
                     yield return new WaitForSeconds(1.0f);
-                    p.BeginDrawing();
                 }
-
-            } else if(p.GetType() == typeof(Point))
+            }
+            else if (m_currentPoint.GetType() == typeof(PowerPoint))
             {
-                Debug.Log("Standard Point encountered..");
-                
-                if (!p.endPoint)
+                m_currentPoint.Initiate(m_currentPoint.endPoint.transform.position, m_currentPoint.m_duration);
+
+                while (!m_currentPoint.IsDrawn)
                 {
-                    Debug.Log(p.name + " had no end point, so can't draw further");
-                    break; 
+                    while (!m_currentPoint.ShouldDraw)
+                    {
+                        m_currentPoint.BeginDrawing();
+                        Debug.Log("Encountered PowerPoint, shouldDraw: " + m_currentPoint.ShouldDraw);
+                        yield return new WaitForSeconds(1.0f);
+                    }
+
+                    m_currentPoint.ShouldDraw = true; // TODO: fix this bug
+                    m_currentPoint.BeginDrawing();
+                    yield return new WaitForSeconds(1.0f);
                 }
-                    
 
-                // Initiate
-                p.Initiate(p.endPoint.transform.position, p.m_duration);
+            }
+            else if (m_currentPoint.GetType() == typeof(Point))
+            {
+                m_currentPoint.Initiate(m_currentPoint.endPoint.transform.position, m_currentPoint.m_duration);
+                
 
-                // Visuals: 
-                m_lr = m_lineTracer.GetComponent<LineRenderer>();
-                m_lr.SetWidth(startWidth, endWidth);
-                m_lr.material = lineMaterial;
-                m_lr = m_lineTracer.GetComponent<LineRenderer>();
-
-                while (!p.IsDrawn)
+                while (!m_currentPoint.IsDrawn)
                 {
-                    if (p.ShouldDraw)
-                        p.BeginDrawing();
+                    if (m_currentPoint.ShouldDraw)
+                        m_currentPoint.BeginDrawing();
 
                     Debug.Log("waiting on ..." + m_lineTracer.name);
                     yield return new WaitForSeconds(1.0f);
-                }
+                } 
+            } 
+            else
+            {
+                Debug.LogWarning("Curcuit chaneller is trying to run through a gameobject which has a undefined point class.");
+                break; 
+            }
 
-            //Destroy(m_lineTracer.GetComponent<Point>());
             m_lineTracer = m_lineTracer.GetComponent<Point>().endPoint;
-            if (m_lineTracer == null)
-            {
-                Debug.Log("I SHOULD BREAK WHILE LOOP");
-            } else
-            {
-                    Debug.Log(m_lineTracer);
-            }
-
-            HasChannelled = true;
-            // Do end line visuals here results here... e.g light up the whole line...
-            }
         }
 
         Debug.Log("Curcuit lines has finished drawing all your points.");
         GameObject.Find("RoundElectronic").GetComponent<Animator>().SetBool("hasPower", true);
         // ------------------------------------------------- END ------------------------------------------------- // 
+    }
+
+    private void DrawRotatePoint(RotatePoint rp)
+    {
+
+    }
+
+    bool EvaluateRotatePoint(RotatePoint point)
+    {
+
+        return point.IsDrawn;
+    }
+
+    bool HandlePowerPoint()
+    {
+        return true;
+    }
+
+    private void SetLineVisuals()
+    {
+        m_lr = m_lineTracer.GetComponent<LineRenderer>();
+        m_lr.SetWidth(startWidth, endWidth);
+        m_lr.material = lineMaterial;
+        m_lr = m_lineTracer.GetComponent<LineRenderer>();
     }
 }

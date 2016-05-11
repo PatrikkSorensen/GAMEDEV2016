@@ -159,10 +159,10 @@ public class LightStationScript : MonoBehaviour {
 
     void ActivateLines()
     {
-        if (curcuitLines)
-            curcuitLines.GetComponent<CurcuitLines>().ChanelLines();
-        else
-            Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
+        //if (curcuitLines)
+        //    curcuitLines.GetComponent<CurcuitLines>().ChanelLines();
+        //else
+        //    Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
     }
 
     void AssignAudioObject()

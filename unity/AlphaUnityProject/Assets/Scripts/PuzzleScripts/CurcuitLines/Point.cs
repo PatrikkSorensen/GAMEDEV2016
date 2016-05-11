@@ -38,9 +38,9 @@ public class Point : MonoBehaviour {
     protected virtual void Update () {
 
 
-        if (!m_isInitiated || m_isDrawn || !ShouldDraw)
+        if (!m_isInitiated || IsDrawn || !ShouldDraw)
         {
-            //Debug.Log("Breaking update loop, params: [initiated:" + m_isInitiated + "] [isDrawn " + m_isDrawn + "] + [shouldDraw: " + "]"); 
+            //Debug.Log("Breaking update loop, params: [initiated:" + m_isInitiated + "] [isDrawn " + IsDrawn + "] + [shouldDraw: " + m_isDrawn + "]"); 
             return;
         }
            
@@ -48,7 +48,7 @@ public class Point : MonoBehaviour {
 
         if (Vector3.Distance(m_lineTracer.transform.position, m_targetPoint) <= 0.5f)
         {
-            Debug.Log(gameObject.name + " has finished drawing!");
+            Debug.Log(gameObject.name + " has reached its endpoint.");
             IsDrawing = false; 
             IsDrawn = true;
             //Destroy(m_lineTracer);
@@ -59,7 +59,7 @@ public class Point : MonoBehaviour {
 
     protected virtual void DrawLines()
     {
-        //Debug.Log("LineTracer: " + m_lineTracer.transform.position + " is headed towards:  " + m_targetPoint);
+        Debug.Log("LineTracer: " + m_lineTracer.transform.position + " is headed towards:  " + m_targetPoint);
         m_points[1] = m_lineTracer.transform.position;
         m_lr.SetPositions(m_points);
 
@@ -67,7 +67,7 @@ public class Point : MonoBehaviour {
 
     public virtual void Initiate(Vector3 v, float duration)
     {
-        Debug.Log("Line initiated with start point: " + transform.position + " and line end point: " + v + ", with draw duration: " + duration);
+        Debug.Log("Line initiated with start point: " + transform.name + ": " + transform.position + " and line end point: " + v + ", with draw duration: " + duration);
         m_lr = gameObject.AddComponent<LineRenderer>();
         m_lr.SetVertexCount(2);
 
