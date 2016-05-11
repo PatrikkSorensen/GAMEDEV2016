@@ -6,7 +6,8 @@ public class ThirdPersonCameraScript : MonoBehaviour {
 
     public float distanceAway = 8.0f;
     public float distanceUp = 6.0f;
-    public Vector3 offset = Vector3.zero; 
+    public Vector3 offset = Vector3.zero;
+    public float correctionAmplifier = 0.005f;
 
     private float smooth = 3.0f;
     private float cameraPan = 0.0f;
@@ -19,12 +20,14 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     private Transform cam;
     private bool DidFwdRayHit = false;
     private int randomDir = 0; // 0 for left 1 for right
+    private float distanceUpFix;
 
 
     void Start()
     {
         playerOne = GameObject.FindGameObjectWithTag("B4").transform;
         playerTwo = GameObject.FindGameObjectWithTag("MiMi").transform;
+        distanceUpFix = distanceUp;
     }
 
     void FixedUpdate()
@@ -72,6 +75,9 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         Vector3 rayLeftV4 = cam.forward;
         rayLeftV4 = Quaternion.AngleAxis(-90, Vector3.up) * rayLeftV4;
 
+        Vector3 rayDown = cam.forward;
+        rayDown = Quaternion.AngleAxis(-90, Vector3.left) * rayDown;
+
         if (DidFwdRayHit == false)
         {
             randomDir = Mathf.RoundToInt(Random.value);
@@ -81,27 +87,27 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         {
             DidFwdRayHit = true;
             Debug.DrawLine(rayFwd.origin, hit.point);
-            if (randomDir == 1) { cameraPan = cameraPan + 0.005f; }
-            if (randomDir == 0) { cameraPan = cameraPan - 0.005f; }
+            if (randomDir == 1) { cameraPan = cameraPan + correctionAmplifier; }
+            if (randomDir == 0) { cameraPan = cameraPan - correctionAmplifier; }
         }
         else { DidFwdRayHit = false; }
 
         if (Physics.Raycast(cam.position, rayLeftV1, out hit, 4.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan - 0.005f;
+            cameraPan = cameraPan - correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayRightV1, out hit, 4.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan + 0.005f;
+            cameraPan = cameraPan + correctionAmplifier;
         }
         
         if(Physics.Raycast(cam.position, rayLeftV2, out hit, 3.50f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan - 0.005f;
+            cameraPan = cameraPan - correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayRightV2, out hit, 3.5f))
@@ -113,29 +119,44 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         if (Physics.Raycast(cam.position, rayRightV3, out hit, 3.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan + 0.005f;
+            cameraPan = cameraPan + correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayLeftV3, out hit, 3.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan - 0.005f;
+            cameraPan = cameraPan - correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayRightV4, out hit, 3.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan + 0.005f;
+            cameraPan = cameraPan + correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayLeftV4, out hit, 3.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan - 0.005f;
+            cameraPan = cameraPan - correctionAmplifier;
+        }
+
+        if (Physics.Raycast(cam.position, rayDown, out hit, distanceUp))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            distanceUpFix = distanceUpFix + correctionAmplifier*10;
+        }
+        else 
+        { 
+            if(distanceUpFix > distanceUp)
+            {
+                distanceUpFix = distanceUpFix - correctionAmplifier * 5;
+                //Debug.Log(distanceUpFix + " " + distanceUp);
+            }
+            
         }
 
         Vector3 m_offset = new Vector3(Mathf.Sin(cameraPan) * 2, 0, Mathf.Sin(cameraPan + (Mathf.PI/2)) * 2);
-        targetPosition = middlePosition + Vector3.up * distanceUp - m_offset * distanceAway;
+        targetPosition = middlePosition + Vector3.up * distanceUpFix - m_offset * distanceAway;
 
         //Debug.DrawRay(playerOne.position, Vector3.up * distanceUp, Color.red);
         //Debug.DrawRay(playerOne.position, -1f * playerOne.forward * distanceAway, Color.red );
