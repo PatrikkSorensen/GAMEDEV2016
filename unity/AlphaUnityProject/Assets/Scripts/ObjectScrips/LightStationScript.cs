@@ -10,7 +10,7 @@ public class LightStationScript : MonoBehaviour {
     public float chanelTime, materialFadeInTime = 3.0f;
     public List<GameObject> AIHelpers = new List<GameObject>();
     public GameObject curcuitLines, powerSphere, meshLine, doorTrigger;
-
+    public KeyCode DebugKey; 
     public AudioClip channellingClip, sucessClip;
     private AudioSource chanelSource, sucessSource; 
 
@@ -39,11 +39,9 @@ public class LightStationScript : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.V))
-        {
-            ChangeSphereMaterial(); 
+        if (Input.GetKey(DebugKey) && !isActive)
+            ActivateLightStation(); 
 
-        }
         // TODO: Refactor this
         if (canChanel && !isActive)
         {
@@ -96,36 +94,40 @@ public class LightStationScript : MonoBehaviour {
 
         if (timeDifference > chanelTime && timeDifference < chanelTime + 0.2f)
         {
-            Debug.Log("Channelled for three seconds");
-            if(doorTrigger != null)
-            { 
-                doorTrigger.GetComponent<DoorSocketScript>().incrementEnergy();
-            }
-
-
-            sparkParticles.Play();
-            haloParticles.Play();
-            canChanel = false;
-            channelling = false;
-            IsActive = true;
-
-            // Sounds and animation 
-            sucessSource.Play();
-            anim.SetBool("active", true); 
-            
-
-            // Activate events
-            ActivateAgents();
-            ActivateLines();
-
-            // Materials and visuals
-           ChangeSphereMaterial();
-
+            ActivateLightStation();
         }
         else
         {
             Debug.Log("timeDifference: " + timeDifference + ", is less than 3.0f");
         }
+    }
+
+    void ActivateLightStation()
+    {
+        Debug.Log("Channelled for three seconds");
+        if (doorTrigger != null)
+        {
+            doorTrigger.GetComponent<DoorSocketScript>().incrementEnergy();
+        }
+
+
+        sparkParticles.Play();
+        haloParticles.Play();
+        canChanel = false;
+        channelling = false;
+        IsActive = true;
+
+        // Sounds and animation 
+        sucessSource.Play();
+        anim.SetBool("active", true);
+
+
+        // Activate events
+        ActivateAgents();
+        ActivateLines();
+
+        // Materials and visuals
+        ChangeSphereMaterial();
     }
 
     void ChangeSphereMaterial()
@@ -165,10 +167,10 @@ public class LightStationScript : MonoBehaviour {
 
     void ActivateLines()
     {
-        //if (curcuitLines)
-        //    curcuitLines.GetComponent<CurcuitLines>().ChanelLines();
-        //else
-        //    Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
+        if (curcuitLines)
+            StartCoroutine(curcuitLines.GetComponent<CurcuitChanneller>().BeginChanneling());
+        else
+            Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
     }
 
     void AssignAudioObject()

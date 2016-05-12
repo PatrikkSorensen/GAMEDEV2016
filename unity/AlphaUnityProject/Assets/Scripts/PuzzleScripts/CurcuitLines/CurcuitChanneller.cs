@@ -15,7 +15,6 @@ public class CurcuitChanneller : MonoBehaviour {
     private GameObject m_lineTracer;
     private LineRenderer m_lr;
     private bool m_channeling, m_hasChannelled, m_isWaiting = false;
-    private Point m_currentPoint;  
 
     public bool HasChannelled
     {
@@ -33,7 +32,7 @@ public class CurcuitChanneller : MonoBehaviour {
         }
     }
 
-    IEnumerator BeginChanneling()
+    public IEnumerator BeginChanneling()
     {
         if (HasChannelled || m_channeling || m_isWaiting)
             StopCoroutine(BeginChanneling());
@@ -41,7 +40,7 @@ public class CurcuitChanneller : MonoBehaviour {
         m_channeling = true;
         // ------------------------------------------------- BEGIN ------------------------------------------------- // 
         m_lineTracer = lineStart;
-        Vector3 endPoint = lineStart.GetComponent<Point>().endPoint.transform.position; 
+        Vector3 endPoint = lineStart.GetComponent<Point>().nextPoint.transform.position; 
         m_lineTracer.GetComponent<Point>().Initiate(endPoint, 5.0f);
         m_lineTracer.GetComponent<Point>().BeginDrawing();
 
@@ -58,7 +57,7 @@ public class CurcuitChanneller : MonoBehaviour {
             yield return new WaitForSeconds(1.0f);
         }
 
-        m_lineTracer = m_lineTracer.GetComponent<Point>().endPoint;
+        m_lineTracer = m_lineTracer.GetComponent<Point>().nextPoint;
 
         while (m_lineTracer.GetComponent<Point>())
         {
@@ -74,7 +73,7 @@ public class CurcuitChanneller : MonoBehaviour {
                     GameObject rotateEndPoint = rp.activePoint;
                     Point m_endPoint = rotateEndPoint.GetComponent<Point>();
 
-                    while (!m_endPoint.endPoint) // RotatePoint decides which is the right endpoint, right now it is a blind point
+                    while (!m_endPoint.nextPoint) // RotatePoint decides which is the right endpoint, right now it is a blind point
                     {
                         m_currentPoint.BeginDrawing();
                         m_endPoint = rp.activePoint.GetComponent<Point>();
@@ -87,7 +86,8 @@ public class CurcuitChanneller : MonoBehaviour {
             }
             else if (m_currentPoint.GetType() == typeof(PowerPoint))
             {
-                m_currentPoint.Initiate(m_currentPoint.endPoint.transform.position, m_currentPoint.m_duration);
+                 
+                m_currentPoint.Initiate(m_currentPoint.nextPoint.transform.position, m_currentPoint.m_duration);
 
                 while (!m_currentPoint.IsDrawn)
                 {
@@ -106,7 +106,9 @@ public class CurcuitChanneller : MonoBehaviour {
             }
             else if (m_currentPoint.GetType() == typeof(Point))
             {
-                m_currentPoint.Initiate(m_currentPoint.endPoint.transform.position, m_currentPoint.m_duration);
+                if (!m_currentPoint.nextPoint)
+                    break;
+                m_currentPoint.Initiate(m_currentPoint.nextPoint.transform.position, m_currentPoint.m_duration);
                 
 
                 while (!m_currentPoint.IsDrawn)
@@ -124,11 +126,11 @@ public class CurcuitChanneller : MonoBehaviour {
                 break; 
             }
 
-            m_lineTracer = m_lineTracer.GetComponent<Point>().endPoint;
+            m_lineTracer = m_lineTracer.GetComponent<Point>().nextPoint;
         }
 
         Debug.Log("Curcuit lines has finished drawing all your points.");
-        GameObject.Find("RoundElectronic").GetComponent<Animator>().SetBool("hasPower", true);
+        //GameObject.Find("RoundElectronic").GetComponent<Animator>().SetBool("hasPower", true);
         // ------------------------------------------------- END ------------------------------------------------- // 
     }
 

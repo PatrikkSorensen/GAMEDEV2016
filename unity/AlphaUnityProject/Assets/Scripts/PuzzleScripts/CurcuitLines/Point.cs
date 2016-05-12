@@ -6,7 +6,7 @@ using System;
 public class Point : MonoBehaviour {
 
     public float m_duration;
-    public GameObject endPoint; 
+    public GameObject nextPoint; 
 
     protected Vector3[] m_points;
     protected GameObject m_lineTracer;
