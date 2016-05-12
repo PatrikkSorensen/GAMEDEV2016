@@ -9,7 +9,7 @@ public class CurcuitChanneller : MonoBehaviour {
     public KeyCode debugKey; 
 
     // Visuals 
-    public float startWidth, endWidth = 0.3f;
+    public float startWidth = 0.3f, endWidth = 0.3f;
     public Material lineMaterial;
 
     private GameObject m_lineTracer;
@@ -130,6 +130,7 @@ public class CurcuitChanneller : MonoBehaviour {
         }
 
         Debug.Log("Curcuit lines has finished drawing all your points.");
+        HasChannelled = true; 
         //GameObject.Find("RoundElectronic").GetComponent<Animator>().SetBool("hasPower", true);
         // ------------------------------------------------- END ------------------------------------------------- // 
     }
