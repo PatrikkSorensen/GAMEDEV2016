@@ -21,6 +21,7 @@ public class ThirdPersonCameraScript : MonoBehaviour {
     private bool DidFwdRayHit = false;
     private int randomDir = 0; // 0 for left 1 for right
     private float distanceUpFix;
+    private float distanceAwayFix;
 
 
     void Start()
@@ -28,6 +29,7 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         playerOne = GameObject.FindGameObjectWithTag("B4").transform;
         playerTwo = GameObject.FindGameObjectWithTag("MiMi").transform;
         distanceUpFix = distanceUp;
+        distanceAwayFix = distanceAway;
     }
 
     void FixedUpdate()
@@ -37,12 +39,12 @@ public class ThirdPersonCameraScript : MonoBehaviour {
 
         if (Input.GetButton("CamRight"))
         {
-            cameraPan = cameraPan + Time.deltaTime;
+            cameraPan = cameraPan + Time.deltaTime * 1.20f;
 
         }
         if (Input.GetButton("CamLeft"))
         {
-            cameraPan = cameraPan - Time.deltaTime;
+            cameraPan = cameraPan - Time.deltaTime * 1.20f;
 
         }
 
@@ -78,6 +80,15 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         Vector3 rayDown = cam.forward;
         rayDown = Quaternion.AngleAxis(-90, Vector3.left) * rayDown;
 
+        Vector3 rayBehind1 = cam.forward;
+        rayBehind1 = Quaternion.AngleAxis(-245, Vector3.up) * rayBehind1;
+
+        Vector3 rayBehind2 = cam.forward;
+        rayBehind2 = Quaternion.AngleAxis(-180, Vector3.up) * rayBehind2;
+
+        Vector3 rayBehind3 = cam.forward;
+        rayBehind3 = Quaternion.AngleAxis(-115, Vector3.up) * rayBehind3;
+
         if (DidFwdRayHit == false)
         {
             randomDir = Mathf.RoundToInt(Random.value);
@@ -87,6 +98,7 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         {
             DidFwdRayHit = true;
             Debug.DrawLine(rayFwd.origin, hit.point);
+            distanceAwayFix = distanceAwayFix + correctionAmplifier * 5; 
             if (randomDir == 1) { cameraPan = cameraPan + correctionAmplifier; }
             if (randomDir == 0) { cameraPan = cameraPan - correctionAmplifier; }
         }
@@ -95,12 +107,14 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         if (Physics.Raycast(cam.position, rayLeftV1, out hit, 4.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
+            distanceAwayFix = distanceAwayFix + correctionAmplifier * 2; 
             cameraPan = cameraPan - correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayRightV1, out hit, 4.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
+            distanceAwayFix = distanceAwayFix + correctionAmplifier * 2; 
             cameraPan = cameraPan + correctionAmplifier;
         }
         
@@ -113,7 +127,7 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         if (Physics.Raycast(cam.position, rayRightV2, out hit, 3.5f))
         {
             Debug.DrawLine(cam.position, hit.point);
-            cameraPan = cameraPan + 0.005f;
+            cameraPan = cameraPan + correctionAmplifier;
         }
 
         if (Physics.Raycast(cam.position, rayRightV3, out hit, 3.0f))
@@ -132,31 +146,60 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         {
             Debug.DrawLine(cam.position, hit.point);
             cameraPan = cameraPan + correctionAmplifier;
+            distanceAwayFix = distanceAwayFix - correctionAmplifier * 20;
         }
 
         if (Physics.Raycast(cam.position, rayLeftV4, out hit, 3.0f))
         {
             Debug.DrawLine(cam.position, hit.point);
             cameraPan = cameraPan - correctionAmplifier;
+            distanceAwayFix = distanceAwayFix - correctionAmplifier * 20;
         }
 
         if (Physics.Raycast(cam.position, rayDown, out hit, distanceUp))
         {
             Debug.DrawLine(cam.position, hit.point);
-            distanceUpFix = distanceUpFix + correctionAmplifier*10;
+            distanceUpFix = distanceUpFix + correctionAmplifier*20;
         }
-        else 
-        { 
-            if(distanceUpFix > distanceUp)
-            {
-                distanceUpFix = distanceUpFix - correctionAmplifier * 5;
-                //Debug.Log(distanceUpFix + " " + distanceUp);
-            }
-            
+
+        if (Physics.Raycast(cam.position, rayBehind1, out hit, 1.0f))
+        {
+            //Debug.DrawLine(cam.position, hit.point);
+            distanceAwayFix = distanceAwayFix - correctionAmplifier * 20;
+        }
+
+        if (Physics.Raycast(cam.position, rayBehind2, out hit, 1.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            distanceAwayFix = distanceAwayFix - correctionAmplifier * 20;
+        }
+
+        if (Physics.Raycast(cam.position, rayBehind3, out hit, 1.0f))
+        {
+            Debug.DrawLine(cam.position, hit.point);
+            distanceAwayFix = distanceAwayFix - correctionAmplifier * 20;
+        }
+
+        if (distanceAwayFix <= distanceAway)
+        {
+            distanceAwayFix = distanceAwayFix + correctionAmplifier * 10;
+            Debug.DrawLine(cam.position, hit.point);
+            //Debug.Log(distanceUpFix + " " + distanceUp);
+        }
+        else
+        {
+            distanceAwayFix = distanceAwayFix - correctionAmplifier * 10;
+        }
+
+        if (distanceUpFix > distanceUp)
+        {
+            distanceUpFix = distanceUpFix - correctionAmplifier * 5;
+            //Debug.Log(distanceUpFix + " " + distanceUp);
+            Debug.DrawLine(cam.position, hit.point);
         }
 
         Vector3 m_offset = new Vector3(Mathf.Sin(cameraPan) * 2, 0, Mathf.Sin(cameraPan + (Mathf.PI/2)) * 2);
-        targetPosition = middlePosition + Vector3.up * distanceUpFix - m_offset * distanceAway;
+        targetPosition = middlePosition + Vector3.up * distanceUpFix - m_offset * distanceAwayFix;
 
         //Debug.DrawRay(playerOne.position, Vector3.up * distanceUp, Color.red);
         //Debug.DrawRay(playerOne.position, -1f * playerOne.forward * distanceAway, Color.red );
@@ -213,6 +256,13 @@ public class ThirdPersonCameraScript : MonoBehaviour {
         yield return null;
     }
 
+    public void changeOffset(float x, float y, float z)
+    {
+        offset.x += x;
+        offset.y += y;
+        offset.z += z;
 
+
+    }
 
 }
