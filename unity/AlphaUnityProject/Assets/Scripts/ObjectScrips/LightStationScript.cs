@@ -12,9 +12,10 @@ public class LightStationScript : MonoBehaviour {
     public GameObject curcuitLines, powerSphere, meshLine, doorTrigger;
     public KeyCode DebugKey; 
     public AudioClip channellingClip, sucessClip;
-    private AudioSource chanelSource, sucessSource; 
+    public LightStationButton B4Button; 
 
-    private bool canChanel, channelling, isActive, b = false;
+    private AudioSource chanelSource, sucessSource; 
+    private bool canChanel, channelling, isActive = false;
     private PlayerStatusScript B4Status, MiMiStatus;
     private float startTime = 0.0f;
     private GameObject m_audioObject;
@@ -43,7 +44,7 @@ public class LightStationScript : MonoBehaviour {
             ActivateLightStation(); 
 
         // TODO: Refactor this
-        if (canChanel && !isActive)
+        if (canChanel && !isActive && B4Button.CanChanel)
         {
             if (Input.GetButtonDown("Channelling") && canChanel && B4Status.getBondStatus())
             {
@@ -54,7 +55,6 @@ public class LightStationScript : MonoBehaviour {
 
             if (Input.GetButtonUp("Channelling"))
             {
-                //float timeDifference = Time.time - startTime;
                 channelling = false;
                 startTime = 0;
                 sparkParticles.Stop();
@@ -75,17 +75,14 @@ public class LightStationScript : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-
+        if (other.tag == "MiMi")
             canChanel = true;
-
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "MiMi")
-        {
             canChanel = false;
-        }
     }
 
     void ChanelEnergyOnPlatform()
@@ -106,12 +103,10 @@ public class LightStationScript : MonoBehaviour {
     {
         Debug.Log("Channelled for three seconds");
         if (doorTrigger != null)
-        {
             doorTrigger.GetComponent<DoorSocketScript>().incrementEnergy();
-        }
 
 
-        sparkParticles.Play();
+        sparkParticles.Stop();
         haloParticles.Play();
         canChanel = false;
         channelling = false;
@@ -120,7 +115,6 @@ public class LightStationScript : MonoBehaviour {
         // Sounds and animation 
         sucessSource.Play();
         anim.SetBool("active", true);
-
 
         // Activate events
         ActivateAgents();
@@ -151,7 +145,6 @@ public class LightStationScript : MonoBehaviour {
             startColor = startColor + new Color(incrementor, incrementor, incrementor);
             m.SetColor("_EmissionColor", startColor);
             yield return new WaitForSeconds(0.01f); 
-
         }
 
     }

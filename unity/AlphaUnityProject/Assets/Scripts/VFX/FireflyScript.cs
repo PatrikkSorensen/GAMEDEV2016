@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class FireflyScript : MonoBehaviour {
+    public GameObject MiMi; 
     public float xBound;
     public float yBound;
     public float zBound;
@@ -14,12 +15,15 @@ public class FireflyScript : MonoBehaviour {
 
     void Start()
     {
-        container = transform.parent.gameObject;
+        MiMi = GameObject.FindGameObjectWithTag("MiMi");
+        container = MiMi;
         origin = transform.position; 
     }
 
     void Update()
     {
+        container = MiMi;
+        origin = MiMi.transform.position + new Vector3(0.0f, 0.5f, 0.0f);
         if (!onRoute)
         {
             destination = FindRoute();
