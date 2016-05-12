@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 
 public class BeaconPuzzleScript : MonoBehaviour {
-    public GameObject chanelSwitch; 
     public GameObject[] lightStations;
     public Vector3 DOTMove = new Vector3(0.0f, 10.0f, 0.0f);
 
@@ -23,8 +22,6 @@ public class BeaconPuzzleScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.M) && !isScenePlaying)
             StartCoroutine(PlayScene()); 
 
-        if(chanelSwitch.GetComponent<ChannelSwitch>().IsActive)
-            StartCoroutine(PlayScene());
     }
 
     void CheckLightStations()

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fd0196997e62edc4aa93ba0072262803
-timeCreated: 1460467646
+guid: 3c6a732a410c81d4fb2b3cade0c6df41
+timeCreated: 1463084248
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,26 +9,28 @@ ModelImporter:
     100002: EyeController
     100004: eyesL
     100006: eyesR
-    100008: headphones
-    100010: inner
-    100012: innerLight
-    100014: jointMiMi
-    100016: main
-    100018: mainSphere
-    100020: //RootNode
-    100022: outer
+    100008: group
+    100010: headphones
+    100012: inner
+    100014: innerLight
+    100016: jointMiMi
+    100018: main
+    100020: mainSphere
+    100022: //RootNode
+    100024: outer
     400000: backEyes
     400002: EyeController
     400004: eyesL
     400006: eyesR
-    400008: headphones
-    400010: inner
-    400012: innerLight
-    400014: jointMiMi
-    400016: main
-    400018: mainSphere
-    400020: //RootNode
-    400022: outer
+    400008: group
+    400010: headphones
+    400012: inner
+    400014: innerLight
+    400016: jointMiMi
+    400018: main
+    400020: mainSphere
+    400022: //RootNode
+    400024: outer
     2300000: backEyes
     2300002: eyesL
     2300004: eyesR
@@ -47,9 +49,11 @@ ModelImporter:
     4300006: eyesR
     4300008: eyesL
     4300010: backEyes
-    7400000: MimiIdle1
-    7400002: MimiIdle2
-    7400004: MimiRun
+    7400000: mimi_eye1
+    7400002: mimi_rotate1
+    7400004: mimi_eye2
+    7400006: mimi_slowturn
+    7400008: mimi_rotate2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -73,62 +77,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: MimiIdle1
-      takeName: MimiIdle3
-      firstFrame: 1
-      lastFrame: 80
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: headphones
-        weight: 1
-      - path: headphones/backEyes
-        weight: 1
-      - path: headphones/EyeController
-        weight: 1
-      - path: headphones/EyeController/eyesL
-        weight: 1
-      - path: headphones/EyeController/eyesR
-        weight: 1
-      - path: innerLight
-        weight: 1
-      - path: jointMiMi
-        weight: 1
-      - path: jointMiMi/inner
-        weight: 1
-      - path: jointMiMi/main
-        weight: 1
-      - path: jointMiMi/outer
-        weight: 1
-      - path: mainSphere
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
-    - serializedVersion: 16
-      name: MimiIdle2
-      takeName: MimiIdle3
-      firstFrame: 80
-      lastFrame: 200
+      name: mimi_eye1
+      takeName: Take 001
+      firstFrame: 99
+      lastFrame: 190
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -148,15 +100,18 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.44897944
+      - time: 0
         functionName: Blink
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 166026, guid: 50740a71f6b5eaf44a71dd0fd6db9e99,
+          type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: group
         weight: 1
       - path: headphones
         weight: 1
@@ -184,10 +139,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: MimiRun
-      takeName: MimiIdle3
-      firstFrame: 200
-      lastFrame: 280
+      name: mimi_rotate1
+      takeName: Take 001
+      firstFrame: 340
+      lastFrame: 451
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -209,6 +164,170 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: headphones
+        weight: 1
+      - path: headphones/backEyes
+        weight: 1
+      - path: headphones/EyeController
+        weight: 1
+      - path: headphones/EyeController/eyesL
+        weight: 1
+      - path: headphones/EyeController/eyesR
+        weight: 1
+      - path: innerLight
+        weight: 1
+      - path: jointMiMi
+        weight: 1
+      - path: jointMiMi/inner
+        weight: 1
+      - path: jointMiMi/main
+        weight: 1
+      - path: jointMiMi/outer
+        weight: 1
+      - path: mainSphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: mimi_eye2
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 320
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: headphones
+        weight: 1
+      - path: headphones/backEyes
+        weight: 1
+      - path: headphones/EyeController
+        weight: 1
+      - path: headphones/EyeController/eyesL
+        weight: 1
+      - path: headphones/EyeController/eyesR
+        weight: 1
+      - path: innerLight
+        weight: 1
+      - path: jointMiMi
+        weight: 1
+      - path: jointMiMi/inner
+        weight: 1
+      - path: jointMiMi/main
+        weight: 1
+      - path: jointMiMi/outer
+        weight: 1
+      - path: mainSphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: mimi_slowturn
+      takeName: Take 001
+      firstFrame: 340
+      lastFrame: 400
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: headphones
+        weight: 1
+      - path: headphones/backEyes
+        weight: 1
+      - path: headphones/EyeController
+        weight: 1
+      - path: headphones/EyeController/eyesL
+        weight: 1
+      - path: headphones/EyeController/eyesR
+        weight: 1
+      - path: innerLight
+        weight: 1
+      - path: jointMiMi
+        weight: 1
+      - path: jointMiMi/inner
+        weight: 1
+      - path: jointMiMi/main
+        weight: 1
+      - path: jointMiMi/outer
+        weight: 1
+      - path: mainSphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: mimi_rotate2
+      takeName: Take 001
+      firstFrame: 430
+      lastFrame: 450
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
         weight: 1
       - path: headphones
         weight: 1
@@ -238,7 +357,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.4
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

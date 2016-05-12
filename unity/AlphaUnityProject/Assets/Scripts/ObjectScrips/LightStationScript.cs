@@ -9,7 +9,8 @@ public class LightStationScript : MonoBehaviour {
     public Color materialEndColor, emissionColor; 
     public float chanelTime, materialFadeInTime = 3.0f;
     public List<GameObject> AIHelpers = new List<GameObject>();
-    public GameObject curcuitLines, powerSphere, meshLine, doorTrigger;
+    public GameObject powerSphere, meshLine, doorTrigger;
+    public CurcuitChanneller curcuitLines; 
     public KeyCode DebugKey; 
     public AudioClip channellingClip, sucessClip;
     public LightStationButton B4Button; 
@@ -161,7 +162,7 @@ public class LightStationScript : MonoBehaviour {
     void ActivateLines()
     {
         if (curcuitLines)
-            StartCoroutine(curcuitLines.GetComponent<CurcuitChanneller>().BeginChanneling());
+            StartCoroutine(curcuitLines.BeginChanneling());
         else
             Debug.LogWarning("There are no curcuitlines script to the gameobject specified");
     }

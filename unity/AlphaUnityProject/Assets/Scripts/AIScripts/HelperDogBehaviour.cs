@@ -4,10 +4,20 @@ using System.Collections;
 public class HelperDogBehaviour : Agent
 {
     public AudioClip bootupClip;
-    public GameObject lightstationMother;
+    public KeyCode debugKey; 
+    private GameObject B4;
 
+    override
+    protected void Start()
+    {
+        base.Start(); 
+        B4 = GameObject.FindGameObjectWithTag("B4");
+    }
 
 	void Update () {
+        if (Input.GetKey(debugKey))
+            ActivateAgent(); 
+
         if (!IsActive)
             return;
 
@@ -24,12 +34,12 @@ public class HelperDogBehaviour : Agent
         
         audioSource.clip = bootupClip;
         audioSource.Play();
-        //anim.SetBool("isActive", IsActive);
+        anim.SetBool("isActive", IsActive);
     }
 
     IEnumerator MoveAndFix()
     {
-        Vector3 destination = lightstationMother.transform.position + new Vector3(Random.Range(-15.0f, 15.0f), 0.0f, Random.Range(-15.0f, 15.0f));
+        Vector3 destination = B4.transform.position + new Vector3(Random.Range(-15.0f, 15.0f), 0.0f, Random.Range(-15.0f, 15.0f));
         MoveAgent(destination);
 
         while (IsBusy)

@@ -10,26 +10,6 @@ public class Agent : MonoBehaviour {
     protected NavMeshAgent navAgent;
     protected bool isActive, isBusy = false;
 
-    // LEGACY, MIGHT BE REMOVED
-    [HideInInspector]
-    public List<GameObject> enemies = new List<GameObject>();
-
-    public void DetachEnemies()
-    {
-        Debug.Log("Detaching enemies");
-        foreach (GameObject enemy in enemies)
-        {
-            Debug.Log("Detaching enemy: " + enemy);
-            enemy.transform.parent = null;
-            //float speed += 2.0f;
-            //enemy.GetComponent<NavMeshAgent>().destination = Vector3.zero;
-            StartCoroutine(enemy.GetComponent<EnemyNavmeshScript>().DetachFromPlayer());
-
-        }
-
-        enemies.Clear();
-    }
-
     public bool IsActive
     {
         get { return isActive; }
@@ -62,7 +42,8 @@ public class Agent : MonoBehaviour {
 
 
     }
-    void Start()
+
+    protected virtual void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         navAgent = GetComponent<NavMeshAgent>();
@@ -94,7 +75,6 @@ public class Agent : MonoBehaviour {
     {
         dest = destination;  
         Debug.Log("MoveAgent behaviour triggered with dest: " + dest);
-
         navAgent.destination = dest;
         IsBusy = true; 
     }

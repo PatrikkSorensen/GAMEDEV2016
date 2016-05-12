@@ -97,6 +97,7 @@ MonoBehaviour:
   distanceAway: 3
   distanceUp: 2
   offset: {x: 0, y: 0, z: 0}
+  correctionAmplifier: 0.005
 --- !u!114 &11415316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   player: {fileID: 0}
-  playerTwo: {fileID: 150416, guid: be6a9255e5d475246bc2d1fdce635f27, type: 2}
+  playerTwo: {fileID: 0}
 --- !u!114 &11444348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +127,7 @@ MonoBehaviour:
   smooth: 1.5
   distanceAway: 100
   distanceUp: 2
+  correctionAmplifier: 0.005
 --- !u!114 &11489176
 MonoBehaviour:
   m_ObjectHideFlags: 1
