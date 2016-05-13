@@ -34,7 +34,7 @@ public class HelperDogBehaviour : Agent
         
         audioSource.clip = bootupClip;
         audioSource.Play();
-        anim.SetBool("isActive", IsActive);
+        //anim.SetBool("isActive", IsActive);
     }
 
     IEnumerator MoveAndFix()

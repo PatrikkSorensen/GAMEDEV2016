@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour {
             if (hit.distance > distanceToGround)
             {
                 isGrounded = false;
-                Debug.Log("I should add force towards the ground!" + hit.distance);
+                //Debug.Log("I should add force towards the ground!" + hit.distance);
             } else
             {
                 //Debug.Log(hit.distance + ", " + transform.position);
