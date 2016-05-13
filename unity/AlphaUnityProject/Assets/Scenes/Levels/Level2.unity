@@ -25652,7 +25652,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 121086, guid: 159e8c7c1deefe748943d2afc64231f7, type: 2}
       propertyPath: m_Name
-      value: MusicController (1)
+      value: MusicController
       objectReference: {fileID: 0}
     - target: {fileID: 8218330, guid: 159e8c7c1deefe748943d2afc64231f7, type: 2}
       propertyPath: m_audioClip
@@ -33492,8 +33492,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11451158, guid: 86649ba2df73c454084e44bc18b2199b, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86649ba2df73c454084e44bc18b2199b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &698280989 stripped
@@ -34101,19 +34100,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f558c3b703f22ab4d954ae02086cc2d4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17218892
+      value: 0.17218894
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f558c3b703f22ab4d954ae02086cc2d4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6441549
+      value: 0.64415497
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f558c3b703f22ab4d954ae02086cc2d4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.15117179
+      value: 0.1511718
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f558c3b703f22ab4d954ae02086cc2d4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7297688
+      value: 0.7297689
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f558c3b703f22ab4d954ae02086cc2d4, type: 3}
       propertyPath: m_RootOrder
@@ -37643,7 +37642,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787808156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 

@@ -302,7 +302,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474490}
-  - 114: {fileID: 11451158}
   m_Layer: 0
   m_Name: triggers
   m_TagString: Untagged
@@ -8482,6 +8481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fd019be7ec80e44a92829f4f655113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadeInMusicClip: {fileID: 8300000, guid: 981348eef589b354cb057d0edbbf4359, type: 3}
 --- !u!114 &11448150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8491,17 +8491,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c97b084940f507e4ba71b2e50045ad00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11451158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ad22329beaffc43920fbae6aab5403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
