@@ -265,4 +265,16 @@ public class ThirdPersonCameraScript : MonoBehaviour {
 
     }
 
+    public void setPosition(float away, float up)
+    {
+        distanceAway = away;
+        distanceUp = up;
+
+    }
+
+    public Vector2 getPosition()
+    {
+        return new Vector2(distanceUp, distanceAway);
+    }
+
 }
