@@ -1,15 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class ElevatorButtonScript : MonoBehaviour {
 
-	// Use this for initialization
+    private Color defaultColor; 
+
+    private GameObject elevatorFrame, elevatorPlatform; 
+    private bool isActive, isFadingIn, isFadingOut, hasFaded;
+    private string playerToActivate;
+
+
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        elevatorFrame = transform.GetChild(0).gameObject;
+        elevatorPlatform = transform.GetChild(1).gameObject;
+
+        defaultColor = elevatorFrame.GetComponent<Renderer>().material.color; 
+    }
+
+    public void ActivateButton(string player, Color playerColor)
+    {
+        playerToActivate = player; 
+        elevatorFrame.GetComponent<Renderer>().material.DOColor(playerColor, 2.0f);
+        isActive = true; 
+    }
+
+    void OnTriggerStay(Collider coll)
+    {
+        if (coll.gameObject.tag == playerToActivate)
+        {
+            Debug.Log("No longer active");
+            isActive = false;
+            elevatorFrame.GetComponent<Renderer>().material.DOColor(defaultColor, 2.0f);
+        }
+    }
+
+
 }

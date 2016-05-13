@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class ElevatorPuzzleScript : MonoBehaviour {
 
-    public GameObject elevator;
+    public GameObject elevator, buttons;
     public float elevatorForce;
     public float timeBeforeStopping;
     public float bootTime = 1.0f; 
@@ -14,7 +14,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     public KeyCode debugKeycode;
 
     private GameObject B4, MiMi; 
-    private List <GameObject> buttons = new List<GameObject>();
+    private List <GameObject> m_buttons = new List<GameObject>();
     private bool active, isMoving, shouldMove, isWaitingOnPlayer = false;
     private Animator anim;
     private Vector3 nextPosition; 
@@ -43,16 +43,19 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         nextPosition = transform.position + Vector3.up;
         anim = GetComponent<Animator>(); 
-        foreach (Transform t in transform)
+        foreach (Transform t in buttons.transform)
         {  
-            buttons.Add(t.gameObject);
+            m_buttons.Add(t.gameObject);
         }
     }
 
     void Update()
     {
         if (Input.GetKey(debugKeycode))
-            shouldMove = true; 
+            shouldMove = true;
+
+        if (Input.GetKey(debugKeycode) && !isWaitingOnPlayer)
+            AssignCube(PlayerCodes.B4);
     }
 
 	void FixedUpdate () {
@@ -62,16 +65,21 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
     void AssignCube(PlayerCodes playerCode)
     {
-        if(playerCode == PlayerCodes.B4)
+        isWaitingOnPlayer = true; 
+
+        if (playerCode == PlayerCodes.B4)
         {
-          
+              
         }
         else
         {
 
         }
 
-        buttons[7].transform.GetChild(0).GetComponent<Renderer>().material.DOColor(B4Color, bootTime); 
+        //buttons[7].transform.GetChild(0).GetComponent<Renderer>().material.DOColor(B4Color, bootTime); 
+
+        //while()
+        m_buttons[1].GetComponent<ElevatorButtonScript>().ActivateButton("MiMi", MiMiColor);
     }
 
     void StartElevatorScene()
