@@ -16,14 +16,10 @@ public class TempleEventScript : MonoBehaviour {
 
     private CurcuitChanneller lineDrawer; 
     private AudioSource[] sfxSounds;
-    private List<CurcuitLines> m_stationlines = new List<CurcuitLines>();
     
     private bool isScenePlaying, isSceneFinished = false;
 	
 	void Start () {
-        m_stationlines.Add(lightstation1.GetComponentInChildren<CurcuitLines>());
-        m_stationlines.Add(lightstation2.GetComponentInChildren<CurcuitLines>());
-
         lineDrawer = lineChaneller.GetComponent<CurcuitChanneller>(); 
         sfxSounds = doorToMove.GetComponents<AudioSource>();
     }
