@@ -12,6 +12,7 @@ public class PlugDashingScript : MonoBehaviour {
     private float originalMass, originalVolume;
     private bool light = false;
     private AudioSource sfxSource;
+    private float distance1, distance2;
 
 	// Use this for initialization
 	void Start () {
@@ -30,12 +31,24 @@ public class PlugDashingScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        distance1 = Vector3.Distance (gameObject.transform.position, b4.transform.position);
+        distance2 = Vector3.Distance (gameObject.transform.position, mimi.transform.position);
 
-        if (Input.GetButtonDown("MiMiDash") || Input.GetButtonDown("B4Dash"))
+        //Debug.Log(distance1 + " " + distance2);
+        if ( Input.GetButtonDown("B4Dash"))
         {
             if (!light)
             {
+                if(distance1 < 3.0f)
                 StartCoroutine(SetMass(1.0f));
+            }
+        }
+        if (Input.GetButtonDown("MiMiDash"))
+        {
+            if (!light)
+            {
+                if (distance2 < 3.0f)
+                    StartCoroutine(SetMass(1.0f));
             }
         }
 	
@@ -43,6 +56,7 @@ public class PlugDashingScript : MonoBehaviour {
 
     IEnumerator SetMass(float duration)
     {
+        light = true;
         sfxSource.Play();
         sfxSource.DOFade(0, duration);
         rb.mass = dashMassOfPlug;
@@ -50,5 +64,6 @@ public class PlugDashingScript : MonoBehaviour {
         sfxSource.Stop();
         rb.mass = originalMass;
         sfxSource.volume = originalVolume;
+        light = false;
     }
 }
