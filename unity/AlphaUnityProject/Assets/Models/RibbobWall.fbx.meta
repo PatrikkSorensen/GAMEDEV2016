@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 17f710f668d4daf4286ff80b73d3e401
-timeCreated: 1460918602
+guid: ef469c61212437640a1dc30438c6c120
+timeCreated: 1463326135
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Brokenpyramid3
+    4300000: Ribbon
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -39,8 +39,8 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
-    swapUVChannels: 1
-    generateSecondaryUV: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -51,9 +51,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 103
+    normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
