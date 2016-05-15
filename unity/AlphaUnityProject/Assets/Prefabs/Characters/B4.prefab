@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 418726}
   - 33: {fileID: 3341538}
   - 23: {fileID: 2399754}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 443456}
   - 33: {fileID: 3393884}
   - 23: {fileID: 2385516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494062}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: jointLHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 114: {fileID: 11443808}
   - 65: {fileID: 6590278}
   - 114: {fileID: 11422138}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: B4
   m_TagString: B4
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 421968}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Joint_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 494710}
   - 33: {fileID: 3389874}
   - 23: {fileID: 2302998}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - 4: {fileID: 487704}
   - 33: {fileID: 3305936}
   - 23: {fileID: 2365870}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: l_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474324}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BigBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 447866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: jointHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - 4: {fileID: 485852}
   - 33: {fileID: 3321830}
   - 23: {fileID: 2370758}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - 4: {fileID: 487082}
   - 33: {fileID: 3367804}
   - 23: {fileID: 2319074}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: truster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - 4: {fileID: 450520}
   - 33: {fileID: 3364578}
   - 23: {fileID: 2353022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 417630}
   - 108: {fileID: 10823624}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432372}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: jointRHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420562}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: jointEars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: jointNeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - 4: {fileID: 490806}
   - 33: {fileID: 3305172}
   - 23: {fileID: 2323004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - 4: {fileID: 495450}
   - 33: {fileID: 3395266}
   - 23: {fileID: 2364002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: neck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,8 +316,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176400}
-  m_LocalRotation: {x: 0.06577976, y: 0, z: 0, w: 0.9978342}
-  m_LocalPosition: {x: 0.04, y: 0.29, z: -0.056}
+  m_LocalRotation: {x: -0.0678595, y: 1.1366117e-11, z: 5.2559724e-11, w: 0.9976949}
+  m_LocalPosition: {x: 0.039997324, y: 0.319, z: -0.052006062}
   m_LocalScale: {x: 1.0789344, y: 1.0789344, z: 1.0789344}
   m_Children: []
   m_Father: {fileID: 457224}
@@ -416,8 +416,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126588}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8599999, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.00096720643, z: 0, w: 0.9999996}
+  m_LocalPosition: {x: -148.063, y: 0.517, z: -1081.848}
   m_LocalScale: {x: 1.4999999, y: 1.5, z: 1.4999999}
   m_Children:
   - {fileID: 417630}
@@ -901,9 +901,9 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.81
   m_Range: 10
-  m_SpotAngle: 77.66772
+  m_SpotAngle: 105
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -912,7 +912,7 @@ Light:
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 69680b688d11eb9d30009b3b4241aa39, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -920,7 +920,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -937,6 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bondWidthBegin: 0.2
   bondWidthEnd: 0.2
+  bondCubeMass: 0.1
   damper: 0.2
   tolerance: 1
   springPower: 10
@@ -983,10 +984,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558d460486cce93458da50a6d31ce99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 38
+  speed: 18
   movingTurnSpeed: 180
   stationaryTurnSpeed: 180
-  fallSpeed: 1
+  fallSpeed: 0.1
   distanceToGround: 1.5
   keyboardMiMi: 0
   velocityMode: 0
