@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_duration: 0
-  endPoint: {fileID: 0}
+  nextPoint: {fileID: 0}
 --- !u!4 &433292914
 Transform:
   m_ObjectHideFlags: 0
@@ -306,10 +306,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2309930, guid: 2a1ae7c42149802439a603541736a885, type: 2}
-      propertyPath: m_Materials.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 499760, guid: 2a1ae7c42149802439a603541736a885, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.98
@@ -342,14 +338,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2309930, guid: 2a1ae7c42149802439a603541736a885, type: 2}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7f8af37d23b9eee449ecd72f293e7d7a, type: 2}
-    - target: {fileID: 2309930, guid: 2a1ae7c42149802439a603541736a885, type: 2}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 36e4410d0cd882848804b6ea8c674c68, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1ae7c42149802439a603541736a885, type: 2}
   m_IsPrefabParent: 0
@@ -457,6 +445,8 @@ GameObject:
   - 124: {fileID: 1185209364}
   - 81: {fileID: 1185209363}
   - 114: {fileID: 1185209367}
+  - 114: {fileID: 1185209369}
+  - 114: {fileID: 1185209368}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -545,6 +535,37 @@ MonoBehaviour:
   type: 0
   player: {fileID: 1170570951}
   playerTwo: {fileID: 939525706}
+--- !u!114 &1185209368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185209361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4217e6cc2f28a4da8841e218023925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  smooth: 1.5
+  distanceAway: 2
+  distanceUp: 2
+  correctionAmplifier: 0.005
+--- !u!114 &1185209369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185209361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd72dd3f37ccab4f8953c9cba120436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceAway: 8
+  distanceUp: 6
+  offset: {x: 0, y: 0, z: 0}
+  correctionAmplifier: 0.005
 --- !u!1 &1427101260
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_duration: 0
-  endPoint: {fileID: 433292912}
+  nextPoint: {fileID: 0}
 --- !u!4 &1427101262
 Transform:
   m_ObjectHideFlags: 0
@@ -614,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineStart: {fileID: 1427101260}
+  debugKey: 0
   startWidth: 0
   endWidth: 0.3
   lineMaterial: {fileID: 0}
@@ -667,6 +689,10 @@ Prefab:
     - target: {fileID: 471096, guid: b3d3fd888ffba0d4f9f2f6fccf0798f5, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231480, guid: b3d3fd888ffba0d4f9f2f6fccf0798f5, type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3d3fd888ffba0d4f9f2f6fccf0798f5, type: 2}
