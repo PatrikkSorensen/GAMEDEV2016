@@ -3,9 +3,10 @@ using System.Collections;
 
 public class RobotChatScript : MonoBehaviour {
 
-    public AudioClip[] B4vox, MiMivox;
+    public float responseProbability = 0.95f;
+    public float dimensionality = 0.8f;
 
-
+    private AudioClip[] B4vox, MiMivox;
     private AudioSource speaking;
     private AudioSource B4, MiMi;
     private int who;             //1 = B4        2 = MiMi
@@ -14,8 +15,15 @@ public class RobotChatScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        B4 = GameObject.FindGameObjectWithTag("B4").GetComponent<AudioSource>();
-        MiMi = GameObject.FindGameObjectWithTag("MiMi").GetComponent<AudioSource>();
+        B4 = GameObject.FindGameObjectWithTag("B4").AddComponent<AudioSource>();
+        MiMi = GameObject.FindGameObjectWithTag("MiMi").AddComponent<AudioSource>();
+
+        B4.loop = false;
+        MiMi.loop = false;
+        B4.playOnAwake = false;
+        MiMi.playOnAwake = false;
+        B4.spatialBlend = dimensionality;
+        MiMi.spatialBlend = dimensionality;
 
         B4vox = new AudioClip[]{(AudioClip)Resources.Load("Sound/Voices/B4/blabber"),
                                 (AudioClip)Resources.Load("Sound/Voices/B4/blabber2"),
@@ -29,8 +37,18 @@ public class RobotChatScript : MonoBehaviour {
                                 (AudioClip)Resources.Load("Sound/Voices/B4/sad2"),
                                 (AudioClip)Resources.Load("Sound/Voices/B4/sick")};
 
-        MiMivox = new AudioClip[]{(AudioClip)Resources.Load("Sound/Voices/MiMi/happy"),
-                                     (AudioClip)Resources.Load("Sound/Voices/MiMi/sad")};
+        MiMivox = new AudioClip[]{(AudioClip)Resources.Load("Sound/Voices/MiMi/boredMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/happyMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/laughMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/melancholyMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/melancholyMiMi2"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/melancholyMiMi3"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/sadMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/sickMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/unhappyMiMi"),
+                                  (AudioClip)Resources.Load("Sound/Voices/MiMi/unhappyMiMi2")};
+
+        
 
         if (Random.value > 0.5)
         {
@@ -76,14 +94,14 @@ public class RobotChatScript : MonoBehaviour {
 
     public IEnumerator Chat()
     {
-        float responseProb = 0.95f;
+        float responseProb = responseProbability;
         int amtOfLoops = 1;
         //Debug.Log("Began chat");
 
 
         for (int i = 0; i < amtOfLoops; i++)
         {
-            //Debug.Log("loop " + i + " began.");
+            Debug.Log(responseProb);
             float timeToWait;
 
             //pick appropriate sound
