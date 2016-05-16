@@ -185,6 +185,11 @@ public class EstablishBond : MonoBehaviour {
         destroyAudioSource.Play();
     }
 
+    public bool isBonded()
+    {
+        return bondEstablished;
+    }
+
     void CreateParticles()
     {
 

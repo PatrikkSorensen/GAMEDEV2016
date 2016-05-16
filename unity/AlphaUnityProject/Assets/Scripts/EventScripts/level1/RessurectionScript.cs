@@ -30,6 +30,8 @@ public class RessurectionScript : MonoBehaviour {
 		if (other.tag == "B4" && triggered == false) {
 			triggerRessurcetionEvent ();
 			triggered = true;
+            B4.GetComponent<PlayerController>().canMove = false;
+            B4.GetComponent<EstablishBond>().enabled = true;
 			sfxSource.clip = clip;
 			sfxSource.Play();
 		}
@@ -40,6 +42,7 @@ public class RessurectionScript : MonoBehaviour {
 
         if (sceneIsFinished)
         {
+            B4.GetComponent<PlayerController>().canMove = true;
             MiMi.GetComponent<PlayerController>().enabled = true;
             B4.GetComponent<EstablishBond>().enabled = true;
 
@@ -47,6 +50,11 @@ public class RessurectionScript : MonoBehaviour {
             CameraController cameraController = Camera.main.GetComponent<CameraController>();
             cameraController.changeCameraType(CameraController.CameraTypes.THIRD_PERSON_CAMERA);
 
+        }
+
+        if (B4.GetComponent<EstablishBond>().isBonded())
+        {
+            sceneIsFinished = true;
         }
     }
 
@@ -58,7 +66,7 @@ public class RessurectionScript : MonoBehaviour {
         // send notification to event handler
         // eventController.handleEvent(ressurectionEvent);
 
-        sceneIsFinished = true;
+        //sceneIsFinished = true;
     }
 
 
