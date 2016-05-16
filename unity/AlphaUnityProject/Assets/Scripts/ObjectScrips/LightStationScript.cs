@@ -45,8 +45,12 @@ public class LightStationScript : MonoBehaviour {
             ActivateLightStation(); 
 
         // TODO: Refactor this
-        if (canChanel && !isActive && B4Button.CanChanel)
+        if (canChanel && !isActive)
         {
+            if (B4Button)
+                if (!B4Button.CanChanel)
+                    return; 
+
             if (Input.GetButtonDown("Channelling") && canChanel && B4Status.getBondStatus())
             {
                 startTime = Time.time;
