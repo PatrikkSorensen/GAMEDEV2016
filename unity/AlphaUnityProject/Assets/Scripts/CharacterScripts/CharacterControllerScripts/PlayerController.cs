@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float fallSpeed = 0.0f;
     public float distanceToGround = 2.5f; 
     public bool keyboardMiMi, velocityMode = false;
+    public bool canMove = true;
 
     public PlayerStatusScript playerStatus;
 
@@ -72,57 +73,63 @@ public class PlayerController : MonoBehaviour {
 
     void Move(float h, float v)
     {
-        Vector3 movement = new Vector3(0.0f, 0.0f, 0.0f);
-
-        // For Joysticks, mostly optimized ps4 controller
-        if (gameObject.tag == "MiMi")
+        if (canMove)
         {
-            v *= -1;
-            float deadzone = 0.25f;
-            Vector2 stickInput = new Vector2(h, v);
-            if (stickInput.magnitude > deadzone)
+            Vector3 movement = new Vector3(0.0f, 0.0f, 0.0f);
+
+            // For Joysticks, mostly optimized ps4 controller
+            if (gameObject.tag == "MiMi")
             {
-                movement.x = h;
-                movement.z = v;
+                v *= -1;
+                float deadzone = 0.25f;
+                Vector2 stickInput = new Vector2(h, v);
+                if (stickInput.magnitude > deadzone)
+                {
+                    movement.x = h;
+                    movement.z = v;
+                }
+
+                movement = Camera.main.transform.TransformDirection(movement);
+                movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement;
+            }
+            else
+            {
+                movement = new Vector3(h, 0.0f, v);
+                movement = Camera.main.transform.TransformDirection(movement);
+
+                // normalizes camera rotation vector so we can move backwards
+                movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement;
             }
 
-            movement = Camera.main.transform.TransformDirection(movement);
-            movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement;
-        } else
-        {
-            movement = new Vector3(h, 0.0f, v);
-            movement = Camera.main.transform.TransformDirection(movement);
+            if (!isGrounded)
+                movement.y += fallSpeed * -1;
 
-            // normalizes camera rotation vector so we can move backwards
-            movement = Quaternion.AngleAxis(-Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.right) * movement; 
-        }
+            if (velocityMode)
+                rb.velocity = movement * speed;
+            else
+                rb.AddForce(movement * speed);
 
-        if (!isGrounded)
-            movement.y += fallSpeed * -1; 
+            //TODO: Evaluate this on controller: rb.AddForce(movement.normalized * Time.deltaTime * speed);
 
-        if(velocityMode)
-            rb.velocity = movement * speed; 
-        else
-            rb.AddForce(movement * speed);
 
-        //TODO: Evaluate this on controller: rb.AddForce(movement.normalized * Time.deltaTime * speed);
 
-        
+            float m_speed = movement.normalized.magnitude;
 
-        float m_speed = movement.normalized.magnitude;
+            //anim.SetFloat("Speed", m_speed);
 
-        //anim.SetFloat("Speed", m_speed);
-
-        // Rotation
-        if (movement.magnitude > 1f) movement.Normalize();
+            // Rotation
+            if (movement.magnitude > 1f) movement.Normalize();
             movement = transform.InverseTransformDirection(movement);
 
-        float m_TurnAmount = Mathf.Atan2(movement.x, movement.z);
-        float m_ForwardAmount = movement.z;
-        float turnSpeed = Mathf.Lerp(stationaryTurnSpeed, movingTurnSpeed, m_ForwardAmount);
+            float m_TurnAmount = Mathf.Atan2(movement.x, movement.z);
+            float m_ForwardAmount = movement.z;
+            float turnSpeed = Mathf.Lerp(stationaryTurnSpeed, movingTurnSpeed, m_ForwardAmount);
 
-        transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+        }
     }
+
+
 
     public void SetVariables()
     {
