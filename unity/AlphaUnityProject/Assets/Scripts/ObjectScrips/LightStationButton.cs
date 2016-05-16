@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening; 
 
 public class LightStationButton : MonoBehaviour {
-
-    public GameObject fireFlies; 
+    public float m_lightIntensity = 10.0f;
+    public float m_lightFadeDuration = 2.0f; 
 
     private GameObject B4, MiMi; 
+    private Light m_lightSource; 
     private bool m_canChanel;
 
     public bool CanChanel
@@ -14,11 +16,19 @@ public class LightStationButton : MonoBehaviour {
         set { m_canChanel = value;}
     }
 
+    void Start()
+    {
+        B4 = GameObject.FindGameObjectWithTag("B4");
+        MiMi = GameObject.FindGameObjectWithTag("MiMi");
+    }
+
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "B4")
+        if (other.tag == "B4" && !m_lightSource)
         {
-            fireFlies.SetActive(true); 
+            m_lightSource = MiMi.AddComponent<Light>();
+            m_lightSource.DOIntensity(m_lightIntensity, m_lightFadeDuration);
+            //fireFlies.SetActive(true); 
             CanChanel = true;
         }
     }
@@ -27,7 +37,8 @@ public class LightStationButton : MonoBehaviour {
     {
         if (other.tag == "B4")
         {
-            fireFlies.SetActive(false);
+            //fireFlies.SetActive(false);
+            Destroy(m_lightSource);
             CanChanel = false;
         }
     }

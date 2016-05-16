@@ -6,7 +6,9 @@ using System;
 public class Point : MonoBehaviour {
 
     public float m_duration;
-    public GameObject nextPoint; 
+    public GameObject nextPoint;
+    public Material lineMaterial;
+    public float startWidth, endWidth = 0.3f; 
 
     protected Vector3[] m_points;
     protected GameObject m_lineTracer;
@@ -70,6 +72,8 @@ public class Point : MonoBehaviour {
         Debug.Log("Line initiated with start point: " + transform.name + ": " + transform.position + " and line end point: " + v + ", with draw duration: " + duration);
         m_lr = gameObject.AddComponent<LineRenderer>();
         m_lr.SetVertexCount(2);
+        m_lr.material = lineMaterial;
+        m_lr.SetWidth(startWidth, endWidth);
 
         Vector3[] points = new Vector3[2];
         points[0] = transform.position;
