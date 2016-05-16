@@ -8,7 +8,8 @@ public class Point : MonoBehaviour {
     public float m_duration;
     public GameObject nextPoint;
     public Material lineMaterial;
-    public float startWidth, endWidth = 0.3f; 
+    public float endWidth = 0.3f;
+    public float startWidth = 0.3f;
 
     protected Vector3[] m_points;
     protected GameObject m_lineTracer;
