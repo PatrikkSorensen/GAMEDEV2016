@@ -137,7 +137,6 @@ public class EndSceneScript : MonoBehaviour {
         Vector3 vect = Vector3.zero; 
         while(vect.y < camOffset.y)
         {
-            Debug.Log("Hello");
             vect.y += 0.02f;
             cameraScript.offset = vect;
             yield return new WaitForSeconds(0.001f);
