@@ -29,11 +29,14 @@ public class ElevatorButtonScript : MonoBehaviour {
     {
         if (coll.gameObject.tag == playerToActivate)
         {
-            Debug.Log("No longer active");
             isActive = false;
             elevatorFrame.GetComponent<Renderer>().material.DOColor(defaultColor, 2.0f);
         }
     }
 
+    public bool IsActive()
+    {
+        return isActive; 
+    }
 
 }
