@@ -11,6 +11,7 @@ public class DoorSocketScript : MonoBehaviour {
     public  int requiredEnergySources;
     public int currentEnergySources;
     public float doorOpenDistance;
+    public CurcuitChanneller curcuitLines; 
     private AudioSource source;
 
 
@@ -52,6 +53,6 @@ public class DoorSocketScript : MonoBehaviour {
     void openDoor()
     {
         Door.transform.DOMove(Door.transform.position + new Vector3(0, -doorOpenDistance, 0), 2);
-
+        curcuitLines.ActivateChaneller(); 
     }
 }

@@ -2910,14 +2910,14 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &152238
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 499664}
   m_Layer: 0
-  m_Name: beacon_curcuitLines
+  m_Name: plug_curcuitLines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5953,7 +5953,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 458466}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &414864
 Transform:
   m_ObjectHideFlags: 1
@@ -6042,7 +6042,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416212}
-  - {fileID: 499664}
   - {fileID: 458466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -6656,7 +6655,7 @@ Transform:
   m_LocalScale: {x: 0.021205511, y: 0.021205515, z: 0.021205515}
   m_Children: []
   m_Father: {fileID: 458466}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &430538
 Transform:
   m_ObjectHideFlags: 1
@@ -7812,12 +7811,13 @@ Transform:
   m_LocalPosition: {x: 11.082314, y: 0.049999997, z: 43.53241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 499664}
   - {fileID: 414828}
   - {fileID: 430222}
   - {fileID: 465456}
   - {fileID: 489496}
   m_Father: {fileID: 416074}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &459096
 Transform:
   m_ObjectHideFlags: 1
@@ -8155,7 +8155,7 @@ Transform:
   - {fileID: 488214}
   - {fileID: 450392}
   m_Father: {fileID: 458466}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &465506
 Transform:
   m_ObjectHideFlags: 1
@@ -9202,7 +9202,7 @@ Transform:
   - {fileID: 487402}
   - {fileID: 403884}
   m_Father: {fileID: 458466}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &489738
 Transform:
   m_ObjectHideFlags: 1
@@ -9591,7 +9591,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -11.082314, y: -0.049999997, z: -43.53241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406836}
@@ -9599,8 +9599,8 @@ Transform:
   - {fileID: 473880}
   - {fileID: 404168}
   - {fileID: 466204}
-  m_Father: {fileID: 416074}
-  m_RootOrder: 1
+  m_Father: {fileID: 458466}
+  m_RootOrder: 0
 --- !u!23 &2300314
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -16967,9 +16967,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0
   nextPoint: {fileID: 119290}
-  lineMaterial: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
-  startWidth: 0
+  startWidth: 0.3
 --- !u!114 &11424754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16996,9 +16996,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0
   nextPoint: {fileID: 142734}
-  lineMaterial: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
-  startWidth: 0
+  startWidth: 0.3
 --- !u!114 &11429780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17012,9 +17012,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 2
   nextPoint: {fileID: 119290}
-  lineMaterial: {fileID: 2100000, guid: cb0e7fb83afa4de4da115d2d218e288f, type: 2}
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
-  startWidth: 0
+  startWidth: 0.3
 --- !u!114 &11437434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17028,9 +17028,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0
   nextPoint: {fileID: 152756}
-  lineMaterial: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
-  startWidth: 0
+  startWidth: 0.3
 --- !u!114 &11438258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17043,10 +17043,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineStart: {fileID: 119290}
-  debugKey: 104
-  startWidth: 0
+  debugKey: 0
+  drawOnAwake: 0
+  startWidth: 0.3
   endWidth: 0.3
-  lineMaterial: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
 --- !u!114 &11440352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17189,9 +17190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0
   nextPoint: {fileID: 119290}
-  lineMaterial: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
-  startWidth: 0
+  startWidth: 0.3
 --- !u!114 &11447486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17348,6 +17349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineStart: {fileID: 137066}
   debugKey: 98
+  drawOnAwake: 0
   startWidth: 0.3
   endWidth: 0.3
   lineMaterial: {fileID: 0}
@@ -17452,6 +17454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineStart: {fileID: 108762}
   debugKey: 98
+  drawOnAwake: 0
   startWidth: 0.3
   endWidth: 0.3
   lineMaterial: {fileID: 0}
@@ -17483,7 +17486,7 @@ MonoBehaviour:
   nextPoint: {fileID: 131776}
   lineMaterial: {fileID: 0}
   endWidth: 0.3
-  startWidth: 0
+  startWidth: 0.3
 --- !u!114 &11475954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17614,6 +17617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineStart: {fileID: 119290}
   debugKey: 122
+  drawOnAwake: 0
   startWidth: 0
   endWidth: 0.3
   lineMaterial: {fileID: 0}
@@ -17630,6 +17634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineStart: {fileID: 115174}
   debugKey: 98
+  drawOnAwake: 0
   startWidth: 0.3
   endWidth: 0.3
   lineMaterial: {fileID: 0}
@@ -17707,6 +17712,7 @@ MonoBehaviour:
   requiredEnergySources: 3
   currentEnergySources: 0
   doorOpenDistance: 12
+  curcuitLines: {fileID: 11438258}
 --- !u!138 &13832606
 FixedJoint:
   m_ObjectHideFlags: 1

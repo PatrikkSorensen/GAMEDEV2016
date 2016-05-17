@@ -701,7 +701,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 434856}
-  - 114: {fileID: 11438534}
   m_Layer: 0
   m_Name: curcuitlines
   m_TagString: Untagged
@@ -1335,7 +1334,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119300}
   m_LocalRotation: {x: 0.1288157, y: 0, z: 0, w: 0.9916686}
-  m_LocalPosition: {x: 0, y: 2.252, z: 78.31}
+  m_LocalPosition: {x: 0, y: 2.3, z: 78.32}
   m_LocalScale: {x: 1, y: 0.10000001, z: 1}
   m_Children: []
   m_Father: {fileID: 495870}
@@ -1545,8 +1544,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131008}
-  m_LocalRotation: {x: -0.067725934, y: 0, z: 0, w: 0.99770397}
-  m_LocalPosition: {x: 0, y: 0.98999995, z: 40.440002}
+  m_LocalRotation: {x: -0.07387348, y: 0, z: 0, w: 0.99726766}
+  m_LocalPosition: {x: 0, y: 2.247, z: 26.890015}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 495870}
@@ -1707,7 +1706,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.135, y: 0, z: 197.768}
+  m_LocalPosition: {x: 66.27, y: 0, z: 219.05}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 495870}
@@ -4412,9 +4411,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 0}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11422222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4429,8 +4428,8 @@ MonoBehaviour:
   m_duration: 0.5
   nextPoint: {fileID: 152124}
   lineMaterial: {fileID: 0}
-  startWidth: 0
   endWidth: 0.3
+  startWidth: 0
 --- !u!114 &11423924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4470,20 +4469,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 138606}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
---- !u!114 &11438534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  startWidth: 0.3
 --- !u!114 &11450130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4497,9 +4485,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 131008}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11450308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4513,9 +4501,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 148352}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11453266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4529,9 +4517,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 176252}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11455762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4546,8 +4534,8 @@ MonoBehaviour:
   m_duration: 0.5
   nextPoint: {fileID: 198308}
   lineMaterial: {fileID: 0}
-  startWidth: 0
   endWidth: 0.3
+  startWidth: 0
 --- !u!114 &11456742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4575,8 +4563,8 @@ MonoBehaviour:
   m_duration: 0.5
   nextPoint: {fileID: 179356}
   lineMaterial: {fileID: 0}
-  startWidth: 0
   endWidth: 0.3
+  startWidth: 0
 --- !u!114 &11468414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4590,9 +4578,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 107320}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11468806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4606,6 +4594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineStart: {fileID: 186798}
   debugKey: 98
+  drawOnAwake: 0
   startWidth: 0.3
   endWidth: 0.3
   lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
@@ -4697,9 +4686,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 118764}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11485494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4713,9 +4702,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_duration: 0.5
   nextPoint: {fileID: 119300}
-  lineMaterial: {fileID: 0}
-  startWidth: 0
+  lineMaterial: {fileID: 2100000, guid: 03b76654e2ab479498b72e5f574620f2, type: 2}
   endWidth: 0.3
+  startWidth: 0.3
 --- !u!114 &11494804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4730,8 +4719,8 @@ MonoBehaviour:
   m_duration: 0.5
   nextPoint: {fileID: 128940}
   lineMaterial: {fileID: 0}
-  startWidth: 0
   endWidth: 0.3
+  startWidth: 0
 --- !u!198 &19807432
 ParticleSystem:
   m_ObjectHideFlags: 1

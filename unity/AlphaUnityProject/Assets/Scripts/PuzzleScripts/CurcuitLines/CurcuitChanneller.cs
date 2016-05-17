@@ -89,6 +89,7 @@ public class CurcuitChanneller : MonoBehaviour {
                     {
                         m_currentPoint.BeginDrawing();
                         m_endPoint = rp.activePoint.GetComponent<Point>();
+                        Debug.Log("Encountered RotatePoint, shouldDraw: " + m_currentPoint.ShouldDraw);
                         yield return new WaitForSeconds(1.0f);
                     }
 
@@ -169,5 +170,12 @@ public class CurcuitChanneller : MonoBehaviour {
         m_lr.SetWidth(startWidth, endWidth);
         m_lr.material = lineMaterial;
         m_lr = m_lineTracer.GetComponent<LineRenderer>();
+    }
+
+    public void ActivateChaneller()
+    {
+        m_channeling = true;
+        Debug.Log("Started Coroutine");
+        StartCoroutine(BeginChanneling());
     }
 }
