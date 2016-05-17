@@ -16,7 +16,8 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     public KeyCode bootElevatorKey;
     public KeyCode moveElevatorKey;
     public float bootUpYVector;
-    public float bootUpDuration = 10.0f; 
+    public float bootUpDuration = 10.0f;
+    public AudioClip endingSound;
 
     private GameObject B4, MiMi, camera;
     private AudioSource m_source; 
@@ -25,6 +26,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     private Animator anim;
     private Vector3 nextPosition;
     private List<GameObject> m_activeButtons = new List<GameObject>();
+    private AudioSource sfxSounds;
 
     private enum PlayerCodes
     {
@@ -46,6 +48,9 @@ public class ElevatorPuzzleScript : MonoBehaviour {
      */
 
     void Start () {
+        sfxSounds.clip = endingSound;
+        sfxSounds.loop = false;
+        sfxSounds.playOnAwake = false;
         camera = Camera.main.gameObject; 
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
@@ -264,7 +269,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
     IEnumerator TriggerEndplatform()
     {
-
+        sfxSounds.Play();
         // TODO: Implement..
         Debug.Log("Need to implement the ending"); 
         yield return null; 
