@@ -170,4 +170,11 @@ public class CurcuitChanneller : MonoBehaviour {
         m_lr.material = lineMaterial;
         m_lr = m_lineTracer.GetComponent<LineRenderer>();
     }
+
+    public void ActivateChaneller()
+    {
+        m_channeling = true;
+        Debug.Log("Started Coroutine");
+        StartCoroutine(BeginChanneling());
+    }
 }

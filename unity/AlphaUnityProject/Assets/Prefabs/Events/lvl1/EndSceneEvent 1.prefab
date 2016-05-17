@@ -522,7 +522,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 7}
+  m_LocalPosition: {x: 28.8, y: 0, z: 460.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22439606}
@@ -540,8 +540,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.9, y: 0, z: 14.8}
-  m_LocalScale: {x: 0.010073913, y: 0.010073913, z: 0.010073913}
+  m_LocalPosition: {x: 6.71, y: 0.13, z: 5.42}
+  m_LocalScale: {x: 0.006097799, y: 0.006097799, z: 0.006097799}
   m_Children:
   - {fileID: 473858}
   - {fileID: 406856}
@@ -598,8 +598,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.700001, y: 0, z: 14.8}
-  m_LocalScale: {x: 0.010073913, y: 0.010073913, z: 0.010073913}
+  m_LocalPosition: {x: -6.97, y: 0.13, z: 5.42}
+  m_LocalScale: {x: 0.006097799, y: 0.006097799, z: 0.006097799}
   m_Children:
   - {fileID: 454040}
   - {fileID: 425320}
@@ -1413,7 +1413,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199974}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -1663,7 +1663,7 @@ MeshCollider:
   m_GameObject: {fileID: 199974}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300020, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10d120a332c59743827e94eec8c5b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIImage: {fileID: 0}
+  UIImage: {fileID: 113790}
   camOffset: {x: 0, y: 5, z: 0}
   fadeAmbientTime: 5
   fadeUIImageTime: 15
