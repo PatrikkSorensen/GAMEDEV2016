@@ -26,11 +26,8 @@ public class ElevatorCoreBehaviour : MonoBehaviour {
     }
 
     void Update()
-    {
-        //if(Input.GetKey(debugKey))
-        //    ActivateCore();
- 
-        if (powerCore.IsActive)
+    { 
+        if (powerCore.IsActive && !IsActive)
             ActivateCore(); 
     }
 

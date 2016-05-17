@@ -228,7 +228,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &132468
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -236,7 +236,6 @@ GameObject:
   - 4: {fileID: 415494}
   - 33: {fileID: 3314508}
   - 23: {fileID: 2337282}
-  - 95: {fileID: 9524102}
   m_Layer: 0
   m_Name: elevatorwall
   m_TagString: Untagged
@@ -392,6 +391,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 461110}
   - 114: {fileID: 11481588}
+  - 82: {fileID: 8206806}
   m_Layer: 0
   m_Name: ElevatorCore
   m_TagString: Untagged
@@ -764,7 +764,6 @@ Transform:
   - {fileID: 431604}
   - {fileID: 421892}
   - {fileID: 442746}
-  - {fileID: 415494}
   - {fileID: 461110}
   - {fileID: 461556}
   m_Father: {fileID: 0}
@@ -788,11 +787,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5999994, y: -12.300003, z: 40.400024}
-  m_LocalScale: {x: 3870.4595, y: 3870.4563, z: 3870.4563}
+  m_LocalPosition: {x: -0.00003068475, y: -0.0006745288, z: 0.00061322894}
+  m_LocalScale: {x: 1.1867026, y: 1.1867017, z: 1.1867018}
   m_Children: []
-  m_Father: {fileID: 410088}
-  m_RootOrder: 4
+  m_Father: {fileID: 431604}
+  m_RootOrder: 0
 --- !u!4 &417344
 Transform:
   m_ObjectHideFlags: 1
@@ -861,7 +860,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.1, y: -9.1, z: 87.3}
   m_LocalScale: {x: 3261.5244, y: 3261.5244, z: 3261.5242}
-  m_Children: []
+  m_Children:
+  - {fileID: 415494}
   m_Father: {fileID: 410088}
   m_RootOrder: 1
 --- !u!4 &442746
@@ -1016,7 +1016,7 @@ Transform:
   - {fileID: 496218}
   - {fileID: 406050}
   m_Father: {fileID: 410088}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &461556
 Transform:
   m_ObjectHideFlags: 1
@@ -1031,7 +1031,7 @@ Transform:
   - {fileID: 450596}
   - {fileID: 498938}
   m_Father: {fileID: 410088}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!4 &465004
 Transform:
   m_ObjectHideFlags: 1
@@ -2269,6 +2269,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!82 &8206806
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154592}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &8231052
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2411,23 +2485,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9524102
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132468}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 67a465e53df4ff44f8d12e695b2e2283, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9538222
 Animator:
   serializedVersion: 3
@@ -2454,7 +2511,7 @@ Animator:
   m_GameObject: {fileID: 130716}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4094186f39acc2340ab9bf4e4a1747ce, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00b0f76cc7884ca41aa69b1df1035363, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2641,8 +2698,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db0287b620233842bf4af8df9c1f124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cores:
+  - {fileID: 11481588}
+  - {fileID: 11441856}
   elevator: {fileID: 130716}
   buttons: {fileID: 162922}
+  elevatorWall: {fileID: 132468}
   elevatorSpeed: 0
   timeBeforeStopping: 5
   bootTime: 1
@@ -2651,6 +2712,8 @@ MonoBehaviour:
   B4Color: {r: 0.016436001, g: 0.5588235, b: 0.042620275, a: 0}
   bootElevatorKey: 102
   moveElevatorKey: 103
+  bootUpYVector: 0.0009
+  bootUpDuration: 10
 --- !u!114 &11433442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2699,7 +2762,7 @@ MonoBehaviour:
   targetIntensity: 20
   duration: 5
   color: {r: 0, g: 1, b: 0.21379304, a: 1}
-  debugKey: 97
+  debugKey: 111
 --- !u!114 &11451886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2774,7 +2837,7 @@ MonoBehaviour:
   targetIntensity: 20
   duration: 5
   color: {r: 0, g: 1, b: 0.21379304, a: 1}
-  debugKey: 98
+  debugKey: 111
 --- !u!114 &11487480
 MonoBehaviour:
   m_ObjectHideFlags: 1
