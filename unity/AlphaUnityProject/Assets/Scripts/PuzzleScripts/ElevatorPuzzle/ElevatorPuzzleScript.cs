@@ -21,10 +21,11 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     private GameObject B4, MiMi, camera;
     private AudioSource m_source; 
     private List <GameObject> m_buttons = new List<GameObject>();
-    private bool isActive, isBooting, isMoving, shouldMove, isBeingPlayed = false;
+    private bool isActive, isBooting, isMoving, shouldMove, isBeingPlayed, hasPower, hasPlayers = false;
     private Animator anim;
     private Vector3 nextPosition;
     private List<GameObject> m_activeButtons = new List<GameObject>();
+    private CheckPlayerIsInside players; 
 
     private enum PlayerCodes
     {
@@ -51,22 +52,29 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         nextPosition = transform.position + (Vector3.up * yOffset);
         anim = GetComponent<Animator>();
-        m_source = GetComponentInChildren<AudioSource>(); 
-
+        m_source = GetComponentInChildren<AudioSource>();
+        players = GetComponentInChildren<CheckPlayerIsInside>(); 
         foreach (Transform t in buttons.transform)
             m_buttons.Add(t.gameObject);
     }
 
     void Update()
     {
-        if (CheckElevatorCores() && !isBooting)
+
+        hasPlayers = players.hasPlayers; 
+
+        if (CheckElevatorCores() && !isBooting && hasPlayers)
+        {
             StartCoroutine(StartElevatorScene());
+        }
 
         if (Input.GetKey(moveElevatorKey) && !isMoving)
             MovePlatForm(); 
 
-        if (!isMoving && !isBeingPlayed)
-            StartCoroutine(BeginElevatorSequence());
+        //if (!isMoving && !isBeingPlayed)
+        //    StartCoroutine(BeginElevatorSequence());
+
+
     }
 
     void FixedUpdate()
@@ -74,6 +82,8 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         if (shouldMove)
             MovePlatForm();
     }
+
+
 
     bool CheckElevatorCores(){
 
@@ -91,7 +101,8 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
         yield return new WaitForSeconds(1.0f);
 
-        isActive = true; isBooting = false; 
+        isActive = true; isBooting = false;
+        StartCoroutine(BeginElevatorSequence());
     }
 
    
