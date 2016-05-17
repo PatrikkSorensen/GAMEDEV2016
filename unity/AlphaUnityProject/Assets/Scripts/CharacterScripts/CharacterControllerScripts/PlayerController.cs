@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private bool isGrounded = true; 
     private GameObject B4, MiMi;
     private PlayerStatusScript B4Status, MiMiStatus;
+    private bool SpeedBoosted = false;
 
     void Awake()
     {
@@ -165,6 +166,25 @@ public class PlayerController : MonoBehaviour {
                 vertical = "RightPadVertical";
             }
         }
+    }
+
+    public void setSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public void setSpeedBoosted(bool x)
+    {
+        SpeedBoosted = x;
+    }
+
+    public bool isSpeedBoosted()
+    {
+        return SpeedBoosted;
     }
 
     //TODO: Set empower status in another way. 
