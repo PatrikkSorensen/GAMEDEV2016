@@ -5,9 +5,16 @@ public class ActivateCoreBehaviour : MonoBehaviour {
 
     public CurcuitChanneller[] curcuitChannellers; 
     public KeyCode debugKey;
-    public GameObject ElevatorSphere; 
+    public GameObject ElevatorSphere;
 
     private bool m_isActive;
+
+    public bool IsActive
+    {
+        get { return m_isActive; }
+        set { m_isActive = value; }
+    }
+
     private AudioSource m_source; 
 
     void Start()
@@ -29,7 +36,7 @@ public class ActivateCoreBehaviour : MonoBehaviour {
     void StartCore()
     {
         Debug.Log("Starting core...");
-        m_isActive = true; 
+        IsActive = true; 
         m_source.Play();
         GetComponent<Animator>().SetBool("hasPower", true);
     }
