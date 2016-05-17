@@ -4,7 +4,8 @@ using System.Collections;
 public class B4PickUpScript : MonoBehaviour {
 
     public AudioClip pickUpSound;
-    public float boostAmount;
+    public float boostAmount = 20.0f;
+    public float boostTime = 3.0f;
 
     private AudioSource sfxSource;
     private GameObject B4, MiMi;
@@ -39,14 +40,12 @@ public class B4PickUpScript : MonoBehaviour {
 
     IEnumerator speedBoost()
     {
-
-        var oldSpeedB4 = b4Con.getSpeed();
-        var oldSpeedMiMi = MiMiCon.getSpeed();
-        b4Con.setSpeed(oldSpeedB4 + boostAmount);
-        MiMiCon.setSpeed(oldSpeedMiMi + boostAmount);
-        yield return new WaitForSeconds(3.0f);
-        b4Con.setSpeed(oldSpeedB4);
-        MiMiCon.setSpeed(oldSpeedMiMi);
+        b4Con.setSpeed(b4Con.getUnBoostedSpeed() + boostAmount);
+        MiMiCon.setSpeed(MiMiCon.getUnBoostedSpeed() + boostAmount);
+        yield return new WaitForSeconds(boostTime);
+        b4Con.setSpeed(b4Con.getUnBoostedSpeed());
+        MiMiCon.setSpeed(MiMiCon.getUnBoostedSpeed());
         b4Con.setSpeedBoosted(false);
+        MiMiCon.setSpeedBoosted(false);
     }
 }

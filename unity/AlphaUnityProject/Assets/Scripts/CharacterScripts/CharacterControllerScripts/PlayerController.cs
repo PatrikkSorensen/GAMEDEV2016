@@ -23,9 +23,11 @@ public class PlayerController : MonoBehaviour {
     private GameObject B4, MiMi;
     private PlayerStatusScript B4Status, MiMiStatus;
     private bool SpeedBoosted = false;
+    private float unboostedSpeed;
 
     void Awake()
     {
+        unboostedSpeed = speed;
         SetInputs();
         SetVariables(); 
     }
@@ -185,6 +187,16 @@ public class PlayerController : MonoBehaviour {
     public bool isSpeedBoosted()
     {
         return SpeedBoosted;
+    }
+
+    public void setUnBoostedSpeed(float newSpeed)
+    {
+        unboostedSpeed = newSpeed;
+    }
+
+    public float getUnBoostedSpeed()
+    {
+        return unboostedSpeed;
     }
 
     //TODO: Set empower status in another way. 
