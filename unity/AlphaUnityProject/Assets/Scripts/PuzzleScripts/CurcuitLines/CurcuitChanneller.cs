@@ -89,6 +89,7 @@ public class CurcuitChanneller : MonoBehaviour {
                     {
                         m_currentPoint.BeginDrawing();
                         m_endPoint = rp.activePoint.GetComponent<Point>();
+                        Debug.Log("Encountered RotatePoint, shouldDraw: " + m_currentPoint.ShouldDraw);
                         yield return new WaitForSeconds(1.0f);
                     }
 

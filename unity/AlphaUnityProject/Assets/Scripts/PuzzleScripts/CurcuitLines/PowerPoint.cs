@@ -11,7 +11,7 @@ public class PowerPoint : Point
     void Start()
     {
         ls = lightstation.GetComponent<LightStationScript>();
-        m_lsChanneller = lightstation.GetComponent<CurcuitChanneller>(); 
+        m_lsChanneller = lightstation.GetComponentInChildren<CurcuitChanneller>(); 
     } 
     
     protected override void Update()
@@ -40,8 +40,8 @@ public class PowerPoint : Point
 
     protected override void evaluateStatus()
     {
-        if (!ls)
-            Debug.LogWarning(gameObject.name + ": There was no lightstationscript connected to lightstation: " + lightstation.name);
+        if (!m_lsChanneller)
+            Debug.LogWarning(gameObject.name + ": has no curcuitchanneller found on " + lightstation.name);
 
         if (m_lsChanneller.HasChannelled)
         {
