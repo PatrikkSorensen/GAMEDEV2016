@@ -6,6 +6,7 @@ public class PlugDashingScript : MonoBehaviour {
 
     public float dashMassOfPlug;
     public AudioClip scrapeSound;
+    public float distanceFromObjectWhereDashWorks;
 
     private GameObject b4, mimi;
     private Rigidbody rb;
@@ -39,7 +40,8 @@ public class PlugDashingScript : MonoBehaviour {
         {
             if (!light)
             {
-                if(distance1 < 3.0f)
+                Debug.Log("Distance from B4 to " + gameObject.name + ": " + distance1);
+                if (distance1 < distanceFromObjectWhereDashWorks)
                 StartCoroutine(SetMass(1.0f));
             }
         }
@@ -47,7 +49,8 @@ public class PlugDashingScript : MonoBehaviour {
         {
             if (!light)
             {
-                if (distance2 < 3.0f)
+                Debug.Log("Distance from MiMi to " + gameObject.name + ": " + distance2);
+                if (distance2 < distanceFromObjectWhereDashWorks)
                     StartCoroutine(SetMass(1.0f));
             }
         }
