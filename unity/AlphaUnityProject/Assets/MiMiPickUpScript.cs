@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class B4PickUpScript : MonoBehaviour {
+public class MiMiPickUpScript : MonoBehaviour
+{
 
     public AudioClip pickUpSound;
     public float boostAmount;
@@ -10,7 +11,8 @@ public class B4PickUpScript : MonoBehaviour {
     private GameObject B4, MiMi;
     private PlayerController b4Con, MiMiCon;
 
-	void Start () {
+    void Start()
+    {
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.loop = false;
         sfxSource.playOnAwake = false;
@@ -21,25 +23,24 @@ public class B4PickUpScript : MonoBehaviour {
 
         b4Con = B4.GetComponent<PlayerController>();
         MiMiCon = MiMi.GetComponent<PlayerController>();
-	}
+    }
 
-	void OnTriggerEnter(Collider other) 
-	{
-		if(other.gameObject.tag == "RedPickUp")
-		{
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "BluePickUp")
+        {
             sfxSource.Play();
             if (!b4Con.isSpeedBoosted() && !MiMiCon.isSpeedBoosted())
             {
-                b4Con.setSpeedBoosted(true);
+                MiMiCon.setSpeedBoosted(true);
                 StartCoroutine(speedBoost());
             }
-			other.gameObject.SetActive(false);
-		}
-	}
+            other.gameObject.SetActive(false);
+        }
+    }
 
     IEnumerator speedBoost()
     {
-
         var oldSpeedB4 = b4Con.getSpeed();
         var oldSpeedMiMi = MiMiCon.getSpeed();
         b4Con.setSpeed(oldSpeedB4 + boostAmount);
@@ -47,6 +48,6 @@ public class B4PickUpScript : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         b4Con.setSpeed(oldSpeedB4);
         MiMiCon.setSpeed(oldSpeedMiMi);
-        b4Con.setSpeedBoosted(false);
+        MiMiCon.setSpeedBoosted(false);
     }
 }

@@ -29,6 +29,11 @@ public class EstablishBond : MonoBehaviour {
 
     void Start()
     {
+
+    }
+
+    void Awake()
+    {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
@@ -36,9 +41,9 @@ public class EstablishBond : MonoBehaviour {
 
         // Light
         gameObject.AddComponent<LightScript>();
-        gameObject.AddComponent<Light>(); 
+        gameObject.AddComponent<Light>();
         ls = GetComponent<LightScript>();
-        lightSource = GetComponent<Light>(); 
+        lightSource = GetComponent<Light>();
         ls.enabled = false;
         lightSource.enabled = false;
 
@@ -100,7 +105,7 @@ public class EstablishBond : MonoBehaviour {
         }
     }
 
-    void CreateBond()
+    public void CreateBond()
     {
         if (!gameObject.GetComponent<LineRenderer>())
         {
