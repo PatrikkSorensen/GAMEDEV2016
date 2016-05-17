@@ -5,11 +5,14 @@ public class MiMiPickUpScript : MonoBehaviour
 {
 
     public AudioClip pickUpSound;
-    public float boostAmount;
+    public float boostAmount = 20.0f;
+    public float boostTime = 3.0f;
 
     private AudioSource sfxSource;
     private GameObject B4, MiMi;
     private PlayerController b4Con, MiMiCon;
+    private float oldSpeedB4;
+    private float oldSpeedMiMi;
 
     void Start()
     {
@@ -20,6 +23,9 @@ public class MiMiPickUpScript : MonoBehaviour
 
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
+
+        oldSpeedB4 = B4.GetComponent<PlayerController>().speed;
+        oldSpeedMiMi = MiMi.GetComponent<PlayerController>().speed;
 
         b4Con = B4.GetComponent<PlayerController>();
         MiMiCon = MiMi.GetComponent<PlayerController>();
@@ -41,13 +47,12 @@ public class MiMiPickUpScript : MonoBehaviour
 
     IEnumerator speedBoost()
     {
-        var oldSpeedB4 = b4Con.getSpeed();
-        var oldSpeedMiMi = MiMiCon.getSpeed();
-        b4Con.setSpeed(oldSpeedB4 + boostAmount);
-        MiMiCon.setSpeed(oldSpeedMiMi + boostAmount);
-        yield return new WaitForSeconds(3.0f);
-        b4Con.setSpeed(oldSpeedB4);
-        MiMiCon.setSpeed(oldSpeedMiMi);
+        b4Con.setSpeed(b4Con.getUnBoostedSpeed() + boostAmount);
+        MiMiCon.setSpeed(MiMiCon.getUnBoostedSpeed() + boostAmount);
+        yield return new WaitForSeconds(boostTime);
+        b4Con.setSpeed(b4Con.getUnBoostedSpeed());
+        MiMiCon.setSpeed(MiMiCon.getUnBoostedSpeed());
         MiMiCon.setSpeedBoosted(false);
+        b4Con.setSpeedBoosted(false);
     }
 }
