@@ -6,7 +6,8 @@ public class CurcuitChanneller : MonoBehaviour {
 
     // Context
     public GameObject lineStart;
-    public KeyCode debugKey; 
+    public KeyCode debugKey;
+    public bool drawOnAwake = false; 
 
     // Visuals 
     public float startWidth = 0.3f, endWidth = 0.3f;
@@ -22,6 +23,17 @@ public class CurcuitChanneller : MonoBehaviour {
         set { m_hasChannelled = value; }
     }
 	
+    void Start()
+    {
+        if (drawOnAwake)
+        {
+            m_channeling = true;
+            Debug.Log("Started Coroutine");
+            StartCoroutine(BeginChanneling());
+        }
+
+    }
+
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey(debugKey) && !m_channeling)
