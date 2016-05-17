@@ -28,7 +28,7 @@ public class CurcuitChanneller : MonoBehaviour {
         if (drawOnAwake)
         {
             m_channeling = true;
-            Debug.Log("Started Coroutine");
+            //Debug.Log("Started Coroutine");
             StartCoroutine(BeginChanneling());
         }
 
@@ -65,7 +65,7 @@ public class CurcuitChanneller : MonoBehaviour {
         while (!m_lineTracer.GetComponent<Point>().IsDrawn)
         {
             
-            Debug.Log("Chaneller: waiting for: " + m_lineTracer.name + " to draw...");
+            //Debug.Log("Chaneller: waiting for: " + m_lineTracer.name + " to draw...");
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -129,7 +129,7 @@ public class CurcuitChanneller : MonoBehaviour {
                     if (m_currentPoint.ShouldDraw)
                         m_currentPoint.BeginDrawing();
 
-                    Debug.Log("waiting on ..." + m_lineTracer.name);
+                    //Debug.Log("waiting on ..." + m_lineTracer.name);
                     yield return new WaitForSeconds(1.0f);
                 } 
             } 

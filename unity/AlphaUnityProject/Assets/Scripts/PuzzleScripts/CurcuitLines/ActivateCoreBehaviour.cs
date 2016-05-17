@@ -51,7 +51,7 @@ public class ActivateCoreBehaviour : MonoBehaviour {
         foreach (CurcuitChanneller c in curcuitChannellers)
             if (!c.HasChannelled)
             {
-                Debug.Log("Returning false" + c.HasChannelled); 
+                //Debug.Log("Returning false" + c.HasChannelled); 
                 return false;
             }
 

@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class ElevatorPuzzleScript : MonoBehaviour {
 
-    public GameObject elevator, buttons;
+    public ElevatorCoreBehaviour[] cores; 
+    public GameObject elevator, buttons, elevatorWall;
     public float elevatorSpeed = 1.0f;
     public float timeBeforeStopping;
     public float bootTime = 1.0f;
@@ -14,8 +15,10 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     public Color B4Color;
     public KeyCode bootElevatorKey;
     public KeyCode moveElevatorKey;
+    public float bootUpYVector;
+    public float bootUpDuration = 10.0f; 
 
-    private GameObject B4, MiMi;
+    private GameObject B4, MiMi, camera;
     private AudioSource m_source; 
     private List <GameObject> m_buttons = new List<GameObject>();
     private bool isActive, isBooting, isMoving, shouldMove, isBeingPlayed = false;
@@ -43,6 +46,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
      */
 
     void Start () {
+        camera = Camera.main.gameObject; 
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         nextPosition = transform.position + (Vector3.up * yOffset);
@@ -55,7 +59,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKey(bootElevatorKey) && !isBooting)
+        if (CheckElevatorCores() && !isBooting)
             StartCoroutine(StartElevatorScene());
 
         if (Input.GetKey(moveElevatorKey) && !isMoving)
@@ -71,11 +75,20 @@ public class ElevatorPuzzleScript : MonoBehaviour {
             MovePlatForm();
     }
 
+    bool CheckElevatorCores(){
+
+        foreach (ElevatorCoreBehaviour core in cores)
+            if (!core.IsActive)
+                return false; 
+        
+        return true; 
+    }
 
     IEnumerator StartElevatorScene()
     {
         isBooting = true;
-        m_source.Play(); 
+        m_source.Play();
+        elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
         yield return new WaitForSeconds(1.0f);
 
         isActive = true; isBooting = false; 

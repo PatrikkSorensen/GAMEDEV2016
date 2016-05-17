@@ -62,7 +62,7 @@ public class Point : MonoBehaviour {
 
     protected virtual void DrawLines()
     {
-        Debug.Log("LineTracer: " + m_lineTracer.transform.position + " is headed towards:  " + m_targetPoint);
+        //Debug.Log("LineTracer: " + m_lineTracer.transform.position + " is headed towards:  " + m_targetPoint);
         m_points[1] = m_lineTracer.transform.position;
         m_lr.SetPositions(m_points);
 
@@ -70,7 +70,7 @@ public class Point : MonoBehaviour {
 
     public virtual void Initiate(Vector3 v, float duration)
     {
-        Debug.Log("Line initiated with start point: " + transform.name + ": " + transform.position + " and line end point: " + v + ", with draw duration: " + duration);
+        //Debug.Log("Line initiated with start point: " + transform.name + ": " + transform.position + " and line end point: " + v + ", with draw duration: " + duration);
         m_lr = gameObject.AddComponent<LineRenderer>();
         m_lr.SetVertexCount(2);
         m_lr.material = lineMaterial;
