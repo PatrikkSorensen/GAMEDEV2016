@@ -29,16 +29,15 @@ public class EstablishBond : MonoBehaviour {
 
     void Start()
     {
-
-    }
-
-    void Awake()
-    {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
         B4Status = B4.GetComponent<PlayerController>().playerStatus;
         MiMiStatus = MiMi.GetComponent<PlayerController>().playerStatus;
 
+    }
+
+    void Awake()
+    {
         // Light
         gameObject.AddComponent<LightScript>();
         gameObject.AddComponent<Light>();
