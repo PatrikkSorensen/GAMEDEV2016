@@ -1,53 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class ivl2_introEvent : MonoBehaviour {
 
-    public AnimationCurve fadeInUIImageCurve;
-    public float fadeUIImageTime;
+    public AnimationCurve fadeCurve;
+    public float fadeTime;
+    public GameObject UIImage; 
 
     private GameObject B4, MiMi;
+    private Camera cam;
+    private Image image;
 
     void Start()
     {
+        image = UIImage.GetComponent<Image>();
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
-
+        cam = Camera.main;
+        FadeFromBlack();
         StartCoroutine(createTheBond());
     }
 
-    void Awake()
+    void FadeFromBlack()
     {
-
+        DOTween.To(() => image.color, x => image.color = x, Color.clear, fadeTime).SetEase(fadeCurve);
     }
-
-    // Fade in image 
-    void FadeInUIImage()
-    {
-        //DOTween.To(() => image.color, x => image.color = x, Color.white, fadeUIImageTime).SetEase(fadeOutUIImageCurve);
-    }
-
-    // Shake camera
 
     // Create players and bond them
     IEnumerator createTheBond()
     {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
-        Debug.Log("Creating the bond");
         B4.GetComponent<EstablishBond>().CreateBond();
     }
 }
