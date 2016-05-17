@@ -199,7 +199,6 @@ GameObject:
   - 4: {fileID: 431604}
   - 33: {fileID: 3323308}
   - 23: {fileID: 2335320}
-  - 95: {fileID: 9541294}
   - 64: {fileID: 6487328}
   m_Layer: 0
   m_Name: Elevator
@@ -678,6 +677,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &192056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 476728}
+  - 136: {fileID: 13694156}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &192514
 GameObject:
   m_ObjectHideFlags: 1
@@ -760,6 +775,7 @@ Transform:
   m_LocalPosition: {x: -400.85065, y: 7.6531167, z: -397.33145}
   m_LocalScale: {x: 0.45424303, y: 0.4542434, z: 0.4542434}
   m_Children:
+  - {fileID: 476728}
   - {fileID: 495272}
   - {fileID: 431604}
   - {fileID: 421892}
@@ -850,7 +866,7 @@ Transform:
   - {fileID: 445972}
   - {fileID: 479858}
   m_Father: {fileID: 410088}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &431604
 Transform:
   m_ObjectHideFlags: 1
@@ -863,7 +879,7 @@ Transform:
   m_Children:
   - {fileID: 415494}
   m_Father: {fileID: 410088}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &442746
 Transform:
   m_ObjectHideFlags: 1
@@ -875,7 +891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 410088}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &442766
 Transform:
   m_ObjectHideFlags: 1
@@ -1016,7 +1032,7 @@ Transform:
   - {fileID: 496218}
   - {fileID: 406050}
   m_Father: {fileID: 410088}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &461556
 Transform:
   m_ObjectHideFlags: 1
@@ -1031,7 +1047,7 @@ Transform:
   - {fileID: 450596}
   - {fileID: 498938}
   m_Father: {fileID: 410088}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &465004
 Transform:
   m_ObjectHideFlags: 1
@@ -1106,6 +1122,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 419410}
   m_RootOrder: 1
+--- !u!4 &476728
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.38, y: -8.07, z: 86.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 410088}
+  m_RootOrder: 0
 --- !u!4 &479858
 Transform:
   m_ObjectHideFlags: 1
@@ -1209,7 +1237,7 @@ Transform:
   m_LocalScale: {x: 87.231476, y: 237.4198, z: 87.80747}
   m_Children: []
   m_Father: {fileID: 410088}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &496188
 Transform:
   m_ObjectHideFlags: 1
@@ -2502,23 +2530,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9541294
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130716}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4094186f39acc2340ab9bf4e4a1747ce, type: 3}
-  m_Controller: {fileID: 9100000, guid: 00b0f76cc7884ca41aa69b1df1035363, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9556562
 Animator:
   serializedVersion: 3
@@ -2712,7 +2723,7 @@ MonoBehaviour:
   B4Color: {r: 0.016436001, g: 0.5588235, b: 0.042620275, a: 0}
   bootElevatorKey: 102
   moveElevatorKey: 103
-  bootUpYVector: 0.0009
+  bootUpYVector: 0.00013
   bootUpDuration: 10
 --- !u!114 &11433442
 MonoBehaviour:
@@ -2932,6 +2943,19 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &13694156
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 37.03
+  m_Height: 35.34
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
