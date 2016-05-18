@@ -29,6 +29,7 @@ public class CameraLocationChangeEvent : MonoBehaviour {
     {
         if (other.name == "B4")
         {
+            Debug.Log("camEvent Triggered!");
             var oldPos = cameraScript.getPosition();
             var timeDifference = Time.time - lastChange;
             //Debug.Log("Time difference = " + timeDifference);
