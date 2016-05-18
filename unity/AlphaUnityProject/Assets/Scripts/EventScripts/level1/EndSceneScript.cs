@@ -158,7 +158,7 @@ public class EndSceneScript : MonoBehaviour {
 
     void SwitchLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void FadeInUIImage()
