@@ -60,10 +60,6 @@ public class lvl2_endingEvent : MonoBehaviour {
 
     void MovePlatForm()
     {
-        //Vector3 heading = tower.transform.position - elevator.transform.position;
-
-        //heading = heading  * Time.deltaTime;
-        //transform.Translate(heading);
         elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, tower.transform.position, speed);
     }
 
