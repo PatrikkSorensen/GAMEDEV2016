@@ -35,6 +35,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &110192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415558}
+  - 108: {fileID: 10806686}
+  m_Layer: 0
+  m_Name: light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &113790
 GameObject:
   m_ObjectHideFlags: 1
@@ -464,28 +480,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &199974
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 480314}
-  - 33: {fileID: 3302112}
-  - 23: {fileID: 2387482}
-  - 64: {fileID: 6429174}
-  - 135: {fileID: 13511440}
-  - 114: {fileID: 11421808}
-  - 114: {fileID: 11406970}
-  - 114: {fileID: 11416780}
-  m_Layer: 0
-  m_Name: Platform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &199978
 GameObject:
   m_ObjectHideFlags: 1
@@ -527,10 +521,10 @@ Transform:
   m_Children:
   - {fileID: 22439606}
   - {fileID: 473132}
-  - {fileID: 480314}
   - {fileID: 425228}
   - {fileID: 410276}
   - {fileID: 495466}
+  - {fileID: 415558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &410276
@@ -554,7 +548,19 @@ Transform:
   - {fileID: 469788}
   - {fileID: 452588}
   m_Father: {fileID: 408266}
-  m_RootOrder: 4
+  m_RootOrder: 3
+--- !u!4 &415558
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.83, z: 14.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408266}
+  m_RootOrder: 5
 --- !u!4 &419032
 Transform:
   m_ObjectHideFlags: 1
@@ -612,7 +618,7 @@ Transform:
   - {fileID: 441180}
   - {fileID: 428292}
   m_Father: {fileID: 408266}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &425320
 Transform:
   m_ObjectHideFlags: 1
@@ -781,18 +787,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 22439606}
   m_RootOrder: 1
---- !u!4 &480314
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.5, y: 0, z: 14.65}
-  m_LocalScale: {x: 0.043989874, y: 0.043989897, z: 0.043989897}
-  m_Children: []
-  m_Father: {fileID: 408266}
-  m_RootOrder: 2
 --- !u!4 &484830
 Transform:
   m_ObjectHideFlags: 1
@@ -828,7 +822,7 @@ Transform:
   m_LocalScale: {x: 60.014416, y: 60.014416, z: 60.014416}
   m_Children: []
   m_Father: {fileID: 408266}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &497462
 Transform:
   m_ObjectHideFlags: 1
@@ -1407,33 +1401,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!23 &2387482
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: e900d4745140840418246809edb4f689, type: 2}
-  - {fileID: 2100000, guid: 366d70433cd00c44fb31fae2b3b21e53, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!23 &2393320
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1487,13 +1454,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3302112
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_Mesh: {fileID: 4300020, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
 --- !u!33 &3304158
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1655,18 +1615,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196342}
   m_Mesh: {fileID: 4300028, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
---- !u!64 &6429174
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300020, guid: 9ca8d5b915c833d4d990e99e359b5986, type: 3}
 --- !u!64 &6452748
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -1737,76 +1685,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11406970
-MonoBehaviour:
+--- !u!108 &10806686
+Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
+  m_GameObject: {fileID: 110192}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b974543b502c5f46802f4898659f065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialToFade: {fileID: 0}
-  materialHackGameObject: {fileID: 135920}
-  materialEndColor: {r: 0.53103447, g: 0, b: 1, a: 0}
-  emissionColor: {r: 0, g: 0, b: 0, a: 0}
-  duration: 2
---- !u!114 &11416780
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e45660c93f5cfb4fb8c88336198e533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sphere: {fileID: 0}
-  endcolor: {r: 1, g: 0, b: 0, a: 0}
-  curve:
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 0, g: 1, b: 0.71034503, a: 1}
+  m_Intensity: 0
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 1
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
     serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 0.1859042
-      value: 1.1942829
-      inSlope: 1.013726
-      outSlope: 1.013726
-      tangentMode: 0
-    - time: 0.3651376
-      value: 0.00208956
-      inSlope: -0.8264184
-      outSlope: -0.8264184
-      tangentMode: 0
-    - time: 0.5156268
-      value: 1.1156468
-      inSlope: 2.2739172
-      outSlope: 2.2739172
-      tangentMode: 0
-    - time: 0.74615496
-      value: 0.0053727627
-      inSlope: -1.4233589
-      outSlope: -1.4233589
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  duration: 5
-  pulseDuration: 1
-  originalRange: 0
-  shouldPingPong: 0
-  shouldPlayLightScene: 0
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!114 &11417108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1828,94 +1739,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11421808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10d120a332c59743827e94eec8c5b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIImage: {fileID: 113790}
-  camOffset: {x: 0, y: 5, z: 0}
-  fadeAmbientTime: 5
-  fadeUIImageTime: 15
-  fadeOutAmbientCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  fadeOutUIImageCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-    - time: 0.070016116
-      value: 1
-      inSlope: 0.015699374
-      outSlope: 0.015699374
-      tangentMode: 0
-    - time: 0.13216564
-      value: 0.005766593
-      inSlope: -0.0068621216
-      outSlope: -0.0068621216
-      tangentMode: 0
-    - time: 0.17745855
-      value: 0.0067435876
-      inSlope: 0.09013732
-      outSlope: 0.09013732
-      tangentMode: 0
-    - time: 0.29698372
-      value: 1
-      inSlope: 3.1030178
-      outSlope: 3.1030178
-      tangentMode: 0
-    - time: 0.3379929
-      value: 0.00683222
-      inSlope: 0.020013621
-      outSlope: 0.020013621
-      tangentMode: 0
-    - time: 0.40673247
-      value: 0.5091096
-      inSlope: 0.295192
-      outSlope: 0.295192
-      tangentMode: 0
-    - time: 0.46445006
-      value: 0.0091096265
-      inSlope: -0.048965175
-      outSlope: -0.048965175
-      tangentMode: 0
-    - time: 0.8471312
-      value: 0.0029443502
-      inSlope: -1.1396408
-      outSlope: -1.1396408
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  InfectionSfx: {fileID: 0}
 --- !u!114 &11433404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1981,7 +1804,7 @@ MonoBehaviour:
   materialHackGameObject: {fileID: 135920}
   materialEndColor: {r: 0.9034481, g: 0, b: 1, a: 0}
   emissionColor: {r: 0, g: 0, b: 0, a: 0}
-  duration: 2
+  duration: 1
 --- !u!114 &11468578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2010,7 +1833,8 @@ MonoBehaviour:
   UIImage: {fileID: 113790}
   camOffset: {x: 0, y: 5, z: 0}
   fadeAmbientTime: 5
-  fadeUIImageTime: 15
+  fadeUIImageTime: 5
+  chanelTime: 0
   fadeOutAmbientCurve:
     serializedVersion: 2
     m_Curve:
@@ -2044,6 +1868,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   InfectionSfx: {fileID: 8300000, guid: f1ef0605fa8eba3418562f1e2d3a7d36, type: 3}
+  infectionMusic: {fileID: 8300000, guid: 60785c2d45f667d4fac05e139faf2764, type: 3}
+  chargeUpSound: {fileID: 8300000, guid: 2e6687f4371c1ae42bd399f48c3c83cb, type: 3}
+  ChannellingLight: {fileID: 10806686}
 --- !u!114 &11499324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2081,20 +1908,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0086948825
+  m_Radius: 0.01694883
   m_Center: {x: -0.0002487544, y: 0.0018915596, z: -0.000000059600932}
---- !u!135 &13511440
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 93.57
-  m_Center: {x: 0.25919724, y: 49.54, z: 1.6}
 --- !u!222 &22240412
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -2128,7 +1943,7 @@ RectTransform:
   m_GameObject: {fileID: 113790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.1581063, y: 5.1581025, z: 5.1581025}
   m_Children: []
   m_Father: {fileID: 22439606}
   m_RootOrder: 0
