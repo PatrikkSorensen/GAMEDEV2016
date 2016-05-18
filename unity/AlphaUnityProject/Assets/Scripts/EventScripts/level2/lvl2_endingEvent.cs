@@ -24,8 +24,7 @@ public class lvl2_endingEvent : MonoBehaviour {
 	}
 
 	void Update () {
-        if (Input.GetKey(KeyCode.X))
-            StartCoroutine(TriggerEnding());
+
 	}
 
     void FixedUpdate()
