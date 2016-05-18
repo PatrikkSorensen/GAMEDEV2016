@@ -20,6 +20,7 @@ public class MiMiDash : MonoBehaviour {
 
     void Start()
     {
+        sfxSource = GetComponent<AudioSource>(); 
         sfxSource.playOnAwake = false;
         sfxSource.loop = false;
         sfxSource.clip = dashSound;
