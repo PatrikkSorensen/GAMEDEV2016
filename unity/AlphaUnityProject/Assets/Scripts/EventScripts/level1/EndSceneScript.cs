@@ -12,7 +12,7 @@ public class EndSceneScript : MonoBehaviour {
     public float fadeUIImageTime;
     public AnimationCurve fadeOutAmbientCurve;
     public AnimationCurve fadeOutUIImageCurve;
-    public AudioClip InfectionSfx;
+    public AudioClip InfectionSfx, infectionMusic;
 
     private TowerInfectionScript infectionScript;
     private FadeMaterial materialScript;
@@ -21,14 +21,18 @@ public class EndSceneScript : MonoBehaviour {
     private Image image; 
     private bool canChanel, channeling, isZoomed = false; 
     private int timesChanelled = 0;
-    private float startTime = 0.0f; 
+    private float startTime = 0.0f;
+    private AudioSource sfxSource;
+    private AudioSource musicSource;
 
     void Start()
     {
         cameraScript = Camera.main.GetComponent<ThirdPersonCameraScript>(); 
         image = UIImage.GetComponent<Image>();
         infectionScript = GetComponent<TowerInfectionScript>();
-        materialScript = GetComponent<FadeMaterial>(); 
+        materialScript = GetComponent<FadeMaterial>();
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        musicSource = GameObject.FindGameObjectWithTag("MusicController").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -113,10 +117,12 @@ public class EndSceneScript : MonoBehaviour {
     {
         DOTween.To(() => RenderSettings.ambientLight, x => RenderSettings.ambientLight = x, Color.black, fadeAmbientTime).SetEase(fadeOutAmbientCurve);
         infectionScript.shouldPingPong = true;
-        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.clip = InfectionSfx;
         sfxSource.loop = false;
         sfxSource.Play();
+        musicSource.Stop();
+        musicSource.clip = infectionMusic;
+        musicSource.Play();
     }
 
     void SwitchLevel()
