@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class AnimatedTextureSwapping : MonoBehaviour {
 
@@ -32,7 +33,20 @@ public class AnimatedTextureSwapping : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.X))
             anim.SetBool("love", true);
-      
+
+        DetermineIdleAnimation();
+    }
+
+    private void DetermineIdleAnimation()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(1).IsName("mimi_eye1") && anim.GetInteger("idleint") > 0)
+            return;
+
+         
+        Debug.Log("Determing idle animation");
+        int animNumber = UnityEngine.Random.Range(0, 3);
+        anim.SetInteger("idleint", animNumber); 
+         
     }
 
     IEnumerator Blink()

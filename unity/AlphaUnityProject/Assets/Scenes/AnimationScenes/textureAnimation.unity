@@ -349,7 +349,7 @@ Transform:
   m_LocalScale: {x: 11.317469, y: 11.317463, z: 11.317463}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1286641847 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
@@ -451,6 +451,14 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1286641856}
+    - target: {fileID: 11408682, guid: 3f18ef46fc6234a4493c49bbb83c40d2, type: 2}
+      propertyPath: distanceAway
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11408682, guid: 3f18ef46fc6234a4493c49bbb83c40d2, type: 2}
+      propertyPath: distanceUp
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f18ef46fc6234a4493c49bbb83c40d2, type: 2}
   m_IsPrefabParent: 0
