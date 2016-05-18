@@ -6,12 +6,21 @@ public class DashScript : MonoBehaviour {
     public float dashForce = 10.0f;
     public GameObject B4;
     public float inputDelay = 0.2f;
-    public float dashTime = 1.0f; 
+    public float dashTime = 1.0f;
+    public AudioClip dashSound;
 
     private bool channelling, dashing = false;
     private float startTime, dashStartTime;
     private float m_rigidbodyDrag;
-    private float m_speed;  
+    private float m_speed;
+    private AudioSource sfxSource;
+
+    void Start()
+    {
+        sfxSource.playOnAwake = false;
+        sfxSource.loop = false;
+        sfxSource.clip = dashSound;
+    }
 
 	void Update () {
         if (Input.GetButtonDown("B4Dash"))
@@ -57,6 +66,7 @@ public class DashScript : MonoBehaviour {
         if (timeDifference > inputDelay && timeDifference < inputDelay + 0.2f)
         {
             Debug.Log("Dashing...");
+            sfxSource.Play();
             startTime = 0.0f;
 
             //TODO: Make generic
