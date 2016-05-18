@@ -13,19 +13,22 @@ public class DashScript : MonoBehaviour {
     private float startTime, dashStartTime;
     private float m_rigidbodyDrag;
     private float m_speed;
+    private float m_orgSpeed;
+    private float m_originalDrag;
     private AudioSource sfxSource;
-
     void Start()
     {
         sfxSource.playOnAwake = false;
         sfxSource.loop = false;
         sfxSource.clip = dashSound;
+        m_orgSpeed = GetComponent<PlayerController>().speed;
+        m_originalDrag = GetComponent<Rigidbody>().drag;
     }
 
-	void Update () {
+	void Update () 
+    {
         if (Input.GetButtonDown("B4Dash"))
         {
-            Debug.Log("B4Dash pressed");
             channelling = true;
             startTime = Time.time;
         }
@@ -34,8 +37,8 @@ public class DashScript : MonoBehaviour {
         {
             startTime = 0.0f;
             channelling = false;
-            GetComponent<PlayerController>().speed = m_speed;
-            GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
+            GetComponent<PlayerController>().speed = m_orgSpeed;
+            GetComponent<Rigidbody>().drag = m_originalDrag;
         }
 
         if (channelling)

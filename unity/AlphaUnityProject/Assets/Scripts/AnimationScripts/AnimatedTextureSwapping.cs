@@ -43,7 +43,7 @@ public class AnimatedTextureSwapping : MonoBehaviour {
             return;
 
          
-        Debug.Log("Determing idle animation");
+        //Debug.Log("Determing idle animation");
         int animNumber = UnityEngine.Random.Range(0, 3);
         anim.SetInteger("idleint", animNumber); 
          

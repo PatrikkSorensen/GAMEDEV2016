@@ -4,14 +4,18 @@ using System.Collections;
 public class ChangeRotationPoint : MonoBehaviour {
 
     public RotatePoint rotatePoint;
-    public GameObject otherSwitch; 
+    public GameObject otherSwitch;
+    public bool isActive; 
 
     void OnTriggerStay(Collider other) 
     {
-        if (other.gameObject.tag == "B4")
-            Debug.Log("I should switch rp."); 
+        if (other.gameObject.tag == "B4" && !isActive || other.gameObject.tag == "MiMi" && !isActive)
+        {
+            rotatePoint.ChangeEndPoint(otherSwitch, rotatePoint.changeDuration);
+            otherSwitch.GetComponent<ChangeRotationPoint>().isActive = true;  
 
-        rotatePoint.ChangeEndPoint(otherSwitch, rotatePoint.changeDuration);
-        //rotatePoint.ChangeEndPoint()
+            // TODO: Play sound
+        }
+
     }
 }

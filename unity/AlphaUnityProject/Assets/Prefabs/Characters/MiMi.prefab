@@ -188,6 +188,7 @@ GameObject:
   - 114: {fileID: 11401336}
   - 114: {fileID: 11420284}
   - 114: {fileID: 11451800}
+  - 114: {fileID: 11452730}
   m_Layer: 2
   m_Name: MiMi
   m_TagString: MiMi
@@ -454,8 +455,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166026}
-  m_LocalRotation: {x: 0, y: -0.9889254, z: 0, w: 0.14841345}
-  m_LocalPosition: {x: 50.8, y: 0.047424436, z: -835.11}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 89.23, y: -9.35, z: -847.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456230}
@@ -1165,13 +1166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558d460486cce93458da50a6d31ce99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 80
   movingTurnSpeed: 10
   stationaryTurnSpeed: 180
-  fallSpeed: 1
+  fallSpeed: 0.8
   distanceToGround: 1.5
   keyboardMiMi: 1
   velocityMode: 0
+  canMove: 1
   playerStatus: {fileID: 0}
 --- !u!114 &11406932
 MonoBehaviour:
@@ -1233,7 +1235,7 @@ MonoBehaviour:
   dashForce: 10
   MiMi: {fileID: 166026}
   inputDelay: 0.2
-  dashTime: 1
+  dashTime: 0.3
 --- !u!114 &11421470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1305,6 +1307,20 @@ MonoBehaviour:
   loveEyes: {fileID: 2800000, guid: e5bd7694a182fe347897bab3ce1bd842, type: 3}
   surprisedEyes: {fileID: 2800000, guid: 59166cd83ef054642b9b03d1d8c7f4fc, type: 3}
   happyEyes: {fileID: 2800000, guid: 053f40583a5f6464eb5e6e691dba3da0, type: 3}
+--- !u!114 &11452730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78677bdf4def2ea46ba0cbce7a2295a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpSound: {fileID: 0}
+  boostAmount: 20
+  boostTime: 3
 --- !u!114 &11459950
 MonoBehaviour:
   m_ObjectHideFlags: 1
