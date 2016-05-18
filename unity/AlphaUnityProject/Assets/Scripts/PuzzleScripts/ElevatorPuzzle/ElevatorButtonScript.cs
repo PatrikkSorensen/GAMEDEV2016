@@ -14,7 +14,7 @@ public class ElevatorButtonScript : MonoBehaviour {
 	void Start () {
         elevatorFrame = transform.GetChild(0).gameObject;
         elevatorPlatform = transform.GetChild(1).gameObject;
-
+         
         defaultColor = elevatorFrame.GetComponent<Renderer>().material.color; 
     }
 
