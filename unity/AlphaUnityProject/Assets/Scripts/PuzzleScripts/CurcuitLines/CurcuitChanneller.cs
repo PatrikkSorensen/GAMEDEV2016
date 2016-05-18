@@ -89,12 +89,14 @@ public class CurcuitChanneller : MonoBehaviour {
                     {
                         m_currentPoint.BeginDrawing();
                         m_endPoint = rp.activePoint.GetComponent<Point>();
-                        Debug.Log("Encountered RotatePoint, shouldDraw: " + m_currentPoint.ShouldDraw);
+                        //Debug.Log("Encountered RotatePoint, shouldDraw: " + m_currentPoint.ShouldDraw);
                         yield return new WaitForSeconds(1.0f);
                     }
 
-                    m_currentPoint.BeginDrawing();
+                    rp.LockRotationPoints();
                     yield return new WaitForSeconds(1.0f);
+                    
+                    m_currentPoint.BeginDrawing();
                 }
             }
             else if (m_currentPoint.GetType() == typeof(PowerPoint))

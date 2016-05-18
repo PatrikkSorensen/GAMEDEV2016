@@ -8,28 +8,27 @@ public class RotatePoint : Point {
     public float changeDuration; 
     public GameObject activePoint;
 
+    private AudioSource m_source;
+    private bool isLocked; 
+
     void Start()
     {
+        m_source = GetComponent<AudioSource>(); 
+
         ShouldDraw = true;
 
         if (switchPoints.Length == 0)
             Debug.LogWarning(gameObject.name + ": There is no switchPoints assigned to rotatePoint");
         else
+        {
             activePoint = defaultPoint;
+            activePoint.GetComponent<ChangeRotationPoint>().isActive = true; 
+        }
+
     }
 
     protected override void Update()
     {
-
-        if (Input.GetKey(KeyCode.Y) && m_isInitiated)
-        {
-            ChangeEndPoint(switchPoints[0], changeDuration);
-        }
-           
-        if (Input.GetKey(KeyCode.V) && m_isInitiated)
-        {
-            ChangeEndPoint(switchPoints[1], changeDuration);
-        }
 
         base.Update(); 
     }
@@ -68,9 +67,12 @@ public class RotatePoint : Point {
 
     public void ChangeEndPoint(GameObject endPoint, float duration)
     {
-        Debug.Log("Changing end point to " + endPoint);
         IsDrawing = true;
-        activePoint = endPoint; 
+
+        Debug.Log("Changing end point to " + endPoint);
+        activePoint.GetComponent<ChangeRotationPoint>().isActive = false; 
+        activePoint = endPoint;
+        activePoint.GetComponent<ChangeRotationPoint>().isActive = true;
 
         Vector3[] newpoints = { transform.position, transform.position };
         m_points = newpoints;
@@ -80,5 +82,19 @@ public class RotatePoint : Point {
 
         CreateLineTracer(transform.position);
         BeginDrawing(); 
+    }
+
+    public void LockRotationPoints()
+    {
+        foreach (GameObject gb in switchPoints)
+            gb.GetComponent<ChangeRotationPoint>().LockSwitches();
+
+        activePoint.GetComponent<ChangeRotationPoint>().activeParticles.Stop();
+
+        if (!isLocked)
+        {
+            isLocked = true;
+            m_source.Play();
+        }
     }
 }
