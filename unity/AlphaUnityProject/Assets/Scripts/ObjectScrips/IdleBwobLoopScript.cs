@@ -12,7 +12,7 @@ public class IdleBwobLoopScript : MonoBehaviour {
         sfxSource.clip = loopSound;
         sfxSource.loop = true;
         sfxSource.spatialBlend = 1.0f;
-        sfxSource.volume = 0.5f;
+        sfxSource.volume = 0.8f;
         sfxSource.Play();
 	}
 	
