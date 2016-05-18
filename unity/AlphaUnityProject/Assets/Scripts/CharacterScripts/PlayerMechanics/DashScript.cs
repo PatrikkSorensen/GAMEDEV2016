@@ -18,6 +18,7 @@ public class DashScript : MonoBehaviour {
     private AudioSource sfxSource;
     void Start()
     {
+        sfxSource = GetComponent<AudioSource>(); 
         sfxSource.playOnAwake = false;
         sfxSource.loop = false;
         sfxSource.clip = dashSound;
