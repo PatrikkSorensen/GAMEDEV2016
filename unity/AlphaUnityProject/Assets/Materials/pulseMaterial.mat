@@ -144,12 +144,12 @@ Material:
         second: 0
       data:
         first:
-          name: _Outline
-        second: 0.005
-      data:
-        first:
           name: _InvFade
         second: 3
+      data:
+        first:
+          name: _Outline
+        second: 0.005
       data:
         first:
           name: _Cull
@@ -169,12 +169,12 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
-          name: _OutlineColor
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
           name: _TintColor
         second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _HueVariation

@@ -43,6 +43,9 @@ public class EndSceneScript : MonoBehaviour {
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.X))
+            StartCoroutine(PlayScene());
+
         CheckInputs();
     }
 
@@ -158,7 +161,7 @@ public class EndSceneScript : MonoBehaviour {
 
     void SwitchLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     void FadeInUIImage()
