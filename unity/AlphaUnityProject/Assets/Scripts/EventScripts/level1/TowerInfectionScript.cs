@@ -28,7 +28,6 @@ public class TowerInfectionScript : MonoBehaviour {
         if (shouldPlayLightScene)
             StartCoroutine(PlayLightScene());
 
-
         if (shouldPingPong)
         {
             float amplitude = Mathf.PingPong(Time.time, duration);
@@ -46,4 +45,5 @@ public class TowerInfectionScript : MonoBehaviour {
 
         pulseDuration = 1.0f;
     }
+
 }
