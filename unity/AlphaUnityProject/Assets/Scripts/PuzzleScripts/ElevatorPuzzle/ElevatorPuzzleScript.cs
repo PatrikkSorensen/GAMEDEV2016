@@ -74,6 +74,9 @@ public class ElevatorPuzzleScript : MonoBehaviour {
             StartCoroutine(StartElevatorScene());
         }
 
+        if (Input.GetKey(bootElevatorKey) && !isBooting && !isActive)
+            StartCoroutine(StartElevatorScene());
+
         if (Input.GetKey(moveElevatorKey) && !isMoving)
             MovePlatForm(); 
 
