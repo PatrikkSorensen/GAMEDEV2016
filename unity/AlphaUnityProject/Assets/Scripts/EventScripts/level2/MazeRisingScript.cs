@@ -32,10 +32,13 @@ public class MazeRisingScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (!triggered)
+        if (other.gameObject.tag == "B4" || other.gameObject.tag == "MiMi")
         {
-            triggered = true;
-            TriggerScene();
+            if (!triggered)
+            {
+                triggered = true;
+                TriggerScene();
+            }
         }
     }
 
