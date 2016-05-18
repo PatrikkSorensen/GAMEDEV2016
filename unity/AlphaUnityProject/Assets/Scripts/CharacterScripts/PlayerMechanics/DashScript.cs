@@ -13,35 +13,14 @@ public class DashScript : MonoBehaviour {
     private float startTime, dashStartTime;
     private float m_rigidbodyDrag;
     private float m_speed;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    private AudioSource sfxSource;
-=======
-    private AudioSource sfxSource;
-
-    void Start()
-    {
-        sfxSource.playOnAwake = false;
-        sfxSource.loop = false;
-        sfxSource.clip = dashSound;
-    }
->>>>>>> 8b01916dfb8c05b4d5fa343b3f59b0eac601893e
-
-    void Start()
-    {
-        sfxSource.playOnAwake = false;
-        sfxSource.loop = false;
-        sfxSource.clip = dashSound;
-    }
->>>>>>> 8b01916dfb8c05b4d5fa343b3f59b0eac601893e
-
-    private AudioSource sfxSource;
     private float m_orgSpeed;
     private float m_originalDrag;
-
+    private AudioSource sfxSource;
     void Start()
     {
+        sfxSource.playOnAwake = false;
+        sfxSource.loop = false;
+        sfxSource.clip = dashSound;
         m_orgSpeed = GetComponent<PlayerController>().speed;
         m_originalDrag = GetComponent<Rigidbody>().drag;
     }
