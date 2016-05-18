@@ -4,8 +4,10 @@ using DG.Tweening;
 public class lvl2_endingEvent : MonoBehaviour {
     public AudioClip endingSound, endingMusic;
     public GameObject tower;
-    public GameObject elevator; 
+    public GameObject elevator;
+    public float speed = 1.2f; 
 
+    private bool shouldMove; 
     private AudioSource sfxSource;
     private AudioSource musicSource;
     private GameObject B4, MiMi; 
@@ -26,13 +28,20 @@ public class lvl2_endingEvent : MonoBehaviour {
             StartCoroutine(TriggerEnding());
 	}
 
+    void FixedUpdate()
+    {
+        if (shouldMove)
+            MovePlatForm();
+    }
+
     public IEnumerator TriggerEnding()
     {
         TriggerSounds();
         DisablePlayers();
         MakeCameraStatic();
-        MovePlatformToTower(); 
 
+        yield return new WaitForSeconds(1.0f);
+        shouldMove = true; 
         yield return null; 
     }
 
@@ -49,9 +58,13 @@ public class lvl2_endingEvent : MonoBehaviour {
         Camera.main.transform.DOLookAt(tower.transform.position, 10.0f); 
     }
 
-    void MovePlatformToTower()
+    void MovePlatForm()
     {
-        elevator.transform.DOMove(tower.transform.position, 30.0f); 
+        //Vector3 heading = tower.transform.position - elevator.transform.position;
+
+        //heading = heading  * Time.deltaTime;
+        //transform.Translate(heading);
+        elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, tower.transform.position, speed);
     }
 
     void TriggerSounds()

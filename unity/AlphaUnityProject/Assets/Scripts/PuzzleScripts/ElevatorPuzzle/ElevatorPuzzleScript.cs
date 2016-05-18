@@ -79,11 +79,6 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
         if (Input.GetKey(moveElevatorKey) && !isMoving)
             MovePlatForm(); 
-
-        //if (!isMoving && !isBeingPlayed)
-        //    StartCoroutine(BeginElevatorSequence());
-
-
     }
 
     void FixedUpdate()

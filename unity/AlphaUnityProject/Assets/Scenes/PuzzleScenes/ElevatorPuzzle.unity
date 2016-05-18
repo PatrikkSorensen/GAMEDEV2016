@@ -143,6 +143,10 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 166026, guid: 50740a71f6b5eaf44a71dd0fd6db9e99, type: 2}
   m_PrefabInternal: {fileID: 595721}
+--- !u!1 &574998526 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 123518, guid: f3959f7e64690e84a9f32ecb23e1f50e, type: 2}
+  m_PrefabInternal: {fileID: 2079806346}
 --- !u!1 &682474309
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +500,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 479834, guid: fe370345b4b48a34ebb5b867b34e92d0, type: 2}
   m_PrefabInternal: {fileID: 931428871}
+--- !u!1 &1081841587 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 150438, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
+  m_PrefabInternal: {fileID: 1249143754}
 --- !u!1 &1168966565
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,10 +532,6 @@ Transform:
   - {fileID: 1053050715}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1208567182 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 129172, guid: f3959f7e64690e84a9f32ecb23e1f50e, type: 2}
-  m_PrefabInternal: {fileID: 2079806346}
 --- !u!1001 &1249143754
 Prefab:
   m_ObjectHideFlags: 0
@@ -570,7 +574,7 @@ Prefab:
     - target: {fileID: 11475454, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
       propertyPath: tower
       value: 
-      objectReference: {fileID: 1208567182}
+      objectReference: {fileID: 574998526}
     - target: {fileID: 442746, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
       propertyPath: m_RootOrder
       value: 7
@@ -602,6 +606,22 @@ Prefab:
     - target: {fileID: 450482, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413166, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
+      propertyPath: yOffset
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413166, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
+      propertyPath: elevatorSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475454, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
+      propertyPath: elevator
+      value: 
+      objectReference: {fileID: 1081841587}
+    - target: {fileID: 11475454, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
+      propertyPath: speed
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 384f54b3f2bba2241a024959c486d6f3, type: 2}
