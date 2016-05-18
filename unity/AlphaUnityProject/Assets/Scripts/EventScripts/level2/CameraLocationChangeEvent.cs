@@ -39,7 +39,8 @@ public class CameraLocationChangeEvent : MonoBehaviour {
             if (timeDifference > 0.05f)
             {
                 //Debug.Log("oldUp = " + oldPos.x + " upToUse = " + upToUse + " oldAway = " + oldPos.y + " awayToUse = " + awayToUse);
-                if (oldUp != upToUse && oldAway != awayToUse)
+                //if (oldUp != upToUse && oldAway != awayToUse)
+                if (new Vector2(oldUp, oldAway) != new Vector2(upToUse, awayToUse))
                 {
                     cameraScript.setPosition(awayToUse, upToUse);
                     lastChange = Time.time;
