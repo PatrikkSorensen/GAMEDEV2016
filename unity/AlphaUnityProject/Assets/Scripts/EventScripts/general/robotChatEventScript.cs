@@ -17,8 +17,11 @@ public class robotChatEventScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        robotChat.startChat();
-        gameObject.SetActive(false);
+        if(other.gameObject.tag == "B4" || other.gameObject.tag == "MiMi")
+        {
+            robotChat.startChat();
+            gameObject.SetActive(false);
+        }
     }
 	
 	// Update is called once per frame
