@@ -14,6 +14,10 @@ public class CheckPlayerIsInside : MonoBehaviour {
 	void Update () {
         if (hasMiMi && hasB4)
             hasPlayers = true; 
+        else
+        {
+            hasPlayers = false; 
+        }
 	}
 
     void OnTriggerStay(Collider other)

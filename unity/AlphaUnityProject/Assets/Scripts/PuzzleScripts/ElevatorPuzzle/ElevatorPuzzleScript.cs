@@ -69,7 +69,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
         hasPlayers = players.hasPlayers; 
 
-        if (CheckElevatorCores() && !isBooting && hasPlayers)
+        if (CheckElevatorCores() && !isBooting && hasPlayers && !isActive)
         {
             StartCoroutine(StartElevatorScene());
         }
@@ -102,6 +102,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
     IEnumerator StartElevatorScene()
     {
+        Debug.Log("Starting elevator scene...");
         isBooting = true;
         m_source.Play();
         elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
@@ -109,6 +110,9 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
         isActive = true; isBooting = false;
         StartCoroutine(BeginElevatorSequence());
+
+        B4.transform.parent = transform;
+        MiMi.transform.parent = transform; 
     }
 
    
