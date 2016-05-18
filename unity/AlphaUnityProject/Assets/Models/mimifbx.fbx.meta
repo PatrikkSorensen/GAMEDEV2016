@@ -99,7 +99,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.13105413
+        functionName: Blink
+        data: 
+        objectReferenceParameter: {fileID: 166026, guid: 50740a71f6b5eaf44a71dd0fd6db9e99,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

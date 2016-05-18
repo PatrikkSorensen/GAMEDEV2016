@@ -26,7 +26,13 @@ public class ElevatorCoreBehaviour : MonoBehaviour {
     }
 
     void Update()
-    { 
+    {
+        if (Input.GetKey(debugKey) && !IsActive)
+            ActivateCore();
+
+        if (!powerCore)
+            return; 
+
         if (powerCore.IsActive && !IsActive)
             ActivateCore(); 
     }
@@ -35,7 +41,6 @@ public class ElevatorCoreBehaviour : MonoBehaviour {
     {
         Debug.Log("Activating core...");
         m_halolight.DOIntensity(targetIntensity, duration);
-        Debug.Log(m_halolight.name);
         IsActive = true; 
     }
 }

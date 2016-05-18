@@ -18,6 +18,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     public float bootUpYVector;
     public float bootUpDuration = 10.0f;
     public AudioClip endingSound;
+    public CheckPlayerIsInside players;
 
     private GameObject B4, MiMi, camera;
     private AudioSource m_source; 
@@ -27,7 +28,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     private Vector3 nextPosition;
     private List<GameObject> m_activeButtons = new List<GameObject>();
     private AudioSource sfxSounds;
-    private CheckPlayerIsInside players; 
+    
 
 
     private enum PlayerCodes
@@ -50,9 +51,8 @@ public class ElevatorPuzzleScript : MonoBehaviour {
      */
 
     void Start () {
+        sfxSounds = GetComponent<AudioSource>(); 
         sfxSounds.clip = endingSound;
-        sfxSounds.loop = false;
-        sfxSounds.playOnAwake = false;
         camera = Camera.main.gameObject; 
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
@@ -69,7 +69,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
         hasPlayers = players.hasPlayers; 
 
-        if (CheckElevatorCores() && !isBooting && hasPlayers)
+        if (CheckElevatorCores() && !isBooting && hasPlayers && !isActive)
         {
             StartCoroutine(StartElevatorScene());
         }
@@ -102,6 +102,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
     IEnumerator StartElevatorScene()
     {
+        Debug.Log("Starting elevator scene...");
         isBooting = true;
         m_source.Play();
         elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
@@ -109,6 +110,9 @@ public class ElevatorPuzzleScript : MonoBehaviour {
 
         isActive = true; isBooting = false;
         StartCoroutine(BeginElevatorSequence());
+
+        B4.transform.parent = transform;
+        MiMi.transform.parent = transform; 
     }
 
    
