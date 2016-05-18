@@ -4,11 +4,13 @@ using DG.Tweening;
 
 public class LightStationButton : MonoBehaviour {
     public float m_lightIntensity = 10.0f;
-    public float m_lightFadeDuration = 2.0f; 
+    public float m_lightFadeDuration = 2.0f;
+    public AudioClip clickSound;
 
     private GameObject B4, MiMi; 
     private Light m_lightSource; 
     private bool m_canChanel;
+    private AudioSource sfxSource;
 
     public bool CanChanel
     {
@@ -20,6 +22,19 @@ public class LightStationButton : MonoBehaviour {
     {
         B4 = GameObject.FindGameObjectWithTag("B4");
         MiMi = GameObject.FindGameObjectWithTag("MiMi");
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.playOnAwake = false; 
+        sfxSource.loop = false;
+        sfxSource.clip = clickSound;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "B4")
+        {
+            sfxSource.pitch = 1.0f;
+            sfxSource.Play();
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -40,6 +55,8 @@ public class LightStationButton : MonoBehaviour {
             //fireFlies.SetActive(false);
             Destroy(m_lightSource);
             CanChanel = false;
+            sfxSource.pitch = 0.8f;
+            sfxSource.Play();
         }
     }
 }
