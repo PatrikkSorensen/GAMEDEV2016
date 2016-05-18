@@ -22,14 +22,14 @@ public class DashScript : MonoBehaviour {
         sfxSource.playOnAwake = false;
         sfxSource.loop = false;
         sfxSource.clip = dashSound;
-        m_orgSpeed = GetComponent<PlayerController>().speed;
-        m_originalDrag = GetComponent<Rigidbody>().drag;
     }
 
 	void Update () 
     {
         if (Input.GetButtonDown("B4Dash"))
         {
+            m_orgSpeed = GetComponent<PlayerController>().speed;
+            m_originalDrag = GetComponent<Rigidbody>().drag;
             channelling = true;
             startTime = Time.time;
         }

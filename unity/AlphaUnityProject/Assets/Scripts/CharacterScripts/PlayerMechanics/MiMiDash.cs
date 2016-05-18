@@ -15,23 +15,21 @@ public class MiMiDash : MonoBehaviour {
     private float m_speed;
     private float m_orgSpeed;
     private float m_originalDrag;
-
     private AudioSource sfxSource;
-
     void Start()
     {
         sfxSource = GetComponent<AudioSource>(); 
         sfxSource.playOnAwake = false;
         sfxSource.loop = false;
         sfxSource.clip = dashSound;
-        m_orgSpeed = GetComponent<PlayerController>().speed;
-        m_originalDrag = GetComponent<Rigidbody>().drag; 
     }
 
     void Update ()
     {
         if (Input.GetButtonDown("MiMiDash"))
         {
+            m_orgSpeed = GetComponent<PlayerController>().speed;
+            m_originalDrag = GetComponent<Rigidbody>().drag; 
             channelling = true;
             startTime = Time.time;
         }
