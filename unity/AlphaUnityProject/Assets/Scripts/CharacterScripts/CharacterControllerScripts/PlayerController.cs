@@ -218,4 +218,20 @@ public class PlayerController : MonoBehaviour {
             //MiMi.GetComponent<PlayerStatusScript>().setCanEmpowerStatus(true);
         }
     }
+
+    public void setProperties(float newFallSpeed, float newDashForce, float newDrag, float newAngularDrag)
+    {
+        fallSpeed = newFallSpeed;
+
+        if (gameObject.tag == "B4")
+        {
+            gameObject.GetComponent<DashScript>().dashForce = newDashForce;
+        }
+        if (gameObject.tag == "MiMi")
+        {
+            gameObject.GetComponent<MiMiDash>().dashForce = newDashForce;
+        }
+        gameObject.GetComponent<Rigidbody>().drag = newDrag;
+        gameObject.GetComponent<Rigidbody>().angularDrag = newAngularDrag;
+    }
 }

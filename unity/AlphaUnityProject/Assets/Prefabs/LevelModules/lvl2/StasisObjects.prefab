@@ -30,6 +30,7 @@ GameObject:
   - 33: {fileID: 3362532}
   - 23: {fileID: 2317732}
   - 135: {fileID: 13573400}
+  - 54: {fileID: 5482590}
   m_Layer: 0
   m_Name: PlaySphere (8)
   m_TagString: Untagged
@@ -48,6 +49,7 @@ GameObject:
   - 33: {fileID: 3388678}
   - 23: {fileID: 2340872}
   - 135: {fileID: 13538998}
+  - 54: {fileID: 5485300}
   m_Layer: 0
   m_Name: PlaySphere (4)
   m_TagString: Untagged
@@ -126,9 +128,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159960}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 2384.2, y: 852.06555, z: -123.2}
-  m_LocalScale: {x: 1.8426425, y: 1.7639276, z: 1.8426425}
+  m_LocalRotation: {x: 0, y: -0.38969156, z: 0, w: 0.9209455}
+  m_LocalPosition: {x: -20.87702, y: 230.79652, z: -637.43976}
+  m_LocalScale: {x: 0.45424324, y: 0.4542434, z: 0.45424318}
   m_Children:
   - {fileID: 433650}
   - {fileID: 415780}
@@ -365,6 +367,36 @@ Rigidbody:
   m_GameObject: {fileID: 191294}
   serializedVersion: 2
   m_Mass: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &5482590
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122408}
+  serializedVersion: 2
+  m_Mass: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &5485300
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127464}
+  serializedVersion: 2
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1

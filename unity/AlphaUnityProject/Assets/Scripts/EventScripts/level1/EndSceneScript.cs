@@ -149,6 +149,8 @@ public class EndSceneScript : MonoBehaviour {
 
         yield return new WaitForSeconds(10.0f);
         FadeInUIImage();
+        sfxSource.pitch = 0.93f;
+        sfxSource.Play();
         yield return new WaitForSeconds(15.0f);
 
         SwitchLevel(); 
