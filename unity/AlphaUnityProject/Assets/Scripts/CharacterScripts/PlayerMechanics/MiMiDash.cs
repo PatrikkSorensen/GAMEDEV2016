@@ -7,13 +7,25 @@ public class MiMiDash : MonoBehaviour {
     public GameObject MiMi;
     public float inputDelay = 0.2f;
     public float dashTime = 1.0f;
+    public AudioClip dashSound;
 
     private bool channelling, dashing = false;
     private float startTime, dashStartTime;
     private float m_rigidbodyDrag;
     private float m_speed;
+<<<<<<< HEAD
     private float m_orgSpeed;
     private float m_originalDrag;
+=======
+    private AudioSource sfxSource;
+
+    void Start()
+    {
+        sfxSource.playOnAwake = false;
+        sfxSource.loop = false;
+        sfxSource.clip = dashSound;
+    }
+>>>>>>> 8b01916dfb8c05b4d5fa343b3f59b0eac601893e
 
     void Start()
     {
@@ -64,6 +76,7 @@ public class MiMiDash : MonoBehaviour {
         if (timeDifference > inputDelay && timeDifference < inputDelay + 0.2f)
         {
             Debug.Log("Dashing...");
+            sfxSource.Play();
             startTime = 0.0f;
 
             //TODO: Make generic
