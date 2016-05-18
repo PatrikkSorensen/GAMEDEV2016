@@ -15,10 +15,14 @@ public class CameraLocationChangeEvent : MonoBehaviour {
 	void Start () {
         cameraScript = cam.GetComponent<ThirdPersonCameraScript>();
         lastChange = Time.time;
-        var oldPos = cameraScript.getPosition();
-	    oldUp = oldPos.x;
-        oldAway = oldPos.y;
 	}
+
+    void getOldPosition()
+    {
+        var oldPos = cameraScript.getPosition();
+        oldUp = oldPos.x;
+        oldAway = oldPos.y;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,13 +33,13 @@ public class CameraLocationChangeEvent : MonoBehaviour {
     {
         if (other.name == "B4")
         {
-            var oldPos = cameraScript.getPosition();
+            getOldPosition();
             var timeDifference = Time.time - lastChange;
             //Debug.Log("Time difference = " + timeDifference);
             if (timeDifference > 0.05f)
             {
                 //Debug.Log("oldUp = " + oldPos.x + " upToUse = " + upToUse + " oldAway = " + oldPos.y + " awayToUse = " + awayToUse);
-                if (oldPos.x != upToUse && oldPos.y != awayToUse)
+                if (oldUp != upToUse && oldAway != awayToUse)
                 {
                     cameraScript.setPosition(awayToUse, upToUse);
                     lastChange = Time.time;
