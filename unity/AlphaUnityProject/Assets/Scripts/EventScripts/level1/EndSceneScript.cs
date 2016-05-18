@@ -43,6 +43,9 @@ public class EndSceneScript : MonoBehaviour {
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.X))
+            StartCoroutine(PlayScene());
+
         CheckInputs();
     }
 
