@@ -44,7 +44,7 @@ public class AnimatedTextureSwapping : MonoBehaviour {
 
          
         //Debug.Log("Determing idle animation");
-        int animNumber = UnityEngine.Random.Range(0, 3);
+        int animNumber = UnityEngine.Random.Range(0, 4);
         anim.SetInteger("idleint", animNumber); 
          
     }
@@ -92,7 +92,6 @@ public class AnimatedTextureSwapping : MonoBehaviour {
 
     IEnumerator SurprisedEyes()
     {
-
         l_rend.material.mainTexture = surprisedEyes;
         r_rend.material.mainTexture = surprisedEyes; 
         yield return null;
