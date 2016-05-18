@@ -12,8 +12,15 @@ public class MiMiDash : MonoBehaviour {
     private float startTime, dashStartTime;
     private float m_rigidbodyDrag;
     private float m_speed;
+    private float m_orgSpeed;
+    private float m_originalDrag;
 
-    void Update()
+    void Start()
+    {
+        m_orgSpeed = GetComponent<PlayerController>().speed;
+        m_originalDrag = GetComponent<Rigidbody>().drag; 
+    }
+    void Update ()
     {
         if (Input.GetButtonDown("MiMiDash"))
         {
@@ -25,8 +32,8 @@ public class MiMiDash : MonoBehaviour {
         {
             startTime = 0.0f;
             channelling = false;
-            GetComponent<PlayerController>().speed = m_speed;
-            GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
+            GetComponent<PlayerController>().speed = m_orgSpeed;
+            GetComponent<Rigidbody>().drag = m_originalDrag;
         }
 
         if (channelling)
@@ -44,8 +51,7 @@ public class MiMiDash : MonoBehaviour {
                 GetComponent<Rigidbody>().drag = m_rigidbodyDrag;
                 GetComponent<PlayerController>().speed = m_speed;
                 dashing = false;
-            }
-            else
+            } else
             {
                 Debug.Log(timeDifference + " > " + dashTime);
             }
