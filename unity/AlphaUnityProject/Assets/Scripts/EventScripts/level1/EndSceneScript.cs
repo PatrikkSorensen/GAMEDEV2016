@@ -93,8 +93,10 @@ public class EndSceneScript : MonoBehaviour {
             channeling = false;
             timesChanelled++;
 
-            if (timesChanelled == 1) { }
+            if (timesChanelled == 1)
+            {
                 PlayScene();
+            }
 
             if (timesChanelled == 2)
                 FadeInUIImage(); 
@@ -111,6 +113,7 @@ public class EndSceneScript : MonoBehaviour {
 
     void PlayScene()
     {
+        Debug.Log("Playing scene"); 
         DOTween.To(() => RenderSettings.ambientLight, x => RenderSettings.ambientLight = x, Color.black, fadeAmbientTime).SetEase(fadeOutAmbientCurve);
         infectionScript.shouldPingPong = true;
         AudioSource sfxSource = gameObject.AddComponent<AudioSource>();

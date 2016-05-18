@@ -189,6 +189,8 @@ GameObject:
   - 114: {fileID: 11420284}
   - 114: {fileID: 11451800}
   - 114: {fileID: 11452730}
+  - 114: {fileID: 11494126}
+  - 82: {fileID: 8240980}
   m_Layer: 2
   m_Name: MiMi
   m_TagString: MiMi
@@ -455,8 +457,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.23, y: -9.35, z: -847.56}
+  m_LocalRotation: {x: 0, y: -0.9889254, z: 0, w: 0.14841345}
+  m_LocalPosition: {x: -142.82, y: 0.047424436, z: -1084.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456230}
@@ -1006,6 +1008,80 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!82 &8240980
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166026}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8995705a42fb3fb4ba3b1941155401f0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9567884
 Animator:
   serializedVersion: 3
@@ -1167,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 80
-  movingTurnSpeed: 10
+  movingTurnSpeed: 180
   stationaryTurnSpeed: 180
   fallSpeed: 0.8
   distanceToGround: 1.5
@@ -1236,6 +1312,7 @@ MonoBehaviour:
   MiMi: {fileID: 166026}
   inputDelay: 0.2
   dashTime: 0.3
+  dashSound: {fileID: 0}
 --- !u!114 &11421470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1367,6 +1444,20 @@ MonoBehaviour:
   minIntensity: 0
   pulseSpeed: 1
   color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &11494126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78677bdf4def2ea46ba0cbce7a2295a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpSound: {fileID: 0}
+  boostAmount: 0
+  boostTime: 0
 --- !u!114 &11495558
 MonoBehaviour:
   m_ObjectHideFlags: 1
