@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using DG.Tweening; 
+using DG.Tweening;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class lvl2_endingEvent : MonoBehaviour {
     public AudioClip endingSound, endingMusic;
     public GameObject tower;
+    public Image image; 
     public GameObject elevator;
     public float speed = 1.2f; 
 
@@ -24,8 +28,10 @@ public class lvl2_endingEvent : MonoBehaviour {
 	}
 
 	void Update () {
+        if (Input.GetKey(KeyCode.U))
+            FadeInUIImage(); 
 
-	}
+    }
 
     void FixedUpdate()
     {
@@ -40,8 +46,16 @@ public class lvl2_endingEvent : MonoBehaviour {
         MakeCameraStatic();
 
         yield return new WaitForSeconds(1.0f);
-        shouldMove = true; 
-        yield return null; 
+        shouldMove = true;
+        yield return new WaitForSeconds(16.0f);
+        FadeInUIImage();
+        yield return new WaitForSeconds(12.0f);
+        SceneManager.LoadScene(0);
+    }
+
+    void FadeInUIImage()
+    {
+        DOTween.To(() => image.color, x => image.color = x, Color.white, 8.0f);
     }
 
     void DisablePlayers()
@@ -53,8 +67,9 @@ public class lvl2_endingEvent : MonoBehaviour {
     void MakeCameraStatic()
     {
         //CameraFollow camFollow = Camera.main.GetComponent<CameraFollow>(); 
-        //Camera.main.GetComponent<CameraController>().changeCameraType(CameraController.CameraTypes.SINGLE_PERSON_CAMERA); 
-        Camera.main.transform.DOLookAt(tower.transform.position, 10.0f); 
+        //Camera.main.GetComponent<CameraController>().changeCameraType(CameraController.CameraTypes.SINGLE_PERSON_CAMERA);
+        Camera.main.transform.DOMove(B4.transform.position, 10.0f);  
+        Camera.main.transform.DOLookAt(tower.transform.position, 30.0f); 
     }
 
     void MovePlatForm()

@@ -68,6 +68,8 @@ public class ElevatorPuzzleScript : MonoBehaviour {
     {
 
         hasPlayers = players.hasPlayers; 
+        if(Input.GetKey(KeyCode.I) && !isBooting && !isActive)
+            StartCoroutine(StartElevatorScene());
 
         if (CheckElevatorCores() && !isBooting && hasPlayers && !isActive)
         {
@@ -103,14 +105,16 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         Debug.Log("Starting elevator scene...");
         isBooting = true;
         m_source.Play();
-        elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
+        float elevatorPosition = -207.0845f; 
+        elevatorWall.transform.DOMoveY(elevatorPosition, bootUpDuration);
         yield return new WaitForSeconds(1.0f);
 
         isActive = true; isBooting = false;
         StartCoroutine(BeginElevatorSequence());
 
         B4.transform.parent = transform;
-        MiMi.transform.parent = transform; 
+        MiMi.transform.parent = transform;
+        Camera.main.transform.parent = transform; 
     }
 
    

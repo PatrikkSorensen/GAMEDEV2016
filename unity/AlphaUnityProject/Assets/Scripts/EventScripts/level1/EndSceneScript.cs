@@ -43,8 +43,6 @@ public class EndSceneScript : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.X))
-            StartCoroutine(PlayScene());
 
         CheckInputs();
     }
@@ -154,7 +152,7 @@ public class EndSceneScript : MonoBehaviour {
         FadeInUIImage();
         sfxSource.pitch = 0.93f;
         sfxSource.Play();
-        yield return new WaitForSeconds(15.0f);
+        yield return new WaitForSeconds(10.0f);
 
         SwitchLevel(); 
     }

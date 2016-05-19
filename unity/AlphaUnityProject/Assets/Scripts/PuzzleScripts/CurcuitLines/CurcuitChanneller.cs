@@ -66,7 +66,7 @@ public class CurcuitChanneller : MonoBehaviour {
         {
             
             //Debug.Log("Chaneller: waiting for: " + m_lineTracer.name + " to draw...");
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         m_lineTracer = m_lineTracer.GetComponent<Point>().nextPoint;
@@ -90,11 +90,11 @@ public class CurcuitChanneller : MonoBehaviour {
                         m_currentPoint.BeginDrawing();
                         m_endPoint = rp.activePoint.GetComponent<Point>();
                         //Debug.Log("Encountered RotatePoint, shouldDraw: " + m_currentPoint.ShouldDraw);
-                        yield return new WaitForSeconds(1.0f);
+                        yield return new WaitForSeconds(0.1f);
                     }
 
                     rp.LockRotationPoints();
-                    yield return new WaitForSeconds(1.0f);
+                    yield return new WaitForSeconds(0.1f);
                     
                     m_currentPoint.BeginDrawing();
                 }
@@ -115,7 +115,7 @@ public class CurcuitChanneller : MonoBehaviour {
 
                     m_currentPoint.ShouldDraw = true; // TODO: fix this bug
                     m_currentPoint.BeginDrawing();
-                    yield return new WaitForSeconds(1.0f);
+                    yield return new WaitForSeconds(0.1f);
                 }
 
             }
@@ -132,7 +132,7 @@ public class CurcuitChanneller : MonoBehaviour {
                         m_currentPoint.BeginDrawing();
 
                     //Debug.Log("waiting on ..." + m_lineTracer.name);
-                    yield return new WaitForSeconds(1.0f);
+                    yield return new WaitForSeconds(0.1f);
                 } 
             } 
             else
