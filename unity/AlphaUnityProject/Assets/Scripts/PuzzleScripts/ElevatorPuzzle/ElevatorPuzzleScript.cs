@@ -105,8 +105,8 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         Debug.Log("Starting elevator scene...");
         isBooting = true;
         m_source.Play();
-        float elevatorPosition = -207.0845f; 
-        elevatorWall.transform.DOMoveY(elevatorPosition, bootUpDuration);
+
+        elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
         yield return new WaitForSeconds(1.0f);
 
         isActive = true; isBooting = false;
