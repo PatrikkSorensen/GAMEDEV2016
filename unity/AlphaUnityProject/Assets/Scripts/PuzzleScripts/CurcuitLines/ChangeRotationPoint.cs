@@ -75,6 +75,7 @@ public class ChangeRotationPoint : MonoBehaviour {
             rotatePoint.ChangeEndPoint(otherSwitch, rotatePoint.changeDuration);
             otherSwitch.GetComponent<ChangeRotationPoint>().isActive = true;
             isActive = false;
+            GetComponent<AudioSource>().Play(); 
         }
         else
         {
