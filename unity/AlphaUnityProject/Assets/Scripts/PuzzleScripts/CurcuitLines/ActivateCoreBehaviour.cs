@@ -4,6 +4,7 @@ using System.Collections;
 public class ActivateCoreBehaviour : MonoBehaviour {
 
     public CurcuitChanneller[] curcuitChannellers; 
+    public CurcuitChanneller finishedCurcuitChanneller; 
     public KeyCode debugKey;
     public GameObject ElevatorSphere;
 
@@ -39,6 +40,8 @@ public class ActivateCoreBehaviour : MonoBehaviour {
         IsActive = true; 
         m_source.Play();
         GetComponent<Animator>().SetBool("hasPower", true);
+        if(finishedCurcuitChanneller)
+            StartCoroutine(finishedCurcuitChanneller.BeginChanneling());
     }
 
     void ActivateElevatorSphere()
