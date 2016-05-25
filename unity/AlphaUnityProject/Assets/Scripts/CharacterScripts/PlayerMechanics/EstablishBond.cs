@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EstablishBond : MonoBehaviour {
 
-
+    public Material lineMaterial; 
     public float bondWidthBegin = 0.3f;
     public float bondWidthEnd = 0.3f;
     public float bondCubeMass = 0.1f; 
@@ -111,13 +111,11 @@ public class EstablishBond : MonoBehaviour {
             // Visuals: 
             gameObject.AddComponent<LineRenderer>();
             LineRenderer lr = GetComponent<LineRenderer>();
-			shader2 = Shader.Find("VertexColors");
 
             // Linerenderer: 
-			lr.material = new Material (shader2);
-			lr.material.color = new Color(0f,1f,0f,0.05f);
+            lr.material = lineMaterial;
             lr.SetWidth(bondWidthBegin, bondWidthEnd);
-            Vector3[] points = { B4.transform.position + new Vector3(0.0f, 2.0f, 0.0f), MiMi.transform.position + new Vector3(0.0f, 2.0f, 0.0f) };
+            Vector3[] points = { B4.transform.position + new Vector3(0.0f, 6.0f, 0.0f), MiMi.transform.position + new Vector3(0.0f, 6.0f, 0.0f) };
             lr.SetPositions(points);
             bondEstablished = true;
 
@@ -172,7 +170,7 @@ public class EstablishBond : MonoBehaviour {
     void UpdateBond()
     {
         LineRenderer lr = gameObject.GetComponent<LineRenderer>();
-        Vector3[] points = { B4.transform.position, MiMi.transform.position };
+        Vector3[] points = { B4.transform.position + new Vector3(0.0f, 0.3f, 0.0f), MiMi.transform.position + new Vector3(0.0f, 0.3f, 0.0f) };
         lr.SetPositions(points);
     } 
 
