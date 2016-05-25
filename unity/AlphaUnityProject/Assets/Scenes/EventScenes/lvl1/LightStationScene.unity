@@ -329,6 +329,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe370345b4b48a34ebb5b867b34e92d0, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1733020249 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 457224, guid: 7481de592d420144184f70d818c92e06, type: 2}
+  m_PrefabInternal: {fileID: 654128616}
 --- !u!1 &1806258071
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +346,8 @@ GameObject:
   - 124: {fileID: 1806258073}
   - 81: {fileID: 1806258072}
   - 114: {fileID: 1806258077}
+  - 114: {fileID: 1806258079}
+  - 114: {fileID: 1806258078}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -430,6 +436,37 @@ MonoBehaviour:
   type: 0
   player: {fileID: 126588, guid: 7481de592d420144184f70d818c92e06, type: 2}
   playerTwo: {fileID: 801582673}
+--- !u!114 &1806258078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806258071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd72dd3f37ccab4f8953c9cba120436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceAway: 8
+  distanceUp: 6
+  offset: {x: 0, y: 0, z: 0}
+  correctionAmplifier: 0.005
+--- !u!114 &1806258079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806258071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4217e6cc2f28a4da8841e218023925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1733020249}
+  smooth: 1.5
+  distanceAway: 2
+  distanceUp: 2
+  correctionAmplifier: 0.005
 --- !u!1 &2069875256 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 165900, guid: 78395c26f2c821245b9f057df44eef3d, type: 2}

@@ -3,7 +3,7 @@ using System.Collections;
 using DG.Tweening; 
 
 public class LightStationButton : MonoBehaviour {
-    public float m_lightIntensity = 10.0f;
+    public float m_lightIntensity = 5.0f;
     public float m_lightFadeDuration = 2.0f;
     public AudioClip clickSound;
 

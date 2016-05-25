@@ -13,8 +13,10 @@ public class LightStationScript : MonoBehaviour {
     public CurcuitChanneller curcuitLines; 
     public KeyCode DebugKey; 
     public AudioClip channellingClip, sucessClip;
-    public LightStationButton B4Button; 
+    public LightStationButton B4Button;
 
+    private GameObject B4, MiMi;
+    private Animator B4Animator, MiMiAnimator; 
     private AudioSource chanelSource, sucessSource; 
     private bool canChanel, channelling, isActive = false;
     private PlayerStatusScript B4Status, MiMiStatus;
@@ -29,13 +31,17 @@ public class LightStationScript : MonoBehaviour {
         set { isActive = value;}
     }
 
-
     void Start()
     {
-        AssignAudioObject(); 
+        AssignAudioObject();
+        B4 = GameObject.FindGameObjectWithTag("B4");
+        MiMi = GameObject.FindGameObjectWithTag("MiMi");
 
-        B4Status = GameObject.FindGameObjectWithTag("B4").GetComponent<PlayerStatusScript>();
-        MiMiStatus = GameObject.FindGameObjectWithTag("MiMi").GetComponent<PlayerStatusScript>();
+        B4Animator = B4.GetComponent<Animator>();
+        MiMiAnimator = MiMi.GetComponent<Animator>(); 
+
+        B4Status = B4.GetComponent<PlayerStatusScript>();
+        MiMiStatus = MiMi.GetComponent<PlayerStatusScript>();
         anim = GetComponent<Animator>(); 
     }
 
@@ -44,7 +50,6 @@ public class LightStationScript : MonoBehaviour {
         if (Input.GetKey(DebugKey) && !isActive)
             ActivateLightStation(); 
 
-        // TODO: Refactor this
         if (canChanel && !isActive)
         {
             if (B4Button)
@@ -56,11 +61,15 @@ public class LightStationScript : MonoBehaviour {
                 startTime = Time.time;
                 channelling = true;
                 sparkParticles.Play();
+                B4Animator.SetBool("channelling", true);
+                MiMiAnimator.SetBool("channelling", true); 
             }
 
             if (Input.GetButtonUp("Channelling"))
             {
                 channelling = false;
+                B4Animator.SetBool("channelling", false);
+                MiMiAnimator.SetBool("channelling", false); 
                 startTime = 0;
                 sparkParticles.Stop();
 
@@ -127,6 +136,10 @@ public class LightStationScript : MonoBehaviour {
 
         // Materials and visuals
         ChangeSphereMaterial();
+
+        // Animation 
+        B4Animator.SetBool("channelling", false);
+        MiMiAnimator.SetBool("channelling", false); 
     }
 
     void ChangeSphereMaterial()
