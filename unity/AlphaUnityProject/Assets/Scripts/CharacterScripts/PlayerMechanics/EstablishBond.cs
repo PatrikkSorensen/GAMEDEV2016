@@ -67,7 +67,7 @@ public class EstablishBond : MonoBehaviour {
             ls.minIntensity = 1;
             ls.maxIntensity = 6;
             ls.pulseSpeed = 2;
-            ls.color = Color.white;
+			ls.color = new Color(1, 100, 200, 0);
             lightSource.enabled = true;
             startTime = Time.time;
             chargeBond = true;
