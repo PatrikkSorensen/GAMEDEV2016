@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ElevatorPuzzleScript : MonoBehaviour {
 
     public ElevatorCoreBehaviour[] cores; 
-    public GameObject elevator, buttons, elevatorWall;
+    public GameObject elevator, buttons;
     public float elevatorSpeed = 1.0f;
     public float timeBeforeStopping;
     public float bootTime = 1.0f;
@@ -106,7 +106,7 @@ public class ElevatorPuzzleScript : MonoBehaviour {
         isBooting = true;
         m_source.Play();
 
-        elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
+        //elevatorWall.transform.DOMoveY(elevator.transform.position.y + yOffset, bootUpDuration);
         yield return new WaitForSeconds(1.0f);
 
         isActive = true; isBooting = false;
