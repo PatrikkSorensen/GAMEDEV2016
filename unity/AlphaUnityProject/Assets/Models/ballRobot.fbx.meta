@@ -1,45 +1,32 @@
 fileFormatVersion: 2
 guid: 8a41715fee8b03b44b4e18b3cc3171b8
-timeCreated: 1457621332
+timeCreated: 1467044653
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Eyes
-    100004: mainSphere
-    100006: Sphere2
-    100008: eyes
-    100010: headphones
-    100012: innerLight
+    100002: eyes
+    100004: headphones
+    100006: innerLight
+    100008: mainSphere
     400000: //RootNode
-    400002: Eyes
-    400004: mainSphere
-    400006: Sphere2
-    400008: eyes
-    400010: headphones
-    400012: innerLight
-    2300000: //RootNode
-    2300002: Eyes
-    2300004: mainSphere
-    2300006: Sphere2
-    2300008: eyes
-    2300010: headphones
-    2300012: innerLight
-    3300000: //RootNode
-    3300002: Eyes
-    3300004: mainSphere
-    3300006: Sphere2
-    3300008: eyes
-    3300010: headphones
-    3300012: innerLight
-    4300000: base
-    4300002: Eyes
-    4300004: mainSphere
-    4300006: Sphere2
-    4300008: innerLight
-    4300010: headphones
-    4300012: eyes
+    400002: eyes
+    400004: headphones
+    400006: innerLight
+    400008: mainSphere
+    2300000: eyes
+    2300002: headphones
+    2300004: innerLight
+    2300006: mainSphere
+    3300000: eyes
+    3300002: headphones
+    3300004: innerLight
+    3300006: mainSphere
+    4300000: mainSphere
+    4300002: innerLight
+    4300004: headphones
+    4300006: eyes
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -48,7 +35,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -65,7 +52,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
