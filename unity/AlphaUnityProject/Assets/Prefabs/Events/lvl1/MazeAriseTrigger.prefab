@@ -23,12 +23,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111276}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.47, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -518.5, y: 13.799988, z: -434}
+  m_LocalScale: {x: 75.07099, y: 27.623547, z: 13.576835}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6516524
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -53,35 +54,125 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazeToMove: {fileID: 0}
-  distanceToMove: -5
-  duration: 3
+  distanceToMove: -50
+  duration: 2
   moveCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - time: -0.0148958415
       value: 0
-      inSlope: 5.492454
-      outSlope: 5.492454
+      inSlope: 90.98858
+      outSlope: 90.98858
       tangentMode: 10
-    - time: 0.1084577
-      value: 0.59569895
-      inSlope: 3.2016819
-      outSlope: 3.2016819
+    - time: -0.011490437
+      value: 0.3098529
+      inSlope: 40.183174
+      outSlope: 40.183174
       tangentMode: 10
-    - time: 0.39307994
-      value: 0.8549641
-      inSlope: 0.092655875
-      outSlope: 0.092655875
-      tangentMode: 0
-    - time: 0.94118094
-      value: 0.88786685
-      inSlope: 0.12321136
-      outSlope: 0.12321136
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1.9064084
-      outSlope: 1.9064084
+    - time: 0.009705581
+      value: 0.08470386
+      inSlope: -2.478415
+      outSlope: -2.478415
+      tangentMode: 10
+    - time: 0.0964672
+      value: 0.57624334
+      inSlope: 17.244991
+      outSlope: 17.244991
+      tangentMode: 10
+    - time: 0.100630224
+      value: 0.69624084
+      inSlope: 9.199874
+      outSlope: 9.199874
+      tangentMode: 10
+    - time: 0.11034451
+      value: 0.59497106
+      inSlope: 3.4827185
+      outSlope: 3.4827185
+      tangentMode: 10
+    - time: 0.1161601
+      value: 0.69610584
+      inSlope: 1.8189592
+      outSlope: 1.8189592
+      tangentMode: 10
+    - time: 0.12273785
+      value: 0.6056464
+      inSlope: 3.5762844
+      outSlope: 3.5762844
+      tangentMode: 10
+    - time: 0.12858966
+      value: 0.72797805
+      inSlope: 6.656638
+      outSlope: 6.656638
+      tangentMode: 10
+    - time: 0.14363006
+      value: 0.6137967
+      inSlope: 2.8538787
+      outSlope: 2.8538787
+      tangentMode: 10
+    - time: 0.15450406
+      value: 0.75841445
+      inSlope: 0.80598354
+      outSlope: 0.80598354
+      tangentMode: 10
+    - time: 0.16382408
+      value: 0.6494873
+      inSlope: -0.62428856
+      outSlope: -0.62428856
+      tangentMode: 10
+    - time: 0.17457691
+      value: 0.76173455
+      inSlope: 2.2298515
+      outSlope: 2.2298515
+      tangentMode: 10
+    - time: 0.18617138
+      value: 0.6924094
+      inSlope: 2.1752489
+      outSlope: 2.1752489
+      tangentMode: 10
+    - time: 0.19542527
+      value: 0.78799886
+      inSlope: 3.4767325
+      outSlope: 3.4767325
+      tangentMode: 10
+    - time: 0.20745373
+      value: 0.74738854
+      inSlope: 3.3384087
+      outSlope: 3.3384087
+      tangentMode: 10
+    - time: 0.21615306
+      value: 0.8348429
+      inSlope: 2.2879794
+      outSlope: 2.2879794
+      tangentMode: 10
+    - time: 0.22352564
+      value: 0.7944629
+      inSlope: 6.976345
+      outSlope: 6.976345
+      tangentMode: 10
+    - time: 0.22740954
+      value: 0.86992604
+      inSlope: 7.527545
+      outSlope: 7.527545
+      tangentMode: 10
+    - time: 0.24221793
+      value: 0.8051446
+      inSlope: 8.668291
+      outSlope: 8.668291
+      tangentMode: 10
+    - time: 0.24713579
+      value: 0.9119174
+      inSlope: 13.737306
+      outSlope: 13.737306
+      tangentMode: 10
+    - time: 0.25848937
+      value: 0.97735244
+      inSlope: 41.371502
+      outSlope: 41.371502
+      tangentMode: 10
+    - time: 0.26010412
+      value: 1.1016552
+      inSlope: 76.97962
+      outSlope: 76.97962
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -107,9 +198,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  keycode: 0
-  RumbleSound: {fileID: 8300000, guid: f1b497bbaa3ef534db602f0b39268598, type: 3}
-  beginningSound: {fileID: 8300000, guid: a9b2a4c2d3ab9ec44af14c8a867f6940, type: 3}
+  keycode: 113
+  RumbleSound: {fileID: 8300000, guid: 3771f600ad97fa84caf410be1a1e95f5, type: 3}
+  beginningSound: {fileID: 8300000, guid: 3771f600ad97fa84caf410be1a1e95f5, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
