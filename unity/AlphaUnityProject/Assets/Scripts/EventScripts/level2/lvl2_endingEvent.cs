@@ -49,7 +49,7 @@ public class lvl2_endingEvent : MonoBehaviour {
         shouldMove = true;
         yield return new WaitForSeconds(16.0f);
         FadeInUIImage();
-        yield return new WaitForSeconds(12.0f);
+        yield return new WaitForSeconds(14.0f);
         SceneManager.LoadScene(0);
     }
 
